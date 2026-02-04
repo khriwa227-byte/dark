@@ -1,107 +1,6 @@
 
-import React, { useRef, useCallback } from 'react';
+import React from 'react';
 import { SERVICES, TOP_FILMS, CHANNEL_LOGOS, TOP_TVSHOWS_NL, TOP_TVSHOWS_INTL } from '../constants';
-
-export const SwipeableMarquee: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const currentOffset = useRef(0);
-  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const getContentElements = useCallback(() => {
-    if (!containerRef.current) return [];
-    return Array.from(containerRef.current.querySelectorAll('.marquee-content')) as HTMLElement[];
-  }, []);
-
-  const getComputedTranslateX = (el: HTMLElement) => {
-    const style = window.getComputedStyle(el);
-    const matrix = new DOMMatrix(style.transform);
-    return matrix.m41;
-  };
-
-  const wrapOffset = (offset: number, contentWidth: number) => {
-    if (contentWidth <= 0) return offset;
-    // The gap between the two duplicated strips is 2rem (32px)
-    const loopWidth = contentWidth + 32;
-    let wrapped = offset % loopWidth;
-    if (wrapped > 0) wrapped -= loopWidth;
-    return wrapped;
-  };
-
-  const handleStart = useCallback((clientX: number) => {
-    isDragging.current = true;
-    startX.current = clientX;
-    if (resumeTimer.current) clearTimeout(resumeTimer.current);
-
-    const elements = getContentElements();
-    const firstEl = elements[0];
-    if (firstEl) {
-      const currentX = getComputedTranslateX(firstEl);
-      currentOffset.current = currentX;
-    }
-
-    elements.forEach(el => {
-      el.style.animation = 'none';
-      el.style.transform = `translateX(${currentOffset.current}px)`;
-    });
-  }, [getContentElements]);
-
-  const handleMove = useCallback((clientX: number) => {
-    if (!isDragging.current) return;
-    const delta = clientX - startX.current;
-    const elements = getContentElements();
-    const firstEl = elements[0];
-    if (!firstEl) return;
-
-    const contentWidth = firstEl.scrollWidth;
-    const rawOffset = currentOffset.current + delta;
-    const wrapped = wrapOffset(rawOffset, contentWidth);
-
-    elements.forEach(el => {
-      el.style.transform = `translateX(${wrapped}px)`;
-    });
-  }, [getContentElements]);
-
-  const handleEnd = useCallback(() => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-
-    // Save the current position for next drag
-    const elements = getContentElements();
-    const firstEl = elements[0];
-    if (firstEl) {
-      const matrix = new DOMMatrix(firstEl.style.transform);
-      currentOffset.current = matrix.m41;
-    }
-
-    resumeTimer.current = setTimeout(() => {
-      getContentElements().forEach(el => {
-        el.style.transform = '';
-        el.style.animation = '';
-        el.offsetHeight;
-      });
-      currentOffset.current = 0;
-    }, 2000);
-  }, [getContentElements]);
-
-  return (
-    <div
-      ref={containerRef}
-      className={className}
-      onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-      onTouchMove={(e) => handleMove(e.touches[0].clientX)}
-      onTouchEnd={handleEnd}
-      onMouseDown={(e) => { e.preventDefault(); handleStart(e.clientX); }}
-      onMouseMove={(e) => handleMove(e.clientX)}
-      onMouseUp={handleEnd}
-      onMouseLeave={() => isDragging.current && handleEnd()}
-      style={{ cursor: 'grab', touchAction: 'pan-y' }}
-    >
-      {children}
-    </div>
-  );
-};
 
 const MoviePoster: React.FC<{ title: string; posterUrl: string }> = ({ title, posterUrl }) => (
   <div className="flex-shrink-0 group cursor-pointer">
@@ -125,7 +24,7 @@ const ChannelLogo: React.FC<{ name: string; logo: string }> = ({ name, logo }) =
     <img
       src={logo}
       alt={name}
-      className="max-h-12 max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110 brightness-0 invert group-hover:brightness-100 group-hover:invert-0"
+      className="max-h-12 max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110"
     />
   </div>
 );
@@ -167,7 +66,7 @@ export const FilmsAndShows: React.FC = () => {
               <div className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-2">Live TV</div>
               <h3 className="text-2xl lg:text-3xl font-black tracking-tighter text-white">Al je favoriete zenders</h3>
            </div>
-           <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
+           <div className="marquee-container -mx-6 overflow-hidden">
              <div className="marquee-content py-4" style={{ animationDuration: '40s', animationDirection: 'reverse' }}>
                {CHANNEL_LOGOS.map((channel, i) => (
                  <ChannelLogo key={i} name={channel.name} logo={channel.logo} />
@@ -178,7 +77,7 @@ export const FilmsAndShows: React.FC = () => {
                  <ChannelLogo key={`dup-${i}`} name={channel.name} logo={channel.logo} />
                ))}
              </div>
-           </SwipeableMarquee>
+           </div>
         </div>
 
         {/* Sports Marquee Section */}
@@ -188,7 +87,7 @@ export const FilmsAndShows: React.FC = () => {
             <h3 className="text-2xl lg:text-3xl font-black tracking-tighter text-white">Alle Sporten Live in 4K</h3>
           </div>
 
-          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
+          <div className="marquee-container -mx-6 overflow-hidden">
             <div className="marquee-content py-4" style={{ animationDuration: '45s' }}>
               {SPORTS.map((sport, i) => (
                 <SportCard key={i} name={sport.name} subtitle={sport.subtitle} icon={sport.icon} image={sport.image} />
@@ -199,7 +98,7 @@ export const FilmsAndShows: React.FC = () => {
                 <SportCard key={`dup-${i}`} name={sport.name} subtitle={sport.subtitle} icon={sport.icon} image={sport.image} />
               ))}
             </div>
-          </SwipeableMarquee>
+          </div>
         </div>
 
         {/* Movie Marquee Section */}
@@ -214,7 +113,7 @@ export const FilmsAndShows: React.FC = () => {
             </div>
           </div>
 
-          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
+          <div className="marquee-container -mx-6 overflow-hidden">
             <div className="marquee-content py-4" style={{ animationDuration: '60s' }}>
               {TOP_FILMS.map((film, i) => (
                 <MoviePoster key={i} title={film.title} posterUrl={film.posterUrl || `https://picsum.photos/seed/movie-${i}/400/600`} />
@@ -225,7 +124,7 @@ export const FilmsAndShows: React.FC = () => {
                 <MoviePoster key={`dup-${i}`} title={film.title} posterUrl={film.posterUrl || `https://picsum.photos/seed/movie-${i}/400/600`} />
               ))}
             </div>
-          </SwipeableMarquee>
+          </div>
         </div>
 
         {/* Dutch TV Shows Marquee Section */}
@@ -240,7 +139,7 @@ export const FilmsAndShows: React.FC = () => {
             </div>
           </div>
 
-          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
+          <div className="marquee-container -mx-6 overflow-hidden">
             <div className="marquee-content py-4" style={{ animationDuration: '50s', animationDirection: 'reverse' }}>
               {TOP_TVSHOWS_NL.map((show, i) => (
                 <MoviePoster key={i} title={show.title} posterUrl={show.posterUrl} />
@@ -251,7 +150,7 @@ export const FilmsAndShows: React.FC = () => {
                 <MoviePoster key={`dup-${i}`} title={show.title} posterUrl={show.posterUrl} />
               ))}
             </div>
-          </SwipeableMarquee>
+          </div>
         </div>
 
         {/* International TV Shows Marquee Section */}
@@ -266,7 +165,7 @@ export const FilmsAndShows: React.FC = () => {
             </div>
           </div>
 
-          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
+          <div className="marquee-container -mx-6 overflow-hidden">
             <div className="marquee-content py-4" style={{ animationDuration: '55s' }}>
               {TOP_TVSHOWS_INTL.map((show, i) => (
                 <MoviePoster key={i} title={show.title} posterUrl={show.posterUrl} />
@@ -277,7 +176,7 @@ export const FilmsAndShows: React.FC = () => {
                 <MoviePoster key={`dup-${i}`} title={show.title} posterUrl={show.posterUrl} />
               ))}
             </div>
-          </SwipeableMarquee>
+          </div>
         </div>
       </div>
     </section>

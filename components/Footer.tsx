@@ -50,8 +50,8 @@ export const Footer: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-8 text-sm font-bold opacity-60">
-            <a href="#" className="hover:opacity-100 transition-opacity">Algemene voorwaarden</a>
-            <a href="#" className="hover:opacity-100 transition-opacity">Privacybeleid</a>
+            <a href="#/algemene-voorwaarden" className="hover:opacity-100 transition-opacity">Algemene voorwaarden</a>
+            <a href="#/privacybeleid" className="hover:opacity-100 transition-opacity">Privacybeleid</a>
             <a href="mailto:info@primekopentv.nl" className="hover:opacity-100 transition-opacity">info@primekopentv.nl</a>
             <a href="tel:+3197010284651" className="hover:opacity-100 transition-opacity">+31 97010284651</a>
           </div>

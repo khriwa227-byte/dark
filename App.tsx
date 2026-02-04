@@ -10,19 +10,41 @@ import { Reviews } from './components/Reviews';
 import { PaymentMethods } from './components/PaymentMethods';
 import { Footer } from './components/Footer';
 import { DesignAssistant } from './components/DesignAssistant';
+import { AlgemeneVoorwaarden } from './components/AlgemeneVoorwaarden';
+import { Privacybeleid } from './components/Privacybeleid';
 
 const App: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [currentPage, setCurrentPage] = useState<string>('home');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#/algemene-voorwaarden') {
+        setCurrentPage('algemene-voorwaarden');
+        window.scrollTo(0, 0);
+      } else if (hash === '#/privacybeleid') {
+        setCurrentPage('privacybeleid');
+        window.scrollTo(0, 0);
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    
+
     // Reveal animation observer
     const observerOptions = {
       threshold: 0.1
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -38,7 +60,7 @@ const App: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
       revealElements.forEach(el => observer.unobserve(el));
     };
-  }, []);
+  }, [currentPage]);
 
   return (
     <div className="relative min-h-screen">
@@ -46,33 +68,43 @@ const App: React.FC = () => {
       <div className="grid-line grid-line-right"></div>
 
       <Header isScrolled={scrollY > 50} />
-      
-      <main>
-        <section className="reveal">
-          <Hero />
-        </section>
-        <section className="reveal">
-          <FilmsAndShows />
-        </section>
-        <section className="reveal">
-          <Pricing />
-        </section>
-        <section className="reveal">
-          <Benefits />
-        </section>
-        <section className="reveal">
-          <ServicesGrid />
-        </section>
-        <section className="reveal">
-          <Reviews />
-        </section>
-        <section className="reveal">
-          <PaymentMethods />
-        </section>
-        <section className="reveal">
-          <FAQ />
-        </section>
-      </main>
+
+      {currentPage === 'algemene-voorwaarden' ? (
+        <main>
+          <AlgemeneVoorwaarden />
+        </main>
+      ) : currentPage === 'privacybeleid' ? (
+        <main>
+          <Privacybeleid />
+        </main>
+      ) : (
+        <main>
+          <section className="reveal">
+            <Hero />
+          </section>
+          <section className="reveal">
+            <FilmsAndShows />
+          </section>
+          <section className="reveal">
+            <Pricing />
+          </section>
+          <section className="reveal">
+            <Benefits />
+          </section>
+          <section className="reveal">
+            <ServicesGrid />
+          </section>
+          <section className="reveal">
+            <Reviews />
+          </section>
+          <section className="reveal">
+            <PaymentMethods />
+          </section>
+          <section className="reveal">
+            <FAQ />
+          </section>
+        </main>
+      )}
 
       <Footer />
       <DesignAssistant />
