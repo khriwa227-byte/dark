@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="312" viewBox="0 0 820 312">
+  <defs>
+    <radialGradient id="bg1" cx="0%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="hsl(305,100%,70%)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="bg2" cx="50%" cy="0%" r="70%">
+      <stop offset="0%" stop-color="hsl(285,100%,60%)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="bg3" cx="100%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="hsl(270,100%,50%)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="bg4" cx="0%" cy="100%" r="70%">
+      <stop offset="0%" stop-color="hsl(260,100%,40%)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="bg5" cx="100%" cy="100%" r="70%">
+      <stop offset="0%" stop-color="hsl(190,100%,50%)" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="diamond-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.8)"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="text-shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.35)"/>
+    </filter>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="820" height="312" fill="#0002ff"/>
+
+  <!-- Gradient layers -->
+  <rect width="820" height="312" fill="url(#bg1)"/>
+  <rect width="820" height="312" fill="url(#bg2)"/>
+  <rect width="820" height="312" fill="url(#bg3)"/>
+  <rect width="820" height="312" fill="url(#bg4)"/>
+  <rect width="820" height="312" fill="url(#bg5)"/>
+
+  <!-- Subtle overlay -->
+  <rect width="820" height="312" fill="rgba(0,0,0,0.1)"/>
+
+  <!-- Decorative grid lines -->
+  <line x1="60" y1="0" x2="60" y2="312" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="760" y1="0" x2="760" y2="312" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="0" y1="40" x2="820" y2="40" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="0" y1="272" x2="820" y2="272" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Diamond icon (left side) -->
+  <g filter="url(#glow)" transform="translate(165, 156)">
+    <rect x="-40" y="-40" width="80" height="80" rx="6" fill="url(#diamond-grad)" transform="rotate(45 0 0)" opacity="0.9"/>
+  </g>
+
+  <!-- Brand name -->
+  <g filter="url(#text-shadow)">
+    <text x="280" y="145" font-family="'Figtree', 'Inter', 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="64" fill="#ffffff" letter-spacing="-2">
+      PrimeKopenTV
+    </text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="282" y="185" font-family="'Figtree', 'Inter', 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="20" fill="rgba(255,255,255,0.75)" letter-spacing="4">
+    PREMIUM IPTV VOOR IEDEREEN
+  </text>
+
+  <!-- Feature pills -->
+  <g font-family="'Figtree', 'Inter', 'Segoe UI', Arial, sans-serif" font-weight="700" font-size="11">
+    <!-- Pill 1 -->
+    <rect x="282" y="210" width="110" height="28" rx="14" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="337" y="228" text-anchor="middle" fill="rgba(255,255,255,0.9)" letter-spacing="1">65.000+ ZENDERS</text>
+
+    <!-- Pill 2 -->
+    <rect x="402" y="210" width="100" height="28" rx="14" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="452" y="228" text-anchor="middle" fill="rgba(255,255,255,0.9)" letter-spacing="1">HD &amp; 4K</text>
+
+    <!-- Pill 3 -->
+    <rect x="512" y="210" width="100" height="28" rx="14" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="562" y="228" text-anchor="middle" fill="rgba(255,255,255,0.9)" letter-spacing="1">SPORT LIVE</text>
+
+    <!-- Pill 4 -->
+    <rect x="622" y="210" width="120" height="28" rx="14" fill="rgba(236,72,153,0.5)" stroke="rgba(236,72,153,0.6)" stroke-width="1"/>
+    <text x="682" y="228" text-anchor="middle" fill="#ffffff" letter-spacing="1">FILMS &amp; SERIES</text>
+  </g>
+</svg>

@@ -38,7 +38,7 @@ export const Pricing: React.FC = () => {
     const duration = plan.description.replace(' TOEGANG', '').toLowerCase();
     const deviceText = selectedDevices === 1 ? '1 apparaat' : `${selectedDevices} apparaten`;
     const message = `Hallo, ik wil graag het ${plan.name}-pakket van PrimeKopenTV aanschaffen voor ${duration} voor ${deviceText} (${pricing.price}).`;
-    return `https://api.whatsapp.com/send/?phone=447449708976&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
+    return `https://api.whatsapp.com/send/?phone=3197010284651&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
   };
 
   return (
@@ -77,8 +77,8 @@ export const Pricing: React.FC = () => {
           {PRICING_PLANS.map((plan, idx) => {
             const currentPricing = getDevicePrice(plan);
             return (
-              <div key={idx} className={`glass-card rounded-[48px] overflow-hidden shadow-2xl relative flex flex-col group hover:scale-[1.02] transition-all duration-500 border-none ${idx === 1 ? 'ring-4 ring-purple-500/50' : ''}`}>
-                {idx === 1 && (
+              <div key={idx} className={`glass-card rounded-[48px] overflow-hidden shadow-2xl relative flex flex-col group hover:scale-[1.02] transition-all duration-500 border-none ${idx === 0 ? 'ring-4 ring-purple-500/50' : ''}`}>
+                {idx === 0 && (
                   <div className="absolute top-6 right-8 bg-purple-500 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-purple-500/30">
                     <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
                     Meest Gekozen
@@ -89,32 +89,32 @@ export const Pricing: React.FC = () => {
                     {plan.savings}
                   </div>
                 )}
-                <div className={`${idx === 1 ? 'bg-black/90' : 'bg-transparent'} p-10 flex-1 flex flex-col`}>
+                <div className={`${idx === 0 ? 'bg-black/90' : 'bg-transparent'} p-10 flex-1 flex flex-col`}>
                   <div className="mb-8">
-                    <p className={`text-xs font-black uppercase tracking-widest mb-2 ${idx === 1 ? 'text-white/60' : 'text-black/50'}`}>
+                    <p className={`text-xs font-black uppercase tracking-widest mb-2 ${idx === 0 ? 'text-white/60' : 'text-black/50'}`}>
                       {plan.name}
                     </p>
-                    <h3 className={`text-2xl lg:text-3xl font-black tracking-tighter ${idx === 1 ? 'text-white' : 'text-black'}`}>{plan.description}</h3>
+                    <h3 className={`text-2xl lg:text-3xl font-black tracking-tighter ${idx === 0 ? 'text-white' : 'text-black'}`}>{plan.description}</h3>
                   </div>
 
                   <div className="mb-10">
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-6xl font-black tracking-tighter leading-none transition-all duration-300 ${idx === 1 ? 'text-white' : 'text-black'}`}>{currentPricing.price}</span>
+                      <span className={`text-6xl font-black tracking-tighter leading-none transition-all duration-300 ${idx === 0 ? 'text-white' : 'text-black'}`}>{currentPricing.price}</span>
                     </div>
-                    <div className={`text-lg mt-2 font-bold ${idx === 1 ? 'text-white/60' : 'text-black/50'}`}>
+                    <div className={`text-lg mt-2 font-bold ${idx === 0 ? 'text-white/60' : 'text-black/50'}`}>
                       {currentPricing.monthlyPrice} / mnd
                     </div>
-                    <div className={`text-sm mt-2 font-medium flex items-center gap-2 ${idx === 1 ? 'text-white/40' : 'text-black/40'}`}>
+                    <div className={`text-sm mt-2 font-medium flex items-center gap-2 ${idx === 0 ? 'text-white/40' : 'text-black/40'}`}>
                       <DeviceIcon />
                       {selectedDevices} {selectedDevices === 1 ? 'apparaat' : 'apparaten'} inbegrepen
                     </div>
                   </div>
 
                   <div className="space-y-4 mb-10 flex-1">
-                    <div className={`text-xs font-black uppercase tracking-widest mb-6 ${idx === 1 ? 'text-white/40' : 'text-black/40'}`}>Wat is inbegrepen</div>
+                    <div className={`text-xs font-black uppercase tracking-widest mb-6 ${idx === 0 ? 'text-white/40' : 'text-black/40'}`}>Wat is inbegrepen</div>
                     {plan.features.map((feature, i) => (
-                      <div key={i} className={`flex items-center gap-3 text-base font-bold ${idx === 1 ? 'text-white' : 'text-black'}`}>
-                        <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${idx === 1 ? 'bg-purple-500' : 'bg-black'}`}>
+                      <div key={i} className={`flex items-center gap-3 text-base font-bold ${idx === 0 ? 'text-white' : 'text-black'}`}>
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${idx === 0 ? 'bg-purple-500' : 'bg-black'}`}>
                           <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
                         </div>
                         {feature}
@@ -126,7 +126,7 @@ export const Pricing: React.FC = () => {
                     href={getWhatsAppUrl(plan)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-6 text-xl font-black rounded-3xl transition-all shadow-2xl block text-center ${idx === 1 ? 'bg-purple-500 text-white hover:bg-purple-600' : 'bg-black text-white hover:bg-gray-900'} active:scale-95`}
+                    className={`w-full py-6 text-xl font-black rounded-3xl transition-all shadow-2xl block text-center ${idx === 0 ? 'bg-purple-500 text-white hover:bg-purple-600' : 'bg-black text-white hover:bg-gray-900'} active:scale-95`}
                   >
                     Abonneer nu
                   </a>

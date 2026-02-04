@@ -54,26 +54,6 @@ export interface ExtendedPricingPlan extends PricingPlan {
 
 export const PRICING_PLANS: ExtendedPricingPlan[] = [
   {
-    name: "Starter",
-    price: "€45",
-    monthlyPrice: "€15",
-    description: "3 MAANDEN TOEGANG",
-    devicePricing: [
-      { devices: 1, price: "€35", monthlyPrice: "€11,67" },
-      { devices: 2, price: "€45", monthlyPrice: "€7,50" },
-      { devices: 3, price: "€65", monthlyPrice: "€7,22" },
-      { devices: 4, price: "€80", monthlyPrice: "€6,67" }
-    ],
-    features: [
-      "65.000+ kanalen",
-      "175.000+ films & series",
-      "HD & 4K streaming",
-      "Alle apparaten",
-      "15 dagen geld-terug",
-      "WhatsApp support"
-    ]
-  },
-  {
     name: "Prime",
     price: "€100",
     monthlyPrice: "€8,33",
@@ -115,6 +95,26 @@ export const PRICING_PLANS: ExtendedPricingPlan[] = [
       "15 dagen geld-terug",
       "WhatsApp support",
       "Pauzeer of annuleer"
+    ]
+  },
+  {
+    name: "Starter",
+    price: "€45",
+    monthlyPrice: "€15",
+    description: "3 MAANDEN TOEGANG",
+    devicePricing: [
+      { devices: 1, price: "€35", monthlyPrice: "€11,67" },
+      { devices: 2, price: "€45", monthlyPrice: "€7,50" },
+      { devices: 3, price: "€65", monthlyPrice: "€7,22" },
+      { devices: 4, price: "€80", monthlyPrice: "€6,67" }
+    ],
+    features: [
+      "65.000+ kanalen",
+      "175.000+ films & series",
+      "HD & 4K streaming",
+      "Alle apparaten",
+      "15 dagen geld-terug",
+      "WhatsApp support"
     ]
   }
 ];
@@ -160,4 +160,17 @@ export const TOP_TVSHOWS_NL = [
   { title: "Winter Vol Liefde", posterUrl: "/assets/tvshows/winter-vol-liefde.jpg" },
   { title: "Pandora", posterUrl: "/assets/tvshows/pandora.jpg" },
   { title: "Sprekend Nederland", posterUrl: "/assets/tvshows/sprekend-nederland.jpg" }
+];
+
+export const TOP_TVSHOWS_INTL = [
+  { title: "Squid Game", posterUrl: "/assets/tvshows-intl/squid-game.jpg" },
+  { title: "Wednesday", posterUrl: "/assets/tvshows-intl/wednesday.jpg" },
+  { title: "The Last of Us", posterUrl: "/assets/tvshows-intl/the-last-of-us.jpg" },
+  { title: "Stranger Things", posterUrl: "/assets/tvshows-intl/stranger-things.jpg" },
+  { title: "Breaking Bad", posterUrl: "/assets/tvshows-intl/breaking-bad.jpg" },
+  { title: "House of the Dragon", posterUrl: "/assets/tvshows-intl/house-of-the-dragon.jpg" },
+  { title: "The Bear", posterUrl: "/assets/tvshows-intl/the-bear.jpg" },
+  { title: "Severance", posterUrl: "/assets/tvshows-intl/severance.jpg" },
+  { title: "Shōgun", posterUrl: "/assets/tvshows-intl/shogun.jpg" },
+  { title: "Reacher", posterUrl: "/assets/tvshows-intl/reacher.jpg" }
 ];

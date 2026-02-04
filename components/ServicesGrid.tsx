@@ -1,6 +1,107 @@
 
-import React from 'react';
-import { SERVICES, TOP_FILMS, CHANNEL_LOGOS, TOP_TVSHOWS_NL } from '../constants';
+import React, { useRef, useCallback } from 'react';
+import { SERVICES, TOP_FILMS, CHANNEL_LOGOS, TOP_TVSHOWS_NL, TOP_TVSHOWS_INTL } from '../constants';
+
+export const SwipeableMarquee: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const currentOffset = useRef(0);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const getContentElements = useCallback(() => {
+    if (!containerRef.current) return [];
+    return Array.from(containerRef.current.querySelectorAll('.marquee-content')) as HTMLElement[];
+  }, []);
+
+  const getComputedTranslateX = (el: HTMLElement) => {
+    const style = window.getComputedStyle(el);
+    const matrix = new DOMMatrix(style.transform);
+    return matrix.m41;
+  };
+
+  const wrapOffset = (offset: number, contentWidth: number) => {
+    if (contentWidth <= 0) return offset;
+    // The gap between the two duplicated strips is 2rem (32px)
+    const loopWidth = contentWidth + 32;
+    let wrapped = offset % loopWidth;
+    if (wrapped > 0) wrapped -= loopWidth;
+    return wrapped;
+  };
+
+  const handleStart = useCallback((clientX: number) => {
+    isDragging.current = true;
+    startX.current = clientX;
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+
+    const elements = getContentElements();
+    const firstEl = elements[0];
+    if (firstEl) {
+      const currentX = getComputedTranslateX(firstEl);
+      currentOffset.current = currentX;
+    }
+
+    elements.forEach(el => {
+      el.style.animation = 'none';
+      el.style.transform = `translateX(${currentOffset.current}px)`;
+    });
+  }, [getContentElements]);
+
+  const handleMove = useCallback((clientX: number) => {
+    if (!isDragging.current) return;
+    const delta = clientX - startX.current;
+    const elements = getContentElements();
+    const firstEl = elements[0];
+    if (!firstEl) return;
+
+    const contentWidth = firstEl.scrollWidth;
+    const rawOffset = currentOffset.current + delta;
+    const wrapped = wrapOffset(rawOffset, contentWidth);
+
+    elements.forEach(el => {
+      el.style.transform = `translateX(${wrapped}px)`;
+    });
+  }, [getContentElements]);
+
+  const handleEnd = useCallback(() => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+
+    // Save the current position for next drag
+    const elements = getContentElements();
+    const firstEl = elements[0];
+    if (firstEl) {
+      const matrix = new DOMMatrix(firstEl.style.transform);
+      currentOffset.current = matrix.m41;
+    }
+
+    resumeTimer.current = setTimeout(() => {
+      getContentElements().forEach(el => {
+        el.style.transform = '';
+        el.style.animation = '';
+        el.offsetHeight;
+      });
+      currentOffset.current = 0;
+    }, 2000);
+  }, [getContentElements]);
+
+  return (
+    <div
+      ref={containerRef}
+      className={className}
+      onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+      onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+      onTouchEnd={handleEnd}
+      onMouseDown={(e) => { e.preventDefault(); handleStart(e.clientX); }}
+      onMouseMove={(e) => handleMove(e.clientX)}
+      onMouseUp={handleEnd}
+      onMouseLeave={() => isDragging.current && handleEnd()}
+      style={{ cursor: 'grab', touchAction: 'pan-y' }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const MoviePoster: React.FC<{ title: string; posterUrl: string }> = ({ title, posterUrl }) => (
   <div className="flex-shrink-0 group cursor-pointer">
@@ -30,27 +131,27 @@ const ChannelLogo: React.FC<{ name: string; logo: string }> = ({ name, logo }) =
 );
 
 const SPORTS = [
-  { name: 'Voetbal', subtitle: 'Eredivisie, Champions League', icon: '⚽' },
-  { name: 'Hockey', subtitle: 'Hoofdklasse', icon: '🏑' },
-  { name: 'Schaatsen', subtitle: 'World Cup, NK', icon: '⛸️' },
-  { name: 'Wielrennen', subtitle: 'Tour, Giro, Vuelta', icon: '🚴' },
-  { name: 'Tennis', subtitle: 'Grand Slams', icon: '🎾' },
-  { name: 'Padel', subtitle: 'World Padel Tour', icon: '🏸' },
-  { name: 'Formule 1', subtitle: 'Alle Grands Prix', icon: '🏎️' },
-  { name: 'Volleybal', subtitle: 'Eredivisie, EK', icon: '🏐' },
-  { name: 'Golf', subtitle: 'PGA, European Tour', icon: '⛳' },
-  { name: 'Turnen', subtitle: 'WK, EK', icon: '🤸' },
-  { name: 'Zwemmen', subtitle: 'WK, Olympisch', icon: '🏊' },
-  { name: 'Korfbal', subtitle: 'Hoofdklasse', icon: '🥅' },
+  { name: 'Voetbal', subtitle: 'Eredivisie, Champions League', icon: '⚽', image: '/assets/sports/voetbal.jpg' },
+  { name: 'Hockey', subtitle: 'Hoofdklasse', icon: '🏑', image: '/assets/sports/hockey.jpg' },
+  { name: 'Schaatsen', subtitle: 'World Cup, NK', icon: '⛸️', image: '/assets/sports/schaatsen.jpg' },
+  { name: 'Wielrennen', subtitle: 'Tour, Giro, Vuelta', icon: '🚴', image: '/assets/sports/wielrennen.jpg' },
+  { name: 'Tennis', subtitle: 'Grand Slams', icon: '🎾', image: '/assets/sports/tennis.jpg' },
+  { name: 'Padel', subtitle: 'World Padel Tour', icon: '🏸', image: '/assets/sports/padel.jpg' },
+  { name: 'Formule 1', subtitle: 'Alle Grands Prix', icon: '🏎️', image: '/assets/sports/formule1.jpg' },
+  { name: 'Volleybal', subtitle: 'Eredivisie, EK', icon: '🏐', image: '/assets/sports/volleybal.jpg' },
+  { name: 'Golf', subtitle: 'PGA, European Tour', icon: '⛳', image: '/assets/sports/golf.jpg' },
+  { name: 'Zwemmen', subtitle: 'WK, Olympisch', icon: '🏊', image: '/assets/sports/zwemmen.jpg' },
 ];
 
-const SportCard: React.FC<{ name: string; subtitle: string; icon: string }> = ({ name, subtitle, icon }) => (
+const SportCard: React.FC<{ name: string; subtitle: string; icon: string; image: string }> = ({ name, subtitle, icon, image }) => (
   <div className="flex-shrink-0 group cursor-pointer">
-    <div className="w-[150px] h-[200px] lg:w-[200px] lg:h-[250px] glass-card rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-purple-500/30 transition-all duration-500 transform group-hover:-translate-y-2 border border-white/20 flex flex-col items-center justify-center gap-3 lg:gap-4 p-4">
-      <span className="text-5xl lg:text-6xl group-hover:scale-110 transition-transform duration-500">{icon}</span>
-      <div className="text-center">
-        <div className="text-white font-black text-sm lg:text-base tracking-tight leading-tight">{name}</div>
-        <div className="text-white/50 text-[10px] lg:text-xs font-bold uppercase tracking-wider mt-1">{subtitle}</div>
+    <div className="w-[160px] h-[284px] lg:w-[225px] lg:h-[400px] rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-purple-500/30 transition-all duration-500 transform group-hover:-translate-y-2 border border-white/20 relative">
+      <img src={image} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+        <span className="text-2xl lg:text-3xl">{icon}</span>
+        <div className="text-white font-black text-sm lg:text-base tracking-tight leading-tight mt-1">{name}</div>
+        <div className="text-white/60 text-[10px] lg:text-xs font-bold uppercase tracking-wider mt-1">{subtitle}</div>
       </div>
     </div>
   </div>
@@ -66,7 +167,7 @@ export const FilmsAndShows: React.FC = () => {
               <div className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-2">Live TV</div>
               <h3 className="text-2xl lg:text-3xl font-black tracking-tighter text-white">Al je favoriete zenders</h3>
            </div>
-           <div className="marquee-container -mx-6 overflow-hidden">
+           <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
              <div className="marquee-content py-4" style={{ animationDuration: '40s', animationDirection: 'reverse' }}>
                {CHANNEL_LOGOS.map((channel, i) => (
                  <ChannelLogo key={i} name={channel.name} logo={channel.logo} />
@@ -77,7 +178,7 @@ export const FilmsAndShows: React.FC = () => {
                  <ChannelLogo key={`dup-${i}`} name={channel.name} logo={channel.logo} />
                ))}
              </div>
-           </div>
+           </SwipeableMarquee>
         </div>
 
         {/* Sports Marquee Section */}
@@ -87,18 +188,18 @@ export const FilmsAndShows: React.FC = () => {
             <h3 className="text-2xl lg:text-3xl font-black tracking-tighter text-white">Alle Sporten Live in 4K</h3>
           </div>
 
-          <div className="marquee-container -mx-6 overflow-hidden group/marquee">
-            <div className="marquee-content py-4 group-hover/marquee:[animation-play-state:paused]" style={{ animationDuration: '45s' }}>
+          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
+            <div className="marquee-content py-4" style={{ animationDuration: '45s' }}>
               {SPORTS.map((sport, i) => (
-                <SportCard key={i} name={sport.name} subtitle={sport.subtitle} icon={sport.icon} />
+                <SportCard key={i} name={sport.name} subtitle={sport.subtitle} icon={sport.icon} image={sport.image} />
               ))}
             </div>
-            <div className="marquee-content py-4 group-hover/marquee:[animation-play-state:paused]" style={{ animationDuration: '45s' }}>
+            <div className="marquee-content py-4" style={{ animationDuration: '45s' }}>
               {SPORTS.map((sport, i) => (
-                <SportCard key={`dup-${i}`} name={sport.name} subtitle={sport.subtitle} icon={sport.icon} />
+                <SportCard key={`dup-${i}`} name={sport.name} subtitle={sport.subtitle} icon={sport.icon} image={sport.image} />
               ))}
             </div>
-          </div>
+          </SwipeableMarquee>
         </div>
 
         {/* Movie Marquee Section */}
@@ -113,7 +214,7 @@ export const FilmsAndShows: React.FC = () => {
             </div>
           </div>
 
-          <div className="marquee-container -mx-6 overflow-hidden">
+          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
             <div className="marquee-content py-4" style={{ animationDuration: '60s' }}>
               {TOP_FILMS.map((film, i) => (
                 <MoviePoster key={i} title={film.title} posterUrl={film.posterUrl || `https://picsum.photos/seed/movie-${i}/400/600`} />
@@ -124,11 +225,11 @@ export const FilmsAndShows: React.FC = () => {
                 <MoviePoster key={`dup-${i}`} title={film.title} posterUrl={film.posterUrl || `https://picsum.photos/seed/movie-${i}/400/600`} />
               ))}
             </div>
-          </div>
+          </SwipeableMarquee>
         </div>
 
         {/* Dutch TV Shows Marquee Section */}
-        <div className="space-y-8">
+        <div className="space-y-8 mb-20">
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end px-2 text-center lg:text-left">
             <div>
               <div className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-2">Nederlandse Series</div>
@@ -139,7 +240,7 @@ export const FilmsAndShows: React.FC = () => {
             </div>
           </div>
 
-          <div className="marquee-container -mx-6 overflow-hidden">
+          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
             <div className="marquee-content py-4" style={{ animationDuration: '50s', animationDirection: 'reverse' }}>
               {TOP_TVSHOWS_NL.map((show, i) => (
                 <MoviePoster key={i} title={show.title} posterUrl={show.posterUrl} />
@@ -150,7 +251,33 @@ export const FilmsAndShows: React.FC = () => {
                 <MoviePoster key={`dup-${i}`} title={show.title} posterUrl={show.posterUrl} />
               ))}
             </div>
+          </SwipeableMarquee>
+        </div>
+
+        {/* International TV Shows Marquee Section */}
+        <div className="space-y-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end px-2 text-center lg:text-left">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-2">Internationaal Trending</div>
+              <h3 className="text-2xl lg:text-3xl font-black tracking-tighter text-white">Top Internationale Series</h3>
+            </div>
+            <div className="hidden md:block text-sm font-bold text-white/50 uppercase tracking-widest mt-4 lg:mt-0">
+              Wereldwijd populair
+            </div>
           </div>
+
+          <SwipeableMarquee className="marquee-container -mx-6 overflow-hidden">
+            <div className="marquee-content py-4" style={{ animationDuration: '55s' }}>
+              {TOP_TVSHOWS_INTL.map((show, i) => (
+                <MoviePoster key={i} title={show.title} posterUrl={show.posterUrl} />
+              ))}
+            </div>
+            <div className="marquee-content py-4" style={{ animationDuration: '55s' }}>
+              {TOP_TVSHOWS_INTL.map((show, i) => (
+                <MoviePoster key={`dup-${i}`} title={show.title} posterUrl={show.posterUrl} />
+              ))}
+            </div>
+          </SwipeableMarquee>
         </div>
       </div>
     </section>
@@ -158,41 +285,5 @@ export const FilmsAndShows: React.FC = () => {
 };
 
 export const ServicesGrid: React.FC = () => {
-  return (
-    <section className="py-32 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
-          <div className="space-y-12 text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-white">
-              Kanalen, films, series & <span className="text-italics">meer</span>
-            </h2>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-              {SERVICES.map((service, i) => (
-                <div
-                  key={i}
-                  className="px-6 py-3 glass-card rounded-full shadow-sm text-lg font-bold hover:bg-black hover:text-white transition-all cursor-default border-none"
-                >
-                  {service}
-                </div>
-              ))}
-              <div className="px-6 py-3 bg-pink-500 text-white rounded-full text-lg font-black shadow-lg shadow-pink-500/40 transform hover:scale-105 transition-transform cursor-pointer">+ meer</div>
-            </div>
-          </div>
-
-          <div className="relative aspect-square glass-card p-3 rounded-[60px] shadow-2xl overflow-hidden border-none">
-            <img
-              src="https://picsum.photos/seed/iptv/1000/1000"
-              alt="IPTV Showcase"
-              className="w-full h-full object-cover rounded-[50px] transform hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute top-10 right-10 bg-black/90 backdrop-blur-xl text-white p-6 rounded-3xl shadow-2xl transform -rotate-6 border border-white/20">
-              <div className="text-xs font-bold uppercase tracking-widest mb-2 opacity-60">Populair Nu</div>
-              <div className="text-2xl font-black tracking-tighter leading-tight">Live Sport <br/>& 4K Blockbusters</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  );
+  return null;
 };

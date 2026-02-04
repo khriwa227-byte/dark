@@ -1,54 +1,58 @@
 
 import React from 'react';
+import { SwipeableMarquee } from './ServicesGrid';
 
-const TrustIcon: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/70">
-    <div className="w-1.5 h-1.5 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(236,72,153,0.8)]"></div>
-    {children}
+const TrustBadge: React.FC<{ icon: React.ReactNode; children: React.ReactNode; delay: string }> = ({ icon, children, delay }) => (
+  <div
+    className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 bg-white/15 backdrop-blur-md rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] border border-white/20 hover:bg-white/25 hover:scale-105 hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] transition-all duration-300 animate-[popIn_0.5s_ease-out_both]"
+    style={{ animationDelay: delay }}
+  >
+    <span className="text-lg sm:text-xl text-white flex items-center">{icon}</span>
+    <span className="text-xs sm:text-sm font-semibold tracking-wide text-white whitespace-nowrap leading-none">{children}</span>
   </div>
 );
 
 export const Hero: React.FC = () => {
-  const whatsappLink = "https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0";
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=3197010284651&text&type=phone_number&app_absent=0";
 
   return (
-    <section className="pt-40 pb-6 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-12 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div className="space-y-6">
-            <h1 className="text-6xl lg:text-8xl font-extrabold leading-[1.05] tracking-tighter text-white drop-shadow-sm">
-              Premium IPTV voor <span className="text-italics">iedereen</span>
-            </h1>
-            <p className="text-xl text-white/80 max-w-md mx-auto lg:mx-0 font-medium">
-              TV kijken zoals het hoort. Pauzeer of annuleer op elk moment. Directe toegang via WhatsApp.
-            </p>
-          </div>
-          
-          <div className="space-y-8 w-full">
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center justify-center lg:justify-start">
-              <a 
-                href="#pricing" 
-                className="w-full max-w-[320px] sm:max-w-none sm:w-auto px-10 py-5 bg-white text-black text-lg font-black rounded-full hover:scale-[1.02] transition-transform shadow-2xl text-center"
-              >
-                Bekijk prijzen
-              </a>
-              <a 
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full max-w-[320px] sm:max-w-none sm:w-auto px-10 py-5 border-2 border-white/30 backdrop-blur-md text-white text-lg font-bold rounded-full hover:bg-white/10 flex items-center justify-center gap-2 transition-all"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-                WhatsApp ons
-              </a>
-            </div>
+    <section className="pt-40 pb-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto sm:px-6 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col items-center sm:items-start gap-10 sm:gap-12 w-[88%] sm:w-full mx-auto sm:mx-0">
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
-              <TrustIcon>Instant Activering</TrustIcon>
-              <TrustIcon>Geen Buffering</TrustIcon>
-              <TrustIcon>15 Dagen Garantie</TrustIcon>
-            </div>
+          <h1 className="text-[clamp(3rem,13vw,6rem)] lg:text-8xl font-extrabold leading-[1.1] tracking-tighter text-white drop-shadow-sm text-center sm:text-left w-full">
+            <span className="sm:hidden">Premium IPTV<br />voor <span className="text-italics">iedereen</span></span>
+            <span className="hidden sm:inline">Premium IPTV voor <span className="text-italics">iedereen</span></span>
+          </h1>
+
+          <p className="text-[clamp(1rem,3.5vw,1.25rem)] text-white/80 font-medium leading-relaxed text-center sm:text-left w-full">
+            TV kijken zoals het hoort.<br className="sm:hidden" /> Pauzeer of annuleer op elk moment.
+          </p>
+
+          <div className="flex flex-col gap-4 w-full sm:flex-row sm:w-auto sm:justify-start">
+            <a
+              href="#pricing"
+              className="w-full sm:w-auto px-10 py-5 bg-white text-black text-lg font-black rounded-full hover:scale-[1.02] transition-transform shadow-2xl text-center"
+            >
+              Bekijk prijzen
+            </a>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-10 py-5 border-2 border-white/30 backdrop-blur-md text-white text-lg font-bold rounded-full hover:bg-white/10 flex items-center justify-center gap-2 transition-all"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+              WhatsApp ons
+            </a>
           </div>
+
+          <div className="flex flex-row flex-wrap justify-center sm:justify-start gap-3 sm:gap-4 w-full">
+            <TrustBadge delay="0.3s" icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>}>Instant Activering</TrustBadge>
+            <TrustBadge delay="0.5s" icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0"/></svg>}>Geen Buffering</TrustBadge>
+            <TrustBadge delay="0.7s" icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>}>15 Dagen Garantie</TrustBadge>
+          </div>
+
         </div>
 
         <div className="relative flex justify-center lg:justify-end">
@@ -98,7 +102,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="mt-24 border-y border-white/10 py-12 backdrop-blur-sm">
-        <div className="marquee-container">
+        <SwipeableMarquee className="marquee-container">
           <div className="marquee-content brightness-125">
             {['Eredivisie', 'Champions League', 'Formule 1', 'NPO', 'RTL', 'SBS', 'Netflix content'].map((brand, i) => (
               <span key={i} className="text-3xl font-black text-white/80 hover:text-white transition-colors uppercase tracking-widest px-8 cursor-default">{brand}</span>
@@ -109,7 +113,7 @@ export const Hero: React.FC = () => {
               <span key={i} className="text-3xl font-black text-white/80 hover:text-white transition-colors uppercase tracking-widest px-8 cursor-default">{brand}</span>
             ))}
           </div>
-        </div>
+        </SwipeableMarquee>
       </div>
     </section>
   );

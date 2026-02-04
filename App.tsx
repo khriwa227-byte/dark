@@ -55,13 +55,13 @@ const App: React.FC = () => {
           <FilmsAndShows />
         </section>
         <section className="reveal">
+          <Pricing />
+        </section>
+        <section className="reveal">
           <Benefits />
         </section>
         <section className="reveal">
           <ServicesGrid />
-        </section>
-        <section className="reveal">
-          <Pricing />
         </section>
         <section className="reveal">
           <Reviews />

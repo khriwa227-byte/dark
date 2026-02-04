@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>PrimeKopenTV - Premium IPTV voor iedereen</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +65,11 @@
       @keyframes scroll {
         from { transform: translateX(0); }
         to { transform: translateX(calc(-100% - 2rem)); }
+      }
+      @keyframes popIn {
+        0% { opacity: 0; transform: scale(0.5) translateY(10px); }
+        70% { transform: scale(1.05) translateY(-2px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
       }
       .grid-line {
         position: fixed;
