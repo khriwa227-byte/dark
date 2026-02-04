@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SwipeableMarquee } from './ServicesGrid';
+
 
 const TrustBadge: React.FC<{ icon: React.ReactNode; children: React.ReactNode; delay: string }> = ({ icon, children, delay }) => (
   <div
@@ -102,7 +102,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="mt-24 border-y border-white/10 py-12 backdrop-blur-sm">
-        <SwipeableMarquee className="marquee-container">
+        <div className="marquee-container">
           <div className="marquee-content brightness-125">
             {['Eredivisie', 'Champions League', 'Formule 1', 'NPO', 'RTL', 'SBS', 'Netflix content'].map((brand, i) => (
               <span key={i} className="text-3xl font-black text-white/80 hover:text-white transition-colors uppercase tracking-widest px-8 cursor-default">{brand}</span>
@@ -113,7 +113,7 @@ export const Hero: React.FC = () => {
               <span key={i} className="text-3xl font-black text-white/80 hover:text-white transition-colors uppercase tracking-widest px-8 cursor-default">{brand}</span>
             ))}
           </div>
-        </SwipeableMarquee>
+        </div>
       </div>
     </section>
   );
