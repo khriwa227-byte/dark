@@ -12,6 +12,8 @@ import { Footer } from './components/Footer';
 import { DesignAssistant } from './components/DesignAssistant';
 import { AlgemeneVoorwaarden } from './components/AlgemeneVoorwaarden';
 import { Privacybeleid } from './components/Privacybeleid';
+import { Channels } from './components/Channels';
+import { ResellerPacks } from './components/ResellerPacks';
 
 const App: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -25,6 +27,12 @@ const App: React.FC = () => {
         window.scrollTo(0, 0);
       } else if (hash === '#/privacybeleid') {
         setCurrentPage('privacybeleid');
+        window.scrollTo(0, 0);
+      } else if (hash === '#/kanalen') {
+        setCurrentPage('kanalen');
+        window.scrollTo(0, 0);
+      } else if (hash === '#/reseller') {
+        setCurrentPage('reseller');
         window.scrollTo(0, 0);
       } else {
         setCurrentPage('home');
@@ -76,6 +84,14 @@ const App: React.FC = () => {
       ) : currentPage === 'privacybeleid' ? (
         <main>
           <Privacybeleid />
+        </main>
+      ) : currentPage === 'kanalen' ? (
+        <main>
+          <Channels />
+        </main>
+      ) : currentPage === 'reseller' ? (
+        <main>
+          <ResellerPacks />
         </main>
       ) : (
         <main>

@@ -12,8 +12,10 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [
+    { name: 'Kanalen', href: '#/kanalen' },
     { name: 'Voordelen', href: '#benefits' },
     { name: 'Prijzen', href: '#pricing' },
+    { name: 'Reseller', href: '#/reseller' },
     { name: 'FAQ', href: '#faq' },
   ];
 
@@ -21,12 +23,12 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-8'}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center">
-          <div className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <div className="w-8 h-8 bg-black rounded-sm flex items-center justify-center">
               <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
             <span className="text-xl font-extrabold tracking-tighter">PrimeKopenTV</span>
-          </div>
+          </a>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold">
