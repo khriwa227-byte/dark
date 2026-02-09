@@ -55,15 +55,15 @@ export interface ExtendedPricingPlan extends PricingPlan {
 export const PRICING_PLANS: ExtendedPricingPlan[] = [
   {
     name: "Prime",
-    price: "€100",
+    price: "€99,99",
     monthlyPrice: "€8,33",
     savings: "Bespaar 50%",
     description: "12 MAANDEN TOEGANG",
     devicePricing: [
-      { devices: 1, price: "€70", monthlyPrice: "€5,83" },
-      { devices: 2, price: "€100", monthlyPrice: "€4,17" },
-      { devices: 3, price: "€150", monthlyPrice: "€4,17" },
-      { devices: 4, price: "€180", monthlyPrice: "€3,75" }
+      { devices: 1, price: "€69,99", monthlyPrice: "€5,83" },
+      { devices: 2, price: "€99,99", monthlyPrice: "€8,33" },
+      { devices: 3, price: "€149,99", monthlyPrice: "€12,50" },
+      { devices: 4, price: "€179,99", monthlyPrice: "€15,00" }
     ],
     features: [
       "65.000+ kanalen",
@@ -77,15 +77,15 @@ export const PRICING_PLANS: ExtendedPricingPlan[] = [
   },
   {
     name: "Popular",
-    price: "€60",
-    monthlyPrice: "€10",
+    price: "€59,99",
+    monthlyPrice: "€10,00",
     savings: "Bespaar 35%",
     description: "6 MAANDEN TOEGANG",
     devicePricing: [
-      { devices: 1, price: "€45", monthlyPrice: "€7,50" },
-      { devices: 2, price: "€60", monthlyPrice: "€5,00" },
-      { devices: 3, price: "€90", monthlyPrice: "€5,00" },
-      { devices: 4, price: "€115", monthlyPrice: "€4,79" }
+      { devices: 1, price: "€44,99", monthlyPrice: "€7,50" },
+      { devices: 2, price: "€59,99", monthlyPrice: "€10,00" },
+      { devices: 3, price: "€89,99", monthlyPrice: "€15,00" },
+      { devices: 4, price: "€114,99", monthlyPrice: "€19,17" }
     ],
     features: [
       "65.000+ kanalen",
@@ -99,14 +99,14 @@ export const PRICING_PLANS: ExtendedPricingPlan[] = [
   },
   {
     name: "Starter",
-    price: "€45",
-    monthlyPrice: "€15",
+    price: "€44,99",
+    monthlyPrice: "€15,00",
     description: "3 MAANDEN TOEGANG",
     devicePricing: [
-      { devices: 1, price: "€35", monthlyPrice: "€11,67" },
-      { devices: 2, price: "€45", monthlyPrice: "€7,50" },
-      { devices: 3, price: "€65", monthlyPrice: "€7,22" },
-      { devices: 4, price: "€80", monthlyPrice: "€6,67" }
+      { devices: 1, price: "€34,99", monthlyPrice: "€11,67" },
+      { devices: 2, price: "€44,99", monthlyPrice: "€15,00" },
+      { devices: 3, price: "€64,99", monthlyPrice: "€21,67" },
+      { devices: 4, price: "€79,99", monthlyPrice: "€26,67" }
     ],
     features: [
       "65.000+ kanalen",

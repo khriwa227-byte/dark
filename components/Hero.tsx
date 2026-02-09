@@ -37,13 +37,11 @@ export const Hero: React.FC = () => {
               Bekijk prijzen
             </a>
             <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#pricing"
               className="w-full sm:w-auto px-10 py-5 border-2 border-white/30 backdrop-blur-md text-white text-lg font-bold rounded-full hover:bg-white/10 flex items-center justify-center gap-2 transition-all"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-              WhatsApp ons
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+              Begin nu
             </a>
           </div>
 

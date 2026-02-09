@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PRICING_PLANS } from '../constants';
 
 const SmallPauseIcon = () => (
@@ -28,6 +28,30 @@ export const Pricing: React.FC = () => {
   const [selectedDevices, setSelectedDevices] = useState(1);
   const deviceOptions = [1, 2, 3, 4];
 
+  // Countdown timer state
+  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const midnight = new Date();
+      midnight.setHours(24, 0, 0, 0);
+
+      const difference = midnight.getTime() - now.getTime();
+
+      const hours = Math.floor(difference / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      setTimeLeft({ hours, minutes, seconds });
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const getDevicePrice = (plan: typeof PRICING_PLANS[0]) => {
     const devicePricing = plan.devicePricing.find(dp => dp.devices === selectedDevices);
     return devicePricing || plan.devicePricing[0];
@@ -51,6 +75,50 @@ export const Pricing: React.FC = () => {
           <h2 className="text-5xl lg:text-7xl font-black tracking-tighter text-white">
             Eén abonnement, <span className="text-italics">eindeloze</span> mogelijkheden
           </h2>
+        </div>
+
+        {/* Countdown Timer */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="glass-card rounded-3xl p-8 text-center shadow-2xl border-2 border-purple-500">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <p className="text-sm font-black uppercase tracking-widest text-white">
+                Beperkte aanbieding eindigt om middernacht
+              </p>
+            </div>
+            <div className="flex justify-center gap-4 lg:gap-8">
+              <div className="flex flex-col items-center">
+                <div className="bg-black backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl">
+                  <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
+                    {String(timeLeft.hours).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-white mt-3">Uren</span>
+              </div>
+              <div className="flex items-center pb-8">
+                <span className="text-3xl lg:text-4xl font-black text-white">:</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="bg-black backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl">
+                  <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
+                    {String(timeLeft.minutes).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-white mt-3">Minuten</span>
+              </div>
+              <div className="flex items-center pb-8">
+                <span className="text-3xl lg:text-4xl font-black text-white">:</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="bg-black backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl">
+                  <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
+                    {String(timeLeft.seconds).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-white mt-3">Seconden</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Device Toggle */}

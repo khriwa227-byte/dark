@@ -9,7 +9,6 @@ import { FAQ } from './components/FAQ';
 import { Reviews } from './components/Reviews';
 import { PaymentMethods } from './components/PaymentMethods';
 import { Footer } from './components/Footer';
-import { DesignAssistant } from './components/DesignAssistant';
 import { AlgemeneVoorwaarden } from './components/AlgemeneVoorwaarden';
 import { Privacybeleid } from './components/Privacybeleid';
 import { Channels } from './components/Channels';
@@ -123,7 +122,6 @@ const App: React.FC = () => {
       )}
 
       <Footer />
-      <DesignAssistant />
     </div>
   );
 };
