@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
             <div className="w-8 h-8 bg-black rounded-sm flex items-center justify-center">
               <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
-            <span className="text-xl font-extrabold tracking-tighter">PrimeKopenTV</span>
+            <span className="text-xl font-extrabold tracking-tighter">IPTVKopen</span>
           </a>
           
           {/* Desktop Navigation */}

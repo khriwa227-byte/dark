@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="space-y-2">
                 <h3 className="text-5xl font-black text-white leading-tight">Doe mee</h3>
-                <h3 className="text-5xl font-black text-white leading-tight underline decoration-pink-500 decoration-4 underline-offset-8">PrimeKopenTV</h3>
+                <h3 className="text-5xl font-black text-white leading-tight underline decoration-pink-500 decoration-4 underline-offset-8">IPTVKopen</h3>
               </div>
               <p className="text-white/70 text-lg font-medium">Eén abonnement voor alles.</p>
               <a 

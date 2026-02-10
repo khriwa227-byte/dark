@@ -22,7 +22,7 @@ export const Privacybeleid: React.FC = () => {
           <section>
             <h2 className="text-2xl font-extrabold text-black tracking-tight mb-4">1. Inleiding</h2>
             <p>
-              PrimeKopenTV, gevestigd in Nederland, hecht groot belang aan de bescherming van uw persoonsgegevens. In dit Privacybeleid leggen wij uit welke gegevens wij verzamelen, waarom wij deze verzamelen, hoe wij deze gebruiken en welke rechten u heeft. Dit beleid is van toepassing op alle diensten die door PrimeKopenTV worden aangeboden.
+              IPTVKopen, gevestigd in Nederland, hecht groot belang aan de bescherming van uw persoonsgegevens. In dit Privacybeleid leggen wij uit welke gegevens wij verzamelen, waarom wij deze verzamelen, hoe wij deze gebruiken en welke rechten u heeft. Dit beleid is van toepassing op alle diensten die door IPTVKopen worden aangeboden.
             </p>
           </section>
 
@@ -65,7 +65,7 @@ export const Privacybeleid: React.FC = () => {
 
           <section>
             <h2 className="text-2xl font-extrabold text-black tracking-tight mb-4">5. Delen van gegevens met derden</h2>
-            <p className="mb-4">PrimeKopenTV deelt uw persoonsgegevens niet met derden, tenzij:</p>
+            <p className="mb-4">IPTVKopen deelt uw persoonsgegevens niet met derden, tenzij:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Dit noodzakelijk is voor de uitvoering van de overeenkomst (bijvoorbeeld betalingsverwerkers).</li>
               <li>Wij hiertoe wettelijk verplicht zijn (bijvoorbeeld op verzoek van een bevoegde autoriteit).</li>
@@ -98,7 +98,7 @@ export const Privacybeleid: React.FC = () => {
           <section>
             <h2 className="text-2xl font-extrabold text-black tracking-tight mb-4">8. Beveiliging</h2>
             <p>
-              PrimeKopenTV neemt passende technische en organisatorische maatregelen om uw persoonsgegevens te beschermen tegen ongeoorloofde toegang, verlies, vernietiging of wijziging. Ondanks onze inspanningen kan geen enkele methode van elektronische opslag of overdracht volledig veilig worden gegarandeerd.
+              IPTVKopen neemt passende technische en organisatorische maatregelen om uw persoonsgegevens te beschermen tegen ongeoorloofde toegang, verlies, vernietiging of wijziging. Ondanks onze inspanningen kan geen enkele methode van elektronische opslag of overdracht volledig veilig worden gegarandeerd.
             </p>
           </section>
 
@@ -129,7 +129,7 @@ export const Privacybeleid: React.FC = () => {
           <section>
             <h2 className="text-2xl font-extrabold text-black tracking-tight mb-4">11. Wijzigingen</h2>
             <p>
-              PrimeKopenTV behoudt zich het recht voor om dit Privacybeleid te wijzigen. Wijzigingen worden op deze pagina gepubliceerd. Wij raden u aan om dit beleid regelmatig te raadplegen. Bij significante wijzigingen zullen wij u hierover actief informeren.
+              IPTVKopen behoudt zich het recht voor om dit Privacybeleid te wijzigen. Wijzigingen worden op deze pagina gepubliceerd. Wij raden u aan om dit beleid regelmatig te raadplegen. Bij significante wijzigingen zullen wij u hierover actief informeren.
             </p>
           </section>
 
@@ -137,8 +137,8 @@ export const Privacybeleid: React.FC = () => {
             <h2 className="text-2xl font-extrabold text-black tracking-tight mb-4">12. Contact</h2>
             <p>Voor vragen over dit Privacybeleid of over de verwerking van uw persoonsgegevens kunt u contact met ons opnemen:</p>
             <div className="mt-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 space-y-2">
-              <p><strong>PrimeKopenTV</strong></p>
-              <p>E-mail: <a href="mailto:info@primekopentv.nl" className="text-pink-600 font-bold hover:underline">info@primekopentv.nl</a></p>
+              <p><strong>IPTVKopen</strong></p>
+              <p>E-mail: <a href="mailto:info@iptvkopen.digital" className="text-pink-600 font-bold hover:underline">info@iptvkopen.digital</a></p>
               <p>Telefoon: <a href="tel:+447449708976" className="text-pink-600 font-bold hover:underline">+44 7449708976</a></p>
               <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="text-pink-600 font-bold hover:underline">+44 7449708976</a></p>
             </div>

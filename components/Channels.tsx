@@ -2589,7 +2589,7 @@ export const Channels: React.FC = () => {
             Klaar om te beginnen?
           </h3>
           <p className="text-white/70 mb-6 max-w-xl mx-auto">
-            Krijg toegang tot al deze kanalen en meer. Start vandaag nog met PrimeKopenTV.
+            Krijg toegang tot al deze kanalen en meer. Start vandaag nog met IPTVKopen.
           </p>
           <a
             href="#pricing"

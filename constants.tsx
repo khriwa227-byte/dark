@@ -12,7 +12,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Is IPTV legaal in Nederland?",
-    answer: "Ja, het gebruik van IPTV-diensten is legaal in Nederland. PrimeKopenTV is een legitieme IPTV-aanbieder met premium infrastructuur en 24/7 support."
+    answer: "Ja, het gebruik van IPTV-diensten is legaal in Nederland. IPTVKopen is een legitieme IPTV-aanbieder met premium infrastructuur en 24/7 support."
   },
   {
     question: "Zijn er beperkingen op aanvragen?",
@@ -28,7 +28,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Welke apparaten worden ondersteund?",
-    answer: "PrimeKopenTV werkt op vrijwel alle apparaten: Smart TV's (Samsung, LG, Sony), Fire Stick, Apple TV, Android/iOS telefoons en tablets, PC/Mac, Android TV boxes, en meer."
+    answer: "IPTVKopen werkt op vrijwel alle apparaten: Smart TV's (Samsung, LG, Sony), Fire Stick, Apple TV, Android/iOS telefoons en tablets, PC/Mac, Android TV boxes, en meer."
   },
   {
     question: "Buffer de stream?",
