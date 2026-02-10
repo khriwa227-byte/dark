@@ -49,7 +49,7 @@ export const DesignAssistant: React.FC = () => {
       const conversationText = [...messages, { role: 'user', content: userMessage }]
         .map(m => `${m.role === 'user' ? 'Klant' : 'Support'}: ${m.content}`)
         .join('\n');
-      const whatsappUrl = `https://api.whatsapp.com/send/?phone=3197010284651&text=${encodeURIComponent(conversationText)}&type=phone_number&app_absent=0`;
+      const whatsappUrl = `https://api.whatsapp.com/send/?phone=447449708976&text=${encodeURIComponent(conversationText)}&type=phone_number&app_absent=0`;
       window.open(whatsappUrl, '_blank');
     } finally {
       setIsLoading(false);

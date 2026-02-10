@@ -145,8 +145,8 @@ export const AlgemeneVoorwaarden: React.FC = () => {
             <div className="mt-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 space-y-2">
               <p><strong>PrimeKopenTV</strong></p>
               <p>E-mail: <a href="mailto:info@primekopentv.nl" className="text-pink-600 font-bold hover:underline">info@primekopentv.nl</a></p>
-              <p>Telefoon: <a href="tel:+3197010284651" className="text-pink-600 font-bold hover:underline">+31 97010284651</a></p>
-              <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=3197010284651&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="text-pink-600 font-bold hover:underline">+31 97010284651</a></p>
+              <p>Telefoon: <a href="tel:+447449708976" className="text-pink-600 font-bold hover:underline">+44 7449708976</a></p>
+              <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="text-pink-600 font-bold hover:underline">+44 7449708976</a></p>
             </div>
           </section>
         </div>

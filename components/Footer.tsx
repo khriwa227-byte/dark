@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const Footer: React.FC = () => {
-  const whatsappLink = "https://api.whatsapp.com/send/?phone=3197010284651&text&type=phone_number&app_absent=0";
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0";
 
   return (
     <footer className="bg-black text-white py-32 px-6">
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-8">
               <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100">
                 <p className="text-sm font-medium leading-relaxed">
-                  PrimeKopenTV helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+3197010284651" className="text-pink-600 font-bold hover:underline">+31 97010284651</a> of mail <a href="mailto:info@primekopentv.nl" className="text-pink-600 font-bold hover:underline">info@primekopentv.nl</a>.
+                  PrimeKopenTV helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+447449708976" className="text-pink-600 font-bold hover:underline">+44 7449708976</a> of mail <a href="mailto:info@primekopentv.nl" className="text-pink-600 font-bold hover:underline">info@primekopentv.nl</a>.
                 </p>
               </div>
               
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
             <a href="#/algemene-voorwaarden" className="hover:opacity-100 transition-opacity">Algemene voorwaarden</a>
             <a href="#/privacybeleid" className="hover:opacity-100 transition-opacity">Privacybeleid</a>
             <a href="mailto:info@primekopentv.nl" className="hover:opacity-100 transition-opacity">info@primekopentv.nl</a>
-            <a href="tel:+3197010284651" className="hover:opacity-100 transition-opacity">+31 97010284651</a>
+            <a href="tel:+447449708976" className="hover:opacity-100 transition-opacity">+44 7449708976</a>
           </div>
           
           <div className="text-sm opacity-40">

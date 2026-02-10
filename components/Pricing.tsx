@@ -62,7 +62,7 @@ export const Pricing: React.FC = () => {
     const duration = plan.description.replace(' TOEGANG', '').toLowerCase();
     const deviceText = selectedDevices === 1 ? '1 apparaat' : `${selectedDevices} apparaten`;
     const message = `Hallo, ik wil graag het ${plan.name}-pakket van PrimeKopenTV aanschaffen voor ${duration} voor ${deviceText} (${pricing.price}).`;
-    return `https://api.whatsapp.com/send/?phone=3197010284651&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
+    return `https://api.whatsapp.com/send/?phone=447449708976&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
   };
 
   return (
