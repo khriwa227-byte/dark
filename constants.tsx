@@ -46,75 +46,197 @@ export interface DevicePricing {
   monthlyPrice: string;
 }
 
-export interface ExtendedPricingPlan extends PricingPlan {
+export interface SubscriptionTier {
+  tier: "Basis" | "Premium";
+  price: string;
   monthlyPrice: string;
   savings?: string;
   devicePricing: DevicePricing[];
+  features: string[];
 }
 
-export const PRICING_PLANS: ExtendedPricingPlan[] = [
+export interface PeriodPlan {
+  months: number;
+  label: string;
+  description: string;
+  tiers: SubscriptionTier[];
+}
+
+export const PERIOD_PLANS: PeriodPlan[] = [
   {
-    name: "Prime",
-    price: "€99,99",
-    monthlyPrice: "€8,33",
-    savings: "Bespaar 50%",
-    description: "12 MAANDEN TOEGANG",
-    devicePricing: [
-      { devices: 1, price: "€69,99", monthlyPrice: "€5,83" },
-      { devices: 2, price: "€99,99", monthlyPrice: "€8,33" },
-      { devices: 3, price: "€149,99", monthlyPrice: "€12,50" },
-      { devices: 4, price: "€179,99", monthlyPrice: "€15,00" }
-    ],
-    features: [
-      "65.000+ kanalen",
-      "175.000+ films & series",
-      "HD & 4K streaming",
-      "Alle apparaten",
-      "15 dagen geld-terug",
-      "WhatsApp support",
-      "Beste prijs/kwaliteit"
-    ]
-  },
-  {
-    name: "Popular",
-    price: "€59,99",
-    monthlyPrice: "€10,00",
-    savings: "Bespaar 35%",
-    description: "6 MAANDEN TOEGANG",
-    devicePricing: [
-      { devices: 1, price: "€44,99", monthlyPrice: "€7,50" },
-      { devices: 2, price: "€59,99", monthlyPrice: "€10,00" },
-      { devices: 3, price: "€89,99", monthlyPrice: "€15,00" },
-      { devices: 4, price: "€114,99", monthlyPrice: "€19,17" }
-    ],
-    features: [
-      "65.000+ kanalen",
-      "175.000+ films & series",
-      "HD & 4K streaming",
-      "Alle apparaten",
-      "15 dagen geld-terug",
-      "WhatsApp support",
-      "Pauzeer of annuleer"
-    ]
-  },
-  {
-    name: "Starter",
-    price: "€44,99",
-    monthlyPrice: "€15,00",
+    months: 3,
+    label: "3 Maanden",
     description: "3 MAANDEN TOEGANG",
-    devicePricing: [
-      { devices: 1, price: "€34,99", monthlyPrice: "€11,67" },
-      { devices: 2, price: "€44,99", monthlyPrice: "€15,00" },
-      { devices: 3, price: "€64,99", monthlyPrice: "€21,67" },
-      { devices: 4, price: "€79,99", monthlyPrice: "€26,67" }
-    ],
-    features: [
-      "65.000+ kanalen",
-      "175.000+ films & series",
-      "HD & 4K streaming",
-      "Alle apparaten",
-      "15 dagen geld-terug",
-      "WhatsApp support"
+    tiers: [
+      {
+        tier: "Basis",
+        price: "€34,99",
+        monthlyPrice: "€10,00",
+        devicePricing: [
+          { devices: 1, price: "€24,99", monthlyPrice: "€7,66" },
+          { devices: 2, price: "€34,99", monthlyPrice: "€10,00" },
+          { devices: 3, price: "€44,99", monthlyPrice: "€15,00" },
+          { devices: 4, price: "€57,99", monthlyPrice: "€18,33" }
+        ],
+        features: [
+          "SD/HD/FULL HD/UHD/4K Kwaliteit",
+          "+80.000 Kanalen + Netflix",
+          "RTL, NPO, ZIGGO, SBS, ESPN",
+          "+140.000 Films & Series",
+          "Wekelijkse Updates",
+          "24/7 Support NL & BE",
+          "100% Anoniem",
+          "AntiFreeze Technologie",
+          "Alle Apparaten",
+          "VPN Inbegrepen",
+          "Exclusieve NL & BE Content",
+          "Netflix, Amazon, HBO, Apple TV, Hulu"
+        ]
+      },
+      {
+        tier: "Premium",
+        price: "€45,99",
+        monthlyPrice: "€15,00",
+        devicePricing: [
+          { devices: 1, price: "€34,99", monthlyPrice: "€11,67" },
+          { devices: 2, price: "€45,99", monthlyPrice: "€15,00" },
+          { devices: 3, price: "€74,99", monthlyPrice: "€21,67" },
+          { devices: 4, price: "€89,99", monthlyPrice: "€26,67" }
+        ],
+        features: [
+          "SD/HD/FULL HD/4K/8K/HDR-VR",
+          "+80.000 Kanalen + Netflix",
+          "RTL, NPO, ZIGGO, SBS, ESPN, VTM",
+          "+200.000 Films & Series",
+          "Dagelijkse Updates",
+          "Alle Sport PPV Events",
+          "VIP 24/7 Support",
+          "Enterprise Anti-Freeze PRO",
+          "Persoonlijke VIP Manager",
+          "Alle Apparaten",
+          "VPN Inbegrepen",
+          "Exclusieve VIP Content",
+          "Netflix, Amazon, HBO, Apple TV, Hulu"
+        ]
+      }
+    ]
+  },
+  {
+    months: 6,
+    label: "6 Maanden",
+    description: "6 MAANDEN TOEGANG",
+    tiers: [
+      {
+        tier: "Basis",
+        price: "€49,99",
+        monthlyPrice: "€6,67",
+        devicePricing: [
+          { devices: 1, price: "€34,99", monthlyPrice: "€5,00" },
+          { devices: 2, price: "€49,99", monthlyPrice: "€6,67" },
+          { devices: 3, price: "€69,99", monthlyPrice: "€10,00" },
+          { devices: 4, price: "€89,99", monthlyPrice: "€12,50" }
+        ],
+        features: [
+          "SD/HD/FULL HD/UHD/4K Kwaliteit",
+          "+80.000 Kanalen + Netflix",
+          "RTL, NPO, ZIGGO, SBS, ESPN",
+          "+140.000 Films & Series",
+          "Wekelijkse Updates",
+          "24/7 Support NL & BE",
+          "100% Anoniem",
+          "AntiFreeze Technologie",
+          "Alle Apparaten",
+          "VPN Inbegrepen",
+          "Exclusieve NL & BE Content",
+          "Netflix, Amazon, HBO, Apple TV, Hulu"
+        ]
+      },
+      {
+        tier: "Premium",
+        price: "€79,99",
+        monthlyPrice: "€10,00",
+        savings: "Bespaar 35%",
+        devicePricing: [
+          { devices: 1, price: "€44,99", monthlyPrice: "€7,50" },
+          { devices: 2, price: "€79,99", monthlyPrice: "€10,00" },
+          { devices: 3, price: "€99,99", monthlyPrice: "€15,00" },
+          { devices: 4, price: "€139,99", monthlyPrice: "€19,17" }
+        ],
+        features: [
+          "SD/HD/FULL HD/4K/8K/HDR-VR",
+          "+80.000 Kanalen + Netflix",
+          "RTL, NPO, ZIGGO, SBS, ESPN, VTM",
+          "+200.000 Films & Series",
+          "Dagelijkse Updates",
+          "Alle Sport PPV Events",
+          "VIP 24/7 Support",
+          "Enterprise Anti-Freeze PRO",
+          "Persoonlijke VIP Manager",
+          "Alle Apparaten",
+          "VPN Inbegrepen",
+          "Exclusieve VIP Content",
+          "Netflix, Amazon, HBO, Apple TV, Hulu"
+        ]
+      }
+    ]
+  },
+  {
+    months: 12,
+    label: "12+3 Maanden",
+    description: "12+3 MAANDEN TOEGANG",
+    tiers: [
+      {
+        tier: "Basis",
+        price: "€88,99",
+        monthlyPrice: "€5,00",
+        devicePricing: [
+          { devices: 1, price: "€58,99", monthlyPrice: "€3,33" },
+          { devices: 2, price: "€88,99", monthlyPrice: "€5,00" },
+          { devices: 3, price: "€139,99", monthlyPrice: "€7,50" },
+          { devices: 4, price: "€179,99", monthlyPrice: "€9,17" }
+        ],
+        features: [
+          "SD/HD/FULL HD/UHD/4K Kwaliteit",
+          "+80.000 Kanalen + Netflix",
+          "RTL, NPO, ZIGGO, SBS, ESPN",
+          "+140.000 Films & Series",
+          "Wekelijkse Updates",
+          "24/7 Support NL & BE",
+          "100% Anoniem",
+          "AntiFreeze Technologie",
+          "Alle Apparaten",
+          "VPN Inbegrepen",
+          "Exclusieve NL & BE Content",
+          "Netflix, Amazon, HBO, Apple TV, Hulu"
+        ]
+      },
+      {
+        tier: "Premium",
+        price: "€125,99",
+        monthlyPrice: "€8,33",
+        savings: "Bespaar 50%",
+        devicePricing: [
+          { devices: 1, price: "€78,99", monthlyPrice: "€5,83" },
+          { devices: 2, price: "€125,99", monthlyPrice: "€8,33" },
+          { devices: 3, price: "€159,99", monthlyPrice: "€12,50" },
+          { devices: 4, price: "€199,99", monthlyPrice: "€15,00" }
+        ],
+        features: [
+          "SD/HD/FULL HD/4K/8K/HDR-VR",
+          "+80.000 Kanalen + Netflix",
+          "RTL, NPO, ZIGGO, SBS, ESPN, VTM",
+          "+200.000 Films & Series",
+          "Dagelijkse Updates",
+          "Alle Sport PPV Events",
+          "VIP 24/7 Support",
+          "Enterprise Anti-Freeze PRO",
+          "Persoonlijke VIP Manager",
+          "Alle Apparaten",
+          "VPN Inbegrepen",
+          "Exclusieve VIP Content",
+          "Netflix, Amazon, HBO, Apple TV, Hulu"
+        ]
+      }
     ]
   }
 ];
