@@ -74,9 +74,9 @@ export const PERIOD_PLANS: PeriodPlan[] = [
         monthlyPrice: "€10,00",
         devicePricing: [
           { devices: 1, price: "€24,99", monthlyPrice: "€7,66" },
-          { devices: 2, price: "€34,99", monthlyPrice: "€10,00" },
-          { devices: 3, price: "€44,99", monthlyPrice: "€15,00" },
-          { devices: 4, price: "€57,99", monthlyPrice: "€18,33" }
+          { devices: 2, price: "€39,99", monthlyPrice: "€13,33" },
+          { devices: 3, price: "€49,99", monthlyPrice: "€16,66" },
+          { devices: 4, price: "€59,99", monthlyPrice: "€20,00" }
         ],
         features: [
           "SD/HD/FULL HD/UHD/4K Kwaliteit",
@@ -190,7 +190,7 @@ export const PERIOD_PLANS: PeriodPlan[] = [
         price: "€88,99",
         monthlyPrice: "€5,00",
         devicePricing: [
-          { devices: 1, price: "€58,99", monthlyPrice: "€3,33" },
+          { devices: 1, price: "€59,99", monthlyPrice: "€4,00" },
           { devices: 2, price: "€88,99", monthlyPrice: "€5,00" },
           { devices: 3, price: "€139,99", monthlyPrice: "€7,50" },
           { devices: 4, price: "€179,99", monthlyPrice: "€9,17" }
