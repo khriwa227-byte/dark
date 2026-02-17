@@ -191,7 +191,7 @@ export const PERIOD_PLANS: PeriodPlan[] = [
         monthlyPrice: "€5,00",
         devicePricing: [
           { devices: 1, price: "€59,99", monthlyPrice: "€4,00" },
-          { devices: 2, price: "€88,99", monthlyPrice: "€5,00" },
+          { devices: 2, price: "€99,99", monthlyPrice: "€6,67" },
           { devices: 3, price: "€139,99", monthlyPrice: "€7,50" },
           { devices: 4, price: "€179,99", monthlyPrice: "€9,17" }
         ],
@@ -218,7 +218,7 @@ export const PERIOD_PLANS: PeriodPlan[] = [
         devicePricing: [
           { devices: 1, price: "€78,99", monthlyPrice: "€5,83" },
           { devices: 2, price: "€125,99", monthlyPrice: "€8,33" },
-          { devices: 3, price: "€159,99", monthlyPrice: "€12,50" },
+          { devices: 3, price: "€179,99", monthlyPrice: "€12,00" },
           { devices: 4, price: "€199,99", monthlyPrice: "€15,00" }
         ],
         features: [

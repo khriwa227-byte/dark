@@ -25,7 +25,7 @@ const DeviceIcon = () => (
 
 export const Pricing: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState(12);
-  const [selectedDevices, setSelectedDevices] = useState(1);
+  const [selectedDevices, setSelectedDevices] = useState(2);
   const deviceOptions = [1, 2, 3, 4];
 
   // Countdown timer state
