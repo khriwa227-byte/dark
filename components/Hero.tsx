@@ -67,45 +67,7 @@ export const Hero: React.FC = () => {
         </div>
 
         <div className="relative flex justify-center lg:justify-end">
-          <div className="glass-card-dark p-10 rounded-[40px] shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-700 w-full max-w-[440px] flex flex-col items-center text-center">
-            <div className="space-y-8 w-full flex flex-col items-center">
-              <div className="flex justify-between items-center w-full">
-                <div className="w-12 h-12 opacity-0"></div> {/* Spacer for symmetry */}
-                <div className="bg-pink-500 px-4 py-2 rounded-full text-white text-xs font-bold uppercase tracking-widest shadow-lg shadow-pink-500/50">
-                  Start Vandaag
-                </div>
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white rotate-45"></div>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-5xl font-black text-white leading-tight">Doe mee</h3>
-                <h3 className="text-5xl font-black text-white leading-tight underline decoration-pink-500 decoration-4 underline-offset-8">IPTVKopen</h3>
-              </div>
-              <p className="text-white/70 text-lg font-medium">Eén abonnement voor alles.</p>
-              <a 
-                href="#pricing" 
-                className="w-full py-5 bg-white text-black font-black rounded-2xl text-xl hover:bg-gray-100 transition-colors block text-center shadow-xl"
-              >
-                Bekijk prijzen
-              </a>
-            </div>
-            <a 
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 border-t border-white/10 pt-6 w-full flex justify-between items-center text-white hover:opacity-80 transition-opacity"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-purple-500"></div>
-                <div className="text-left">
-                  <div className="text-sm font-bold">WhatsApp Support</div>
-                  <div className="text-xs text-white/50">Bereikbaar 24/7</div>
-                </div>
-              </div>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
-          </div>
+          <div className="hidden lg:block" />
           
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-500 rounded-full -z-10 blur-3xl opacity-30"></div>
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-500 rounded-full -z-10 blur-3xl opacity-30"></div>

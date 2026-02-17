@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) 
   return (
     <>
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-8'}`}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-4'}`}
         style={{ top: `${bannerOffset}px` }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center">
