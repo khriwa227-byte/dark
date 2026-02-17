@@ -112,6 +112,27 @@
         transform: translateY(0);
       }
       
+      @keyframes bounceX {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(4px); }
+      }
+      @keyframes shimmer {
+        0% { background-position: -200% center; }
+        100% { background-position: 200% center; }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { box-shadow: 0 0 20px rgba(168,85,247,0.4), 0 0 40px rgba(236,72,153,0.2); }
+        50% { box-shadow: 0 0 30px rgba(168,85,247,0.6), 0 0 60px rgba(236,72,153,0.4); }
+      }
+      .btn-claim {
+        background: linear-gradient(135deg, #4c1d95, #6d28d9, #9d174d, #6d28d9, #4c1d95);
+        background-size: 200% auto;
+        animation: shimmer 3s linear infinite, pulseGlow 2s ease-in-out infinite;
+      }
+      .btn-claim:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(168,85,247,0.7), 0 0 80px rgba(236,72,153,0.4);
+      }
       @media (max-width: 1024px) {
         .grid-line { display: none; }
       }

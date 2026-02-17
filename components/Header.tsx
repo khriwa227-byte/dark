@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 
 interface HeaderProps {
   isScrolled: boolean;
+  bannerOffset?: number;
 }
 
-export const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
+export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -21,7 +22,10 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-8'}`}>
+      <nav
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-8'}`}
+        style={{ top: `${bannerOffset}px` }}
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center">
           <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <div className="w-8 h-8 bg-black rounded-sm flex items-center justify-center">
@@ -60,8 +64,9 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 z-40 bg-white transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} md:hidden pt-24 px-6`}
+      <div
+        className={`fixed inset-0 z-40 bg-white transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} md:hidden px-6`}
+        style={{ paddingTop: `${bannerOffset + 96}px` }}
       >
         <div className="flex flex-col gap-8 text-center">
           {navLinks.map((link) => (

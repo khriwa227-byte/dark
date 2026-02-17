@@ -20,6 +20,16 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto sm:px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div className="flex flex-col items-center sm:items-start gap-10 sm:gap-12 w-[88%] sm:w-full mx-auto sm:mx-0">
 
+          <div className="flex justify-center sm:justify-start w-full animate-[popIn_0.6s_ease-out_both]">
+            <a href="#pricing" className="inline-flex items-center gap-3 pl-2.5 pr-5 py-2 rounded-full backdrop-blur-md border border-purple-400/25 hover:brightness-125 hover:scale-[1.03] transition-all duration-300 shadow-[0_4px_16px_rgba(168,85,247,0.3)]" style={{ background: 'linear-gradient(135deg, #3b0764, #581c87, #3b0764)' }}>
+              <span className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)' }}>
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+              </span>
+              <span className="text-base sm:text-lg font-bold text-white">Bestel nu en ontvang</span>
+              <span className="text-base sm:text-lg font-black uppercase tracking-wide text-fuchsia-300 drop-shadow-[0_0_12px_rgba(232,121,249,0.6)]">3 MAANDEN GRATIS</span>
+            </a>
+          </div>
+
           <h1 className="text-[clamp(3rem,13vw,6rem)] lg:text-8xl font-extrabold leading-[1.1] tracking-tighter text-white drop-shadow-sm text-center sm:text-left w-full">
             <span className="sm:hidden">Premium IPTV<br />voor <span className="text-italics">iedereen</span></span>
             <span className="hidden sm:inline">Premium IPTV voor <span className="text-italics">iedereen</span></span>
@@ -38,10 +48,13 @@ export const Hero: React.FC = () => {
             </a>
             <a
               href="#pricing"
-              className="w-full sm:w-auto px-10 py-5 border-2 border-white/30 backdrop-blur-md text-white text-lg font-bold rounded-full hover:bg-white/10 flex items-center justify-center gap-2 transition-all"
+              className="btn-claim w-full sm:w-auto px-10 py-5 text-white text-lg font-black rounded-full flex items-center justify-center gap-3 transition-all duration-300 cursor-pointer"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-              Begin nu
+              <span className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/20 shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+              </span>
+              Claim mijn 3 maanden bonus
+              <svg className="w-5 h-5 animate-[bounceX_1s_ease-in-out_infinite]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
             </a>
           </div>
 

@@ -14,9 +14,45 @@ import { Privacybeleid } from './components/Privacybeleid';
 import { Channels } from './components/Channels';
 import { ResellerPacks } from './components/ResellerPacks';
 
+const BANNER_HEIGHT = 48;
+
+const AnnouncementBanner: React.FC<{ onDismiss: () => void }> = ({ onDismiss }) => (
+  <div
+    className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-center gap-3 sm:gap-4 px-12 backdrop-blur-md border-b border-white/10"
+    style={{
+      height: `${BANNER_HEIGHT}px`,
+      background: 'linear-gradient(135deg, #3b0764, #581c87, #3b0764)',
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
+    }}
+  >
+    <span className="hidden sm:inline text-xs font-extrabold uppercase tracking-widest text-white/90">Tijdelijke Actie</span>
+    <span className="px-3 py-1 rounded-full text-xs sm:text-sm font-black uppercase tracking-wide"
+      style={{ background: 'rgba(0,0,0,0.6)', color: '#e879f9' }}>
+      3 MAANDEN GRATIS
+    </span>
+    <span className="text-xs sm:text-sm text-white/70 font-medium">bij elk abonnement</span>
+    <a
+      href="#pricing"
+      className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white border border-white/20 hover:bg-white/10 transition-colors"
+    >
+      Bekijk aanbod
+      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+    </a>
+    <button
+      onClick={onDismiss}
+      className="absolute right-3 sm:right-5 p-1 rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all"
+      aria-label="Sluiten"
+    >
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+);
+
 const App: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const [currentPage, setCurrentPage] = useState<string>('home');
+  const [bannerVisible, setBannerVisible] = useState(true);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -74,7 +110,8 @@ const App: React.FC = () => {
       <div className="grid-line grid-line-left"></div>
       <div className="grid-line grid-line-right"></div>
 
-      <Header isScrolled={scrollY > 50} />
+      {bannerVisible && <AnnouncementBanner onDismiss={() => setBannerVisible(false)} />}
+      <Header isScrolled={scrollY > 50} bannerOffset={bannerVisible ? BANNER_HEIGHT : 0} />
 
       {currentPage === 'algemene-voorwaarden' ? (
         <main>
@@ -123,38 +160,6 @@ const App: React.FC = () => {
 
       <Footer />
 
-      {/* Sticky CTA Button */}
-      <a
-        href="#pricing"
-        style={{
-          position: 'fixed',
-          bottom: '24px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 9999,
-          width: '92%',
-          maxWidth: '672px',
-          background: 'linear-gradient(to right, #000, #1e003a, #000)',
-          border: '2px solid rgba(168, 85, 247, 0.5)',
-          borderRadius: '24px',
-          padding: '20px 32px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '16px',
-          textDecoration: 'none',
-          boxShadow: '0 0 40px rgba(168, 85, 247, 0.4)',
-        }}
-        className="group"
-      >
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-        </span>
-        <span style={{ color: '#4ade80', fontSize: '12px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Live</span>
-        <span style={{ color: '#fff', fontSize: '18px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Abonneer Nu</span>
-        <svg style={{ width: '20px', height: '20px', color: '#fff' }} fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>
-      </a>
     </div>
   );
 };
