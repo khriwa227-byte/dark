@@ -63,7 +63,7 @@ export const Pricing: React.FC = () => {
     const pricing = getDevicePrice(tier);
     const deviceText = selectedDevices === 1 ? '1 apparaat' : `${selectedDevices} apparaten`;
     const periodText = currentPeriod.months === 12 ? '12+3 maanden (15 maanden totaal!)' : `${currentPeriod.months} maanden`;
-    const message = `Hallo, ik wil graag het ${tier.tier}-pakket van IPTVKopen aanschaffen voor ${periodText} voor ${deviceText} (${pricing.price}).`;
+    const message = `Hallo, ik wil graag het ${tier.tier}-pakket van IPTVNederland aanschaffen voor ${periodText} voor ${deviceText} (${pricing.price}).`;
     return `https://api.whatsapp.com/send/?phone=447449708976&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
   };
 
@@ -74,50 +74,50 @@ export const Pricing: React.FC = () => {
           <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest">
             PRIJZEN
           </div>
-          <h2 className="text-5xl lg:text-7xl font-black tracking-tighter text-white">
+          <h2 className="text-5xl lg:text-7xl font-black tracking-tighter" style={{ color: '#0D1B3E' }}>
             Eén abonnement, <span className="text-italics">eindeloze</span> mogelijkheden
           </h2>
         </div>
 
         {/* Countdown Timer */}
         <div className="max-w-2xl mx-auto mb-12">
-          <div className="glass-card rounded-3xl p-8 text-center shadow-2xl border-2 border-purple-500">
+          <div className="glass-card rounded-3xl p-8 text-center shadow-2xl border-2" style={{ borderColor: '#21468B' }}>
             <div className="flex items-center justify-center gap-2 mb-4">
               <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-              <p className="text-sm font-black uppercase tracking-widest text-white">
+              <p className="text-sm font-black uppercase tracking-widest" style={{ color: '#0D1B3E' }}>
                 Beperkte aanbieding eindigt om middernacht
               </p>
             </div>
             <div className="flex justify-center gap-4 lg:gap-8">
               <div className="flex flex-col items-center">
-                <div className="bg-black backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl">
+                <div className="backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl" style={{ backgroundColor: '#21468B' }}>
                   <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
                     {String(timeLeft.hours).padStart(2, '0')}
                   </span>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-white mt-3">Uren</span>
+                <span className="text-xs font-bold uppercase tracking-widest mt-3" style={{ color: '#0D1B3E' }}>Uren</span>
               </div>
               <div className="flex items-center pb-8">
-                <span className="text-3xl lg:text-4xl font-black text-white">:</span>
+                <span className="text-3xl lg:text-4xl font-black" style={{ color: '#0D1B3E' }}>:</span>
               </div>
               <div className="flex flex-col items-center">
-                <div className="bg-black backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl">
+                <div className="backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl" style={{ backgroundColor: '#21468B' }}>
                   <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
                     {String(timeLeft.minutes).padStart(2, '0')}
                   </span>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-white mt-3">Minuten</span>
+                <span className="text-xs font-bold uppercase tracking-widest mt-3" style={{ color: '#0D1B3E' }}>Minuten</span>
               </div>
               <div className="flex items-center pb-8">
-                <span className="text-3xl lg:text-4xl font-black text-white">:</span>
+                <span className="text-3xl lg:text-4xl font-black" style={{ color: '#0D1B3E' }}>:</span>
               </div>
               <div className="flex flex-col items-center">
-                <div className="bg-black backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl">
+                <div className="backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl" style={{ backgroundColor: '#21468B' }}>
                   <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
                     {String(timeLeft.seconds).padStart(2, '0')}
                   </span>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-white mt-3">Seconden</span>
+                <span className="text-xs font-bold uppercase tracking-widest mt-3" style={{ color: '#0D1B3E' }}>Seconden</span>
               </div>
             </div>
           </div>
@@ -135,20 +135,29 @@ export const Pricing: React.FC = () => {
                   onClick={() => setSelectedPeriod(period.months)}
                   className={`relative px-6 py-4 rounded-2xl font-bold text-sm transition-all duration-300 ${
                     isActive && is12
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-xl shadow-purple-500/40 scale-105 ring-2 ring-purple-400/50'
+                      ? 'text-white shadow-xl scale-105'
                       : isActive
-                      ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/30'
+                      ? 'text-white shadow-lg'
                       : is12
-                      ? 'bg-purple-500/10 text-purple-700 font-black ring-2 ring-purple-500/30 hover:bg-purple-500/20'
-                      : 'text-black/70 hover:text-black hover:bg-white/50'
+                      ? 'font-black'
+                      : 'hover:bg-white/50'
                   }`}
+                  style={
+                    isActive && is12
+                      ? { background: 'linear-gradient(135deg, #AE1C28, #c0392b)', boxShadow: '0 8px 24px rgba(174,28,40,0.35)', outline: '2px solid rgba(174,28,40,0.4)' }
+                      : isActive
+                      ? { backgroundColor: '#21468B', boxShadow: '0 4px 16px rgba(33,70,139,0.3)' }
+                      : is12
+                      ? { backgroundColor: 'rgba(33,70,139,0.08)', color: '#21468B', outline: '2px solid rgba(33,70,139,0.25)' }
+                      : { color: 'rgba(13,27,62,0.7)' }
+                  }
                 >
                   {period.label}
                   {is12 && (
                     <>
                       <span className={`absolute -top-2.5 -right-2 text-[10px] font-black px-2.5 py-1 rounded-full shadow-lg ${
-                        isActive ? 'bg-yellow-400 text-black animate-pulse' : 'bg-gradient-to-r from-purple-600 to-pink-500 text-white'
-                      }`}>
+                        isActive ? 'bg-yellow-400 text-black animate-pulse' : 'text-white'
+                      }`} style={!isActive ? { backgroundColor: '#AE1C28' } : {}}>
                         -50%
                       </span>
                       <span className="block text-[10px] mt-1 font-black uppercase tracking-wider opacity-80">
@@ -169,11 +178,11 @@ export const Pricing: React.FC = () => {
               <button
                 key={devices}
                 onClick={() => setSelectedDevices(devices)}
-                className={`flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-sm transition-all duration-300 ${
-                  selectedDevices === devices
-                    ? 'bg-black text-white shadow-lg'
-                    : 'text-black/70 hover:text-black hover:bg-white/50'
-                }`}
+                className="flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-sm transition-all duration-300"
+                style={selectedDevices === devices
+                  ? { backgroundColor: '#21468B', color: '#ffffff', boxShadow: '0 4px 16px rgba(33,70,139,0.3)' }
+                  : { color: 'rgba(13,27,62,0.7)' }
+                }
               >
                 <DeviceIcon />
                 {devices} {devices === 1 ? 'Apparaat' : 'Apparaten'}
@@ -189,15 +198,16 @@ export const Pricing: React.FC = () => {
             const isPremium = tier.tier === "Premium";
             const is12 = selectedPeriod === 12;
             return (
-              <div key={tier.tier} className={`rounded-[48px] overflow-hidden relative flex flex-col group hover:scale-[1.02] transition-all duration-500 ${
-                is12 && isPremium
-                  ? 'ring-4 ring-yellow-500/60 bg-gradient-to-br from-purple-900 via-black to-pink-900 shadow-[0_0_60px_rgba(168,85,247,0.4)]'
-                  : is12 && !isPremium
-                  ? 'ring-2 ring-blue-400/40 bg-gradient-to-br from-blue-50 to-cyan-50 backdrop-blur-sm shadow-lg'
-                  : isPremium
-                  ? 'ring-4 ring-purple-500/50 bg-gradient-to-br from-gray-900 via-black to-purple-950 shadow-[0_0_40px_rgba(168,85,247,0.3)]'
-                  : 'ring-2 ring-blue-400/30 bg-gradient-to-br from-blue-50 to-cyan-50 backdrop-blur-sm shadow-lg'
-              }`}>
+              <div key={tier.tier} className="rounded-[48px] overflow-hidden relative flex flex-col group hover:scale-[1.02] transition-all duration-500"
+                style={
+                  is12 && isPremium
+                    ? { background: 'linear-gradient(135deg, #0D1B3E, #21468B, #0D1B3E)', boxShadow: '0 0 60px rgba(33,70,139,0.35)', outline: '4px solid rgba(255,215,0,0.5)' }
+                    : is12 && !isPremium
+                    ? { background: 'linear-gradient(135deg, #eef2f9, #f5f8ff)', boxShadow: '0 4px 24px rgba(33,70,139,0.12)', outline: '2px solid rgba(33,70,139,0.25)' }
+                    : isPremium
+                    ? { background: 'linear-gradient(135deg, #0D1B3E, #21468B, #0D1B3E)', boxShadow: '0 0 40px rgba(33,70,139,0.3)', outline: '4px solid rgba(33,70,139,0.4)' }
+                    : { background: 'linear-gradient(135deg, #eef2f9, #f5f8ff)', boxShadow: '0 4px 24px rgba(33,70,139,0.1)', outline: '2px solid rgba(33,70,139,0.2)' }
+                }>
                 {is12 && (
                   <div className="absolute -top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-2 rounded-b-2xl text-sm font-black uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-orange-500/30 z-10">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -205,17 +215,15 @@ export const Pricing: React.FC = () => {
                   </div>
                 )}
                 {isPremium ? (
-                  <div className={`absolute ${is12 ? 'top-14' : 'top-6'} left-8 px-5 py-1.5 rounded-full text-sm font-black uppercase tracking-widest flex items-center gap-2 shadow-lg ${
-                    is12 ? 'bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 text-white shadow-pink-500/40' : 'bg-gradient-to-r from-purple-600 to-purple-400 text-white shadow-purple-500/40'
-                  }`}>
+                  <div className={`absolute ${is12 ? 'top-14' : 'top-6'} left-8 px-5 py-1.5 rounded-full text-sm font-black uppercase tracking-widest flex items-center gap-2 shadow-lg text-white`}
+                    style={{ background: 'linear-gradient(135deg, #AE1C28, #c0392b)', boxShadow: '0 4px 16px rgba(174,28,40,0.35)' }}>
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                     Premium VIP
                     <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
                   </div>
                 ) : (
-                  <div className={`absolute ${is12 ? 'top-14' : 'top-6'} left-8 px-5 py-1.5 rounded-full text-sm font-black uppercase tracking-widest flex items-center gap-2 shadow-lg ${
-                    is12 ? 'bg-purple-600 text-white shadow-purple-500/30' : 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-blue-500/30'
-                  }`}>
+                  <div className={`absolute ${is12 ? 'top-14' : 'top-6'} left-8 px-5 py-1.5 rounded-full text-sm font-black uppercase tracking-widest flex items-center gap-2 shadow-lg text-white`}
+                    style={{ backgroundColor: '#21468B', boxShadow: '0 4px 16px rgba(33,70,139,0.3)' }}>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     Basis
                   </div>
@@ -282,13 +290,12 @@ export const Pricing: React.FC = () => {
                     href={getWhatsAppUrl(tier)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-6 text-xl font-black rounded-3xl transition-all block text-center ${
-                      is12 && isPremium
-                        ? 'bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 text-black hover:from-yellow-500 hover:to-amber-600 shadow-[0_0_30px_rgba(234,179,8,0.5)]'
-                        : isPremium
-                        ? 'bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 text-black hover:from-yellow-500 hover:to-amber-600 shadow-[0_0_25px_rgba(234,179,8,0.4)]'
-                        : 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 shadow-lg shadow-blue-500/30'
-                    } active:scale-95`}
+                    className="w-full py-6 text-xl font-black rounded-3xl transition-all block text-center active:scale-95"
+                    style={
+                      isPremium
+                        ? { background: 'linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24)', color: '#000', boxShadow: '0 0 30px rgba(234,179,8,0.45)' }
+                        : { background: 'linear-gradient(135deg, #21468B, #1a3a7a)', color: '#fff', boxShadow: '0 4px 20px rgba(33,70,139,0.35)' }
+                    }
                   >
                     {isPremium ? 'Word VIP Nu' : is12 ? 'Kies Beste Deal' : 'Abonneer nu'}
                   </a>
@@ -299,8 +306,8 @@ export const Pricing: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center space-y-4">
-            <p className="text-xl font-black text-white">Pauzeer of annuleer op elk moment</p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 text-sm font-bold text-white/60 uppercase tracking-widest">
+            <p className="text-xl font-black" style={{ color: '#0D1B3E' }}>Pauzeer of annuleer op elk moment</p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 text-sm font-bold uppercase tracking-widest" style={{ color: 'rgba(13,27,62,0.5)' }}>
                <span className="flex items-center gap-2">
                  <SmallPauseIcon /> Pauzeer op elk moment
                </span>

@@ -4,11 +4,11 @@ import React from 'react';
 
 const TrustBadge: React.FC<{ icon: React.ReactNode; children: React.ReactNode; delay: string }> = ({ icon, children, delay }) => (
   <div
-    className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 bg-white/15 backdrop-blur-md rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] border border-white/20 hover:bg-white/25 hover:scale-105 hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] transition-all duration-300 animate-[popIn_0.5s_ease-out_both]"
-    style={{ animationDelay: delay }}
+    className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 backdrop-blur-md rounded-full shadow-[0_4px_12px_rgba(33,70,139,0.15)] border hover:scale-105 hover:shadow-[0_8px_24px_rgba(33,70,139,0.2)] transition-all duration-300 animate-[popIn_0.5s_ease-out_both]"
+    style={{ animationDelay: delay, background: 'rgba(33,70,139,0.1)', borderColor: 'rgba(33,70,139,0.25)' }}
   >
-    <span className="text-lg sm:text-xl text-white flex items-center">{icon}</span>
-    <span className="text-xs sm:text-sm font-semibold tracking-wide text-white whitespace-nowrap leading-none">{children}</span>
+    <span className="text-lg sm:text-xl flex items-center" style={{ color: '#21468B' }}>{icon}</span>
+    <span className="text-xs sm:text-sm font-semibold tracking-wide whitespace-nowrap leading-none" style={{ color: '#0D1B3E' }}>{children}</span>
   </div>
 );
 
@@ -21,28 +21,29 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col items-center sm:items-start gap-10 sm:gap-12 w-[88%] sm:w-full mx-auto sm:mx-0">
 
           <div className="flex justify-center sm:justify-start w-full animate-[popIn_0.6s_ease-out_both]">
-            <a href="#pricing" className="inline-flex items-center gap-3 pl-2.5 pr-5 py-2 rounded-full backdrop-blur-md border border-purple-400/25 hover:brightness-125 hover:scale-[1.03] transition-all duration-300 shadow-[0_4px_16px_rgba(168,85,247,0.3)]" style={{ background: 'linear-gradient(135deg, #3b0764, #581c87, #3b0764)' }}>
-              <span className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)' }}>
+            <a href="#pricing" className="inline-flex items-center gap-3 pl-2.5 pr-5 py-2 rounded-full backdrop-blur-md border hover:brightness-110 hover:scale-[1.03] transition-all duration-300 shadow-[0_4px_16px_rgba(33,70,139,0.2)]" style={{ background: 'linear-gradient(135deg, #21468B, #1a3a7a, #21468B)', borderColor: 'rgba(255,255,255,0.2)' }}>
+              <span className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #AE1C28, #c0392b)' }}>
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
               </span>
               <span className="text-base sm:text-lg font-bold text-white">Bestel nu en ontvang</span>
-              <span className="text-base sm:text-lg font-black uppercase tracking-wide text-fuchsia-300 drop-shadow-[0_0_12px_rgba(232,121,249,0.6)]">3 MAANDEN GRATIS</span>
+              <span className="text-base sm:text-lg font-black uppercase tracking-wide text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.5)]">3 MAANDEN GRATIS</span>
             </a>
           </div>
 
-          <h1 className="text-[clamp(3rem,13vw,6rem)] lg:text-8xl font-extrabold leading-[1.1] tracking-tighter text-white drop-shadow-sm text-center sm:text-left w-full">
-            <span className="sm:hidden">Premium IPTV<br />voor <span className="text-italics">iedereen</span></span>
-            <span className="hidden sm:inline">Premium IPTV voor <span className="text-italics">iedereen</span></span>
+          <h1 className="text-[clamp(3rem,13vw,6rem)] lg:text-8xl font-extrabold leading-[1.1] tracking-tighter text-center sm:text-left w-full" style={{ color: '#0D1B3E' }}>
+            <span className="sm:hidden">IPTVNederland<br />Van Nederland,<br /><span className="text-italics">voor Nederland</span></span>
+            <span className="hidden sm:inline">IPTVNederland<br />Van Nederland, <span className="text-italics">voor Nederland</span></span>
           </h1>
 
-          <p className="text-[clamp(1rem,3.5vw,1.25rem)] text-white/80 font-medium leading-relaxed text-center sm:text-left w-full">
-            TV kijken zoals het hoort.<br className="sm:hidden" /> Pauzeer of annuleer op elk moment.
+          <p className="text-[clamp(1rem,3.5vw,1.25rem)] font-medium leading-relaxed text-center sm:text-left w-full" style={{ color: 'rgba(13,27,62,0.7)' }}>
+            Premium IPTV · 65.000+ kanalen uit 70+ landen.<br className="sm:hidden" /> TV kijken zoals het hoort. Pauzeer of annuleer op elk moment.
           </p>
 
           <div className="flex flex-col gap-4 w-full sm:flex-row sm:w-auto sm:justify-start">
             <a
               href="#pricing"
-              className="w-full sm:w-auto px-10 py-5 bg-white text-black text-lg font-black rounded-full hover:scale-[1.02] transition-transform shadow-2xl text-center"
+              className="w-full sm:w-auto px-10 py-5 text-white text-lg font-black rounded-full hover:scale-[1.02] transition-transform shadow-2xl text-center"
+              style={{ backgroundColor: '#21468B' }}
             >
               Bekijk prijzen
             </a>
@@ -69,21 +70,21 @@ export const Hero: React.FC = () => {
         <div className="relative flex justify-center lg:justify-end">
           <div className="hidden lg:block" />
           
-          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-500 rounded-full -z-10 blur-3xl opacity-30"></div>
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-500 rounded-full -z-10 blur-3xl opacity-30"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full -z-10 blur-3xl opacity-20" style={{ backgroundColor: '#AE1C28' }}></div>
+          <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full -z-10 blur-3xl opacity-20" style={{ backgroundColor: '#21468B' }}></div>
         </div>
       </div>
 
-      <div className="mt-24 border-y border-white/10 py-12 backdrop-blur-sm">
+      <div className="mt-24 py-12" style={{ backgroundColor: '#0D1B3E' }}>
         <div className="marquee-container">
-          <div className="marquee-content brightness-125">
+          <div className="marquee-content">
             {['Eredivisie', 'Champions League', 'Formule 1', 'NPO', 'RTL', 'SBS', 'Netflix content'].map((brand, i) => (
-              <span key={i} className="text-3xl font-black text-white/80 hover:text-white transition-colors uppercase tracking-widest px-8 cursor-default">{brand}</span>
+              <span key={i} className="text-3xl font-black uppercase tracking-widest px-8 cursor-default" style={{ color: 'rgba(255,255,255,0.85)' }}>{brand}</span>
             ))}
           </div>
-          <div className="marquee-content brightness-125">
+          <div className="marquee-content">
             {['Eredivisie', 'Champions League', 'Formule 1', 'NPO', 'RTL', 'SBS', 'Netflix content'].map((brand, i) => (
-              <span key={i} className="text-3xl font-black text-white/80 hover:text-white transition-colors uppercase tracking-widest px-8 cursor-default">{brand}</span>
+              <span key={i} className="text-3xl font-black uppercase tracking-widest px-8 cursor-default" style={{ color: 'rgba(255,255,255,0.85)' }}>{brand}</span>
             ))}
           </div>
         </div>

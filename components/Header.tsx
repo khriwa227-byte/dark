@@ -28,10 +28,10 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) 
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center">
           <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
-            <div className="w-8 h-8 bg-black rounded-sm flex items-center justify-center">
+            <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#21468B' }}>
               <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
-            <span className="text-xl font-extrabold tracking-tighter">IPTVKopen</span>
+            <span className="text-xl font-extrabold tracking-tighter" style={{ color: '#0D1B3E' }}>IPTVNederland</span>
           </a>
           
           {/* Desktop Navigation */}
@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) 
               <a key={link.name} href={link.href} className="hover:opacity-60 transition-opacity">{link.name}</a>
             ))}
             <div className="flex items-center gap-4 ml-4">
-              <a href="#pricing" className="px-6 py-2.5 rounded-full bg-black text-white hover:opacity-80 transition-all block text-center">Bekijk prijzen</a>
+              <a href="#pricing" className="px-6 py-2.5 rounded-full text-white hover:opacity-80 transition-all block text-center" style={{ backgroundColor: '#21468B' }}>Bekijk prijzen</a>
             </div>
           </div>
           
@@ -83,7 +83,8 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) 
             <a 
               href="#pricing"
               onClick={closeMenu}
-              className="w-full py-5 rounded-3xl bg-black text-white text-xl font-bold hover:opacity-80 transition-all shadow-lg block text-center"
+              className="w-full py-5 rounded-3xl text-white text-xl font-bold hover:opacity-80 transition-all shadow-lg block text-center"
+              style={{ backgroundColor: '#21468B' }}
             >
               Bekijk prijzen
             </a>

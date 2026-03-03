@@ -2420,11 +2420,11 @@ export const Channels: React.FC = () => {
         </a>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-black tracking-tighter text-white mb-4">
+          <h1 className="text-4xl lg:text-6xl font-black tracking-tighter mb-4" style={{ color: '#0D1B3E' }}>
             Kanalen Lijst
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Bekijk ons uitgebreide aanbod van <span className="font-bold text-white">65.000+</span> kanalen uit meer dan 70 landen.
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(13,27,62,0.7)' }}>
+            Bekijk ons uitgebreide aanbod van <span className="font-bold" style={{ color: '#0D1B3E' }}>65.000+</span> kanalen uit meer dan 70 landen.
             Hieronder vind je een selectie van onze populairste kanalen.
           </p>
         </div>
@@ -2589,7 +2589,7 @@ export const Channels: React.FC = () => {
             Klaar om te beginnen?
           </h3>
           <p className="text-white/70 mb-6 max-w-xl mx-auto">
-            Krijg toegang tot al deze kanalen en meer. Start vandaag nog met IPTVKopen.
+            Krijg toegang tot al deze kanalen en meer. Start vandaag nog met IPTVNederland.
           </p>
           <a
             href="#pricing"

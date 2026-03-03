@@ -6,13 +6,18 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`border-b border-white/10 py-8 px-6 transition-all duration-300 rounded-3xl ${isOpen ? 'glass-card mb-4 mt-4 shadow-xl' : ''}`}>
-      <button 
+    <div className={`py-8 px-6 transition-all duration-300 rounded-3xl ${isOpen ? 'glass-card mb-4 mt-4 shadow-xl' : ''}`}
+      style={{ borderBottom: isOpen ? 'none' : '1px solid rgba(33,70,139,0.15)' }}>
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center text-left"
       >
-        <span className={`text-2xl font-black tracking-tight pr-8 transition-colors ${isOpen ? 'text-black' : 'text-white'}`}>{question}</span>
-        <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 flex-shrink-0 ${isOpen ? 'bg-black border-black text-white rotate-180' : 'bg-transparent border-white text-white'}`}>
+        <span className="text-2xl font-black tracking-tight pr-8 transition-colors" style={{ color: '#0D1B3E' }}>{question}</span>
+        <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+          style={isOpen
+            ? { backgroundColor: '#21468B', borderColor: '#21468B', color: '#fff' }
+            : { backgroundColor: 'transparent', borderColor: 'rgba(33,70,139,0.4)', color: '#21468B' }
+          }>
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7"></path></svg>
         </div>
       </button>
@@ -28,8 +33,8 @@ export const FAQ: React.FC = () => {
     <section id="faq" className="py-32 px-6">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
         <div className="text-center lg:text-left">
-          <h2 className="text-5xl lg:text-6xl font-black tracking-tighter lg:sticky top-40 text-white leading-tight">
-            Veelgestelde <br/><span className="text-italics underline decoration-pink-500 decoration-4 underline-offset-8">vragen</span>
+          <h2 className="text-5xl lg:text-6xl font-black tracking-tighter lg:sticky top-40 leading-tight" style={{ color: '#0D1B3E' }}>
+            Veelgestelde <br/><span className="text-italics underline decoration-4 underline-offset-8" style={{ textDecorationColor: '#AE1C28' }}>vragen</span>
           </h2>
         </div>
         <div className="space-y-2">

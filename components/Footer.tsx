@@ -5,15 +5,15 @@ export const Footer: React.FC = () => {
   const whatsappLink = "https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0";
 
   return (
-    <footer className="bg-black text-white py-32 px-6">
+    <footer className="py-32 px-6 text-white" style={{ backgroundColor: '#0D1B3E' }}>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-end">
           <div className="space-y-12 text-center lg:text-left">
             <h2 className="text-4xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
-              Ontdek of IPTVKopen perfect voor jou is <span className="text-italics">(dat is het zeker)</span>
+              Ontdek of IPTVNederland perfect voor jou is <span className="text-italics">(dat is het zeker)</span>
             </h2>
             <p className="text-xl text-white/60 max-w-md mx-auto lg:mx-0">
-              Plan een onmiddellijk WhatsApp gesprek over IPTVKopen en ontdek alle mogelijkheden.
+              Plan een onmiddellijk WhatsApp gesprek over IPTVNederland en ontdek alle mogelijkheden.
             </p>
             <div className="space-y-4">
               <div className="text-sm font-bold uppercase tracking-widest text-white/40">Gevestigd in</div>
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-8">
               <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100">
                 <p className="text-sm font-medium leading-relaxed">
-                  IPTVKopen helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+447449708976" className="text-pink-600 font-bold hover:underline">+44 7449708976</a> of mail <a href="mailto:info@iptvkopen.digital" className="text-pink-600 font-bold hover:underline">info@iptvkopen.digital</a>.
+                  IPTVNederland helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+447449708976" className="font-bold hover:underline" style={{ color: '#AE1C28' }}>+44 7449708976</a> of mail <a href="mailto:info@iptvnederland.digital" className="font-bold hover:underline" style={{ color: '#AE1C28' }}>info@iptvnederland.digital</a>.
                 </p>
               </div>
               
@@ -33,7 +33,8 @@ export const Footer: React.FC = () => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-8 bg-black text-white rounded-[32px] font-black text-2xl hover:scale-[1.02] transition-transform block text-center"
+                className="w-full py-8 text-white rounded-[32px] font-black text-2xl hover:scale-[1.02] transition-transform block text-center"
+              style={{ backgroundColor: '#21468B' }}
               >
                 WhatsApp Ons Nu
               </a>
@@ -43,21 +44,21 @@ export const Footer: React.FC = () => {
 
         <div className="mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
-              <div className="w-4 h-4 bg-black rotate-45"></div>
+            <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#AE1C28' }}>
+              <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
-            <span className="text-xl font-extrabold tracking-tighter">IPTVKopen</span>
+            <span className="text-xl font-extrabold tracking-tighter">IPTVNederland</span>
           </div>
           
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-8 text-sm font-bold opacity-60">
             <a href="#/algemene-voorwaarden" className="hover:opacity-100 transition-opacity">Algemene voorwaarden</a>
             <a href="#/privacybeleid" className="hover:opacity-100 transition-opacity">Privacybeleid</a>
-            <a href="mailto:info@iptvkopen.digital" className="hover:opacity-100 transition-opacity">info@iptvkopen.digital</a>
+            <a href="mailto:info@iptvnederland.digital" className="hover:opacity-100 transition-opacity">info@iptvnederland.digital</a>
             <a href="tel:+447449708976" className="hover:opacity-100 transition-opacity">+44 7449708976</a>
           </div>
           
           <div className="text-sm opacity-40">
-            © 2026 IPTVKopen. Alle rechten voorbehouden.
+            © 2026 IPTVNederland. Alle rechten voorbehouden.
           </div>
         </div>
       </div>

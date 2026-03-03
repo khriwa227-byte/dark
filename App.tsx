@@ -13,28 +13,24 @@ import { AlgemeneVoorwaarden } from './components/AlgemeneVoorwaarden';
 import { Privacybeleid } from './components/Privacybeleid';
 import { Channels } from './components/Channels';
 import { ResellerPacks } from './components/ResellerPacks';
+import { SeoContent } from './components/SeoContent';
 
 const BANNER_HEIGHT = 48;
 
 const AnnouncementBanner: React.FC<{ onDismiss: () => void }> = ({ onDismiss }) => (
   <div
-    className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-center gap-3 sm:gap-4 px-12 backdrop-blur-md border-b border-white/10"
-    style={{
-      height: `${BANNER_HEIGHT}px`,
-      background: 'linear-gradient(135deg, #3b0764, #581c87, #3b0764)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
-    }}
+    className="banner-wrap banner-bg fixed top-0 left-0 right-0 z-[100] flex items-center justify-center gap-3 sm:gap-4 px-12 border-b border-white/10"
+    style={{ height: `${BANNER_HEIGHT}px` }}
   >
-    <span className="hidden sm:inline text-xs font-extrabold uppercase tracking-widest text-white/90">Tijdelijke Actie</span>
-    <span className="px-3 py-1 rounded-full text-xs sm:text-sm font-black uppercase tracking-wide"
-      style={{ background: 'rgba(0,0,0,0.6)', color: '#e879f9' }}>
-      3 MAANDEN GRATIS
+    <span className="banner-text hidden sm:inline text-xs font-extrabold uppercase tracking-widest text-white">⚡ Tijdelijke Actie</span>
+    <span className="banner-badge px-3 py-1 rounded-full text-xs sm:text-sm font-black uppercase tracking-wide"
+      style={{ background: '#AE1C28', color: '#ffffff' }}>
+      🎁 3 MAANDEN GRATIS
     </span>
-    <span className="text-xs sm:text-sm text-white/70 font-medium">bij elk abonnement</span>
+    <span className="text-xs sm:text-sm text-white font-medium">bij elk abonnement</span>
     <a
       href="#pricing"
-      className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white border border-white/20 hover:bg-white/10 transition-colors"
+      className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white border border-white/30 hover:bg-white/10 transition-colors"
     >
       Bekijk aanbod
       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
@@ -154,6 +150,9 @@ const App: React.FC = () => {
           </section>
           <section className="reveal">
             <FAQ />
+          </section>
+          <section className="reveal">
+            <SeoContent />
           </section>
         </main>
       )}

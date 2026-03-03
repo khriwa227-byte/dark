@@ -55,7 +55,7 @@ const DevicesIcon = () => (
 
 const BenefitCard: React.FC<{ title: string; desc: string; icon: React.ReactNode; className?: string }> = ({ title, desc, icon, className }) => (
   <div className={`p-8 rounded-[40px] glass-card hover:bg-white transition-all duration-500 group cursor-default ${className}`}>
-    <div className="w-16 h-16 bg-black rounded-2xl mb-8 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform shadow-xl group-hover:shadow-pink-500/20">
+    <div className="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform shadow-xl" style={{ backgroundColor: '#21468B' }}>
       {icon}
     </div>
     <h3 className="text-2xl font-black mb-4 tracking-tighter">{title}</h3>
@@ -71,11 +71,11 @@ export const Benefits: React.FC = () => {
           <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest">
             Lidmaatschap voordelen
           </div>
-          <h2 className="text-5xl lg:text-7xl font-black tracking-tighter text-white">
-            Het is <span className="text-italics underline decoration-white/20 decoration-2 underline-offset-[12px]">"je gaat nooit meer terug"</span> beter
+          <h2 className="text-5xl lg:text-7xl font-black tracking-tighter" style={{ color: '#0D1B3E' }}>
+            Het is <span className="text-italics underline decoration-2 underline-offset-[12px]" style={{ textDecorationColor: 'rgba(174,28,40,0.4)' }}>"je gaat nooit meer terug"</span> beter
           </h2>
-          <p className="text-xl text-white/80 font-medium">
-            IPTVKopen vervangt dure Ziggo-pakketten en meerdere streamingdiensten voor één vaste prijs.
+          <p className="text-xl font-medium" style={{ color: 'rgba(13,27,62,0.7)' }}>
+            IPTVNederland vervangt dure Ziggo-pakketten en meerdere streamingdiensten voor één vaste prijs.
           </p>
         </div>
 
