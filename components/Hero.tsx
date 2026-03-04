@@ -281,7 +281,7 @@ export const Hero: React.FC = () => {
           {/* Promo pill */}
           <div className="flex justify-center sm:justify-start w-full animate-[popIn_0.6s_ease-out_both]">
             <a
-              href="/prijzen"
+              href="#pricing"
               className="inline-flex items-center gap-3 pl-2.5 pr-5 py-2 rounded-full backdrop-blur-md border hover:brightness-110 hover:scale-[1.03] transition-all duration-300 shadow-[0_4px_16px_rgba(33,70,139,0.2)]"
               style={{ background: 'linear-gradient(135deg, #21468B, #1a3a7a, #21468B)', borderColor: 'rgba(255,255,255,0.2)' }}
             >
@@ -340,7 +340,7 @@ export const Hero: React.FC = () => {
           {/* CTAs */}
           <div className="flex flex-col gap-4 w-full sm:flex-row sm:w-auto sm:justify-start">
             <a
-              href="/prijzen"
+              href="#pricing"
               className="w-full sm:w-auto px-10 py-4 text-white text-base font-black rounded-full hover:scale-[1.02] hover:brightness-110 transition-all shadow-[0_8px_32px_rgba(33,70,139,0.35)] text-center"
               style={{ background: 'linear-gradient(135deg, #21468B, #1a3a7a)' }}
             >
