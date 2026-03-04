@@ -16,6 +16,7 @@ import { Channels } from './components/Channels';
 import { ResellerPacks } from './components/ResellerPacks';
 import { SeoContent } from './components/SeoContent';
 import { SportEvents } from './components/SportEvents';
+import { SportCalendar } from './components/SportCalendar';
 
 const BANNER_HEIGHT = 48;
 
@@ -81,7 +82,7 @@ const Layout: React.FC<{ children: React.ReactNode; bannerVisible: boolean; onDi
       <div className="grid-line grid-line-left" />
       <div className="grid-line grid-line-right" />
       {bannerVisible && <AnnouncementBanner onDismiss={onDismiss} />}
-      <Header isScrolled={scrollY > 50} bannerOffset={bannerVisible ? BANNER_HEIGHT : 0} />
+      <Header isScrolled={scrollY > 50} bannerOffset={bannerVisible ? BANNER_HEIGHT : 0} lightText={location.pathname === '/sportklaender'} />
       {children}
       <Footer />
     </div>
@@ -112,6 +113,7 @@ const ResellerPage: React.FC = () => <main><ResellerPacks /></main>;
 const FAQPage: React.FC = () => <main className="pt-28"><FAQ /></main>;
 const AlgemeneVoorwaardenPage: React.FC = () => <main><AlgemeneVoorwaarden /></main>;
 const PrivacybeleidPage: React.FC = () => <main><Privacybeleid /></main>;
+const SportklaenderPage: React.FC = () => <main><SportCalendar /></main>;
 
 /* ─── app ────────────────────────────────────────────────────────────────────── */
 
@@ -129,6 +131,7 @@ const AppInner: React.FC = () => {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/algemene-voorwaarden" element={<AlgemeneVoorwaardenPage />} />
         <Route path="/privacybeleid" element={<PrivacybeleidPage />} />
+        <Route path="/sportklaender" element={<SportklaenderPage />} />
       </Routes>
     </Layout>
   );

@@ -15,13 +15,10 @@ export default defineConfig(({ mode }) => {
           name: 'spa-html-rewrites',
           configureServer(server) {
             server.middlewares.use((req, _res, next) => {
-              if (req.url === '/sportklaender' || req.url === '/sportklaender/') {
-                req.url = '/sportklaender.html';
-              } else if (
+              if (
                 req.url &&
                 !req.url.startsWith('/@') &&
                 !req.url.startsWith('/node_modules') &&
-                !req.url.startsWith('/sportklaender') &&
                 !req.url.includes('.') &&
                 req.url !== '/'
               ) {

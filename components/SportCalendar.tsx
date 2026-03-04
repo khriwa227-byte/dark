@@ -339,7 +339,7 @@ export const SportCalendar: React.FC = () => {
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
 
       {/* ── hero banner ── */}
-      <div className="relative overflow-hidden pt-24 pb-12" style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 60%, #0D1B3E 100%)' }}>
+      <div className="relative overflow-hidden pt-36 pb-12" style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 60%, #0D1B3E 100%)' }}>
         {/* scanlines */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 4px)' }} />
         {/* glow orbs */}
@@ -347,11 +347,6 @@ export const SportCalendar: React.FC = () => {
         <div className="absolute -bottom-10 -left-20 w-60 h-60 rounded-full opacity-10 blur-3xl" style={{ background: '#21468B' }} />
 
         <div className="relative max-w-5xl mx-auto px-6 lg:px-20">
-          <a href="/" className="inline-flex items-center gap-1.5 text-sm font-semibold mb-6 hover:opacity-70 transition-opacity" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
-            Terug naar home
-          </a>
-
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               {/* live badge */}

@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
 
   const navLinks = [
     { name: 'Kanalen', href: '/kanalen' },
-    { name: 'Sport', href: '/sportklaender', external: true },
+    { name: 'Sport', href: '/sportklaender' },
     { name: 'Voordelen', href: '/voordelen' },
     { name: 'Prijzen', href: '/prijzen' },
     { name: 'Reseller', href: '/reseller' },
@@ -74,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-white transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} md:hidden px-6`}
+        className={`fixed inset-0 z-[49] bg-white transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} md:hidden px-6`}
         style={{ paddingTop: `${bannerOffset + 96}px` }}
       >
         <div className="flex flex-col gap-8 text-center">
