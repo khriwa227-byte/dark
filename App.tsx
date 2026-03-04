@@ -66,6 +66,15 @@ const App: React.FC = () => {
       } else if (hash === '#/reseller') {
         setCurrentPage('reseller');
         window.scrollTo(0, 0);
+      } else if (hash === '#/voordelen') {
+        setCurrentPage('voordelen');
+        window.scrollTo(0, 0);
+      } else if (hash === '#/prijzen') {
+        setCurrentPage('prijzen');
+        window.scrollTo(0, 0);
+      } else if (hash === '#/faq') {
+        setCurrentPage('faq');
+        window.scrollTo(0, 0);
       } else {
         setCurrentPage('home');
       }
@@ -125,6 +134,18 @@ const App: React.FC = () => {
       ) : currentPage === 'reseller' ? (
         <main>
           <ResellerPacks />
+        </main>
+      ) : currentPage === 'voordelen' ? (
+        <main className="pt-28">
+          <Benefits />
+        </main>
+      ) : currentPage === 'prijzen' ? (
+        <main className="pt-28">
+          <Pricing />
+        </main>
+      ) : currentPage === 'faq' ? (
+        <main className="pt-28">
+          <FAQ />
         </main>
       ) : (
         <main>

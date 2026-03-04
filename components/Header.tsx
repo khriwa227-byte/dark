@@ -17,10 +17,10 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
   const navLinks = [
     { name: 'Kanalen', href: '#/kanalen' },
     { name: 'Sport', href: '/sportklaender' },
-    { name: 'Voordelen', href: '#benefits' },
-    { name: 'Prijzen', href: '#pricing' },
+    { name: 'Voordelen', href: '#/voordelen' },
+    { name: 'Prijzen', href: '#/prijzen' },
     { name: 'Reseller', href: '#/reseller' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'FAQ', href: '#/faq' },
   ];
 
   return (
@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
               <a key={link.name} href={link.href} className="hover:opacity-60 transition-opacity" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>{link.name}</a>
             ))}
             <div className="flex items-center gap-4 ml-4">
-              <a href="#pricing" className="px-6 py-2.5 rounded-full text-white hover:opacity-80 transition-all block text-center" style={{ backgroundColor: '#21468B' }}>Bekijk prijzen</a>
+              <a href="#/prijzen" className="px-6 py-2.5 rounded-full text-white hover:opacity-80 transition-all block text-center" style={{ backgroundColor: '#21468B' }}>Bekijk prijzen</a>
             </div>
           </div>
           
@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
           ))}
           <div className="flex flex-col gap-4 pt-8">
             <a 
-              href="#pricing"
+              href="#/prijzen"
               onClick={closeMenu}
               className="w-full py-5 rounded-3xl text-white text-xl font-bold hover:opacity-80 transition-all shadow-lg block text-center"
               style={{ backgroundColor: '#21468B' }}
