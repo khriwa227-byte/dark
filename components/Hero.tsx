@@ -294,12 +294,24 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Heading */}
+          {/* Mobile heading — fixed 3 lines */}
           <h1
-            className="font-extrabold leading-[1.03] tracking-tighter text-center sm:text-left w-full"
+            className="sm:hidden font-extrabold leading-[1.08] tracking-tighter text-center w-full whitespace-nowrap"
+            style={{ color: '#0D1B3E', fontSize: 'min(11vw, 2.8rem)' }}
+          >
+            IPTVNederland<br />
+            Van Nederland,<br />
+            <span className="text-italics">voor Nederland</span>
+          </h1>
+
+          {/* Desktop heading */}
+          <h1
+            className="hidden sm:block font-extrabold leading-[1.03] tracking-tighter sm:text-left w-full"
             style={{ color: '#0D1B3E', fontSize: 'clamp(3.5rem, 6vw, 6.5rem)' }}
           >
-            <span className="sm:hidden">IPTVNederland<br />Van Nederland,<br /><span className="text-italics">voor Nederland</span></span>
-            <span className="hidden sm:inline">IPTVNederland<br />Van Nederland,<br /><span className="text-italics">voor Nederland</span></span>
+            IPTVNederland<br />
+            Van Nederland,<br />
+            <span className="text-italics">voor Nederland</span>
           </h1>
 
           {/* Sub-copy */}
