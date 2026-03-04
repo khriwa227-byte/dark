@@ -3,8 +3,6 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
-    { "source": "/sportklaender", "destination": "/sportklaender.html" },
-    { "source": "/sportklaender/", "destination": "/sportklaender.html" },
-    { "source": "/((?!sportklaender).*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

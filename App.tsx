@@ -82,7 +82,7 @@ const Layout: React.FC<{ children: React.ReactNode; bannerVisible: boolean; onDi
       <div className="grid-line grid-line-left" />
       <div className="grid-line grid-line-right" />
       {bannerVisible && <AnnouncementBanner onDismiss={onDismiss} />}
-      <Header isScrolled={scrollY > 50} bannerOffset={bannerVisible ? BANNER_HEIGHT : 0} lightText={location.pathname === '/sportklaender'} />
+      <Header isScrolled={scrollY > 50} bannerOffset={bannerVisible ? BANNER_HEIGHT : 0} lightText={location.pathname === '/sportklaender' || location.pathname === '/kanalen'} />
       {children}
       <Footer />
     </div>
@@ -106,7 +106,7 @@ const HomePage: React.FC = () => (
   </main>
 );
 
-const KanalenPage: React.FC = () => <main><Channels /></main>;
+const KanalenPage: React.FC = () => <main style={{ backgroundColor: '#F5F5F5' }}><Channels /></main>;
 const VoordelenPage: React.FC = () => <main className="pt-28"><Benefits /></main>;
 const PrijzenPage: React.FC = () => <main className="pt-28"><Pricing /></main>;
 const ResellerPage: React.FC = () => <main><ResellerPacks /></main>;

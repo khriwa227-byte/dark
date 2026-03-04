@@ -2407,33 +2407,49 @@ export const Channels: React.FC = () => {
   const totalChannels = CHANNEL_CATEGORIES.reduce((sum, cat) => sum + cat.channels.length, 0);
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 text-sm font-bold text-white/60 hover:text-white transition-colors mb-12"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          Terug naar home
-        </a>
+    <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
 
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-black tracking-tighter mb-4" style={{ color: '#0D1B3E' }}>
-            Kanalen Lijst
-          </h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(13,27,62,0.7)' }}>
-            Bekijk ons uitgebreide aanbod van <span className="font-bold" style={{ color: '#0D1B3E' }}>65.000+</span> kanalen uit meer dan 70 landen.
-            Hieronder vind je een selectie van onze populairste kanalen.
-          </p>
+      {/* ── Hero banner ── */}
+      <div className="relative overflow-hidden pt-36 pb-12" style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 60%, #0D1B3E 100%)' }}>
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 4px)' }} />
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10 blur-3xl" style={{ background: '#AE1C28' }} />
+        <div className="absolute -bottom-10 -left-20 w-60 h-60 rounded-full opacity-10 blur-3xl" style={{ background: '#21468B' }} />
+
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-20">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tighter text-white leading-tight">
+                Kanalen Overzicht
+              </h1>
+              <p className="mt-2 text-sm font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <span className="font-bold text-white">65.000+</span> kanalen · <span className="font-bold text-white">70+</span> landen · 4K Ultra HD
+              </p>
+            </div>
+
+            {/* Stats row */}
+            <div className="flex gap-4 shrink-0">
+              {[
+                { value: '65.000+', label: 'Kanalen' },
+                { value: '70+', label: 'Landen' },
+                { value: '99.9%', label: 'Uptime' },
+              ].map(s => (
+                <div key={s.label} className="text-center">
+                  <div className="text-xl font-black text-white">{s.value}</div>
+                  <div className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+      </div>
 
-        {/* Search & Filter */}
-        <div className="glass-card rounded-2xl p-6 mb-8">
-          <div className="flex flex-col md:flex-row gap-4">
+      {/* ── Search & Filters ── */}
+      <div className="sticky top-0 z-40 border-b" style={{ background: 'rgba(245,245,245,0.95)', backdropFilter: 'blur(12px)', borderColor: 'rgba(33,70,139,0.1)' }}>
+        <div className="max-w-6xl mx-auto px-6 lg:px-20 py-3 flex flex-col gap-3">
+          {/* Search + select row */}
+          <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 relative">
-              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'rgba(33,70,139,0.4)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
@@ -2441,13 +2457,15 @@ export const Channels: React.FC = () => {
                 placeholder="Zoek kanalen..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
+                className="w-full pl-11 pr-4 py-2.5 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 transition-all"
+                style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(33,70,139,0.15)', color: '#0D1B3E' }}
               />
             </div>
             <select
               value={selectedCategory || ''}
               onChange={(e) => setSelectedCategory(e.target.value || null)}
-              className="px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all cursor-pointer min-w-[200px]"
+              className="px-4 py-2.5 rounded-xl text-sm font-semibold focus:outline-none cursor-pointer"
+              style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(33,70,139,0.15)', color: '#0D1B3E', minWidth: '200px' }}
             >
               <option value="">Alle categorieën ({CHANNEL_CATEGORIES.length})</option>
               <optgroup label="📺 Categorieën">
@@ -2485,127 +2503,109 @@ export const Channels: React.FC = () => {
               </optgroup>
             </select>
           </div>
-          <div className="mt-4">
-            <p className="text-xs text-gray-500 mb-2 font-medium">Snelle filters:</p>
-            <div className="flex flex-wrap gap-2">
-              {/* Ordered quick filters */}
-              {["Nederland", "België", "Frankrijk", "Duitsland", "Kinderen", "Spanje", "Denemarken", "Verenigd Koninkrijk", "Verenigde Staten", "Italië", "Portugal", "Turkije", "Sport", "Films & Series", "Nieuws"].map(name => {
-                const cat = CHANNEL_CATEGORIES.find(c => c.name === name);
-                if (!cat) return null;
-                return (
-                  <button
-                    key={cat.name}
-                    onClick={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
-                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                      selectedCategory === cat.name
-                        ? 'bg-black text-white'
-                        : 'bg-white/50 text-gray-700 hover:bg-white/80'
-                    }`}
-                  >
-                    {cat.icon} {cat.name}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <div className="glass-card rounded-xl p-4 text-center">
-            <div className="text-3xl font-black text-black">65.000+</div>
-            <div className="text-sm text-gray-600 font-medium">Kanalen</div>
-          </div>
-          <div className="glass-card rounded-xl p-4 text-center">
-            <div className="text-3xl font-black text-black">70+</div>
-            <div className="text-sm text-gray-600 font-medium">Landen</div>
-          </div>
-          <div className="glass-card rounded-xl p-4 text-center">
-            <div className="text-3xl font-black text-black">4K</div>
-            <div className="text-sm text-gray-600 font-medium">Ultra HD</div>
-          </div>
-          <div className="glass-card rounded-xl p-4 text-center">
-            <div className="text-3xl font-black text-black">99.9%</div>
-            <div className="text-sm text-gray-600 font-medium">Uptime</div>
-          </div>
-        </div>
-
-        {/* Channel Categories */}
-        <div className="space-y-4">
-          {filteredCategories.map(category => {
-            const channelsToShow = getFilteredChannels(category.channels);
-            if (channelsToShow.length === 0) return null;
-            const isExpanded = expandedCategories.has(category.name);
-
-            return (
-              <div key={category.name} className="glass-card rounded-2xl overflow-hidden">
+          {/* Quick filter pills */}
+          <div className="flex items-center gap-2 flex-wrap">
+            {["Nederland", "België", "Frankrijk", "Duitsland", "Kinderen", "Spanje", "Denemarken", "Verenigd Koninkrijk", "Verenigde Staten", "Italië", "Portugal", "Turkije", "Sport", "Films & Series", "Nieuws"].map(name => {
+              const cat = CHANNEL_CATEGORIES.find(c => c.name === name);
+              if (!cat) return null;
+              const active = selectedCategory === cat.name;
+              return (
                 <button
-                  onClick={() => toggleCategory(category.name)}
-                  className="w-full p-4 lg:p-6 flex items-center gap-2 sm:gap-3 hover:bg-white/20 transition-colors text-left"
+                  key={cat.name}
+                  onClick={() => setSelectedCategory(active ? null : cat.name)}
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 hover:scale-[1.03]"
+                  style={active
+                    ? { background: '#21468B', color: 'white', boxShadow: '0 4px 16px rgba(33,70,139,0.3)' }
+                    : { background: 'rgba(33,70,139,0.08)', color: '#21468B' }}
                 >
-                  <span className="text-2xl sm:text-3xl flex-shrink-0">{category.icon}</span>
-                  <h2 className="text-base sm:text-xl lg:text-2xl font-extrabold text-black tracking-tight truncate">
-                    {category.name}
-                  </h2>
-                  <span className="ml-auto flex items-center gap-1 sm:gap-3 flex-shrink-0">
-                    <span className="bg-black text-white text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">
-                      {channelsToShow.length}
-                      <span className="hidden sm:inline"> kanalen</span>
-                    </span>
-                    <svg
-                      className={`w-5 h-5 sm:w-6 sm:h-6 text-gray-600 transition-transform duration-300 flex-shrink-0 ${isExpanded ? 'rotate-180' : ''}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
+                  {cat.icon} {cat.name}
                 </button>
+              );
+            })}
+            <span className="ml-auto text-xs font-semibold" style={{ color: 'rgba(13,27,62,0.4)' }}>
+              {filteredCategories.reduce((s, c) => s + getFilteredChannels(c.channels).length, 0)} kanalen
+            </span>
+          </div>
+        </div>
+      </div>
 
-                <div className={`transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[10000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                  <div className="px-5 lg:px-6 pb-5 lg:pb-6 pt-2">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                      {channelsToShow.map((channel, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-2 px-3 py-2 bg-white/50 rounded-lg hover:bg-white/80 transition-colors"
-                        >
-                          <div className="w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></div>
-                          <span className="text-sm font-medium text-gray-800 truncate">{channel}</span>
-                        </div>
-                      ))}
-                    </div>
+      {/* ── Channel Categories ── */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-20 py-10 space-y-3">
+        {filteredCategories.map(category => {
+          const channelsToShow = getFilteredChannels(category.channels);
+          if (channelsToShow.length === 0) return null;
+          const isExpanded = expandedCategories.has(category.name);
+
+          return (
+            <div
+              key={category.name}
+              className="rounded-2xl overflow-hidden"
+              style={{ background: 'rgba(255,255,255,0.92)', border: '1px solid rgba(33,70,139,0.1)', backdropFilter: 'blur(12px)' }}
+            >
+              <button
+                onClick={() => toggleCategory(category.name)}
+                className="w-full px-5 lg:px-6 py-4 flex items-center gap-3 text-left transition-colors hover:bg-blue-50/30"
+              >
+                <span className="text-2xl shrink-0">{category.icon}</span>
+                <h2 className="text-base sm:text-lg font-extrabold tracking-tight truncate" style={{ color: '#0D1B3E' }}>
+                  {category.name}
+                </h2>
+                <span className="ml-auto flex items-center gap-2 shrink-0">
+                  <span className="text-xs font-black px-2.5 py-1 rounded-full text-white" style={{ background: '#21468B' }}>
+                    {channelsToShow.length}<span className="hidden sm:inline"> kanalen</span>
+                  </span>
+                  <svg
+                    className={`w-5 h-5 transition-transform duration-300 shrink-0`}
+                    style={{ color: 'rgba(33,70,139,0.5)', transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+
+              <div className={`transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[10000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                <div className="px-5 lg:px-6 pb-5 pt-1" style={{ borderTop: '1px solid rgba(33,70,139,0.08)' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-4">
+                    {channelsToShow.map((channel, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
+                        style={{ background: 'rgba(33,70,139,0.04)', border: '1px solid rgba(33,70,139,0.07)' }}
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#AE1C28' }} />
+                        <span className="text-xs font-semibold truncate" style={{ color: '#0D1B3E' }}>{channel}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
+      </div>
 
-        {/* CTA */}
-        <div className="mt-16 glass-card-dark rounded-2xl p-8 lg:p-12 text-center">
-          <h3 className="text-2xl lg:text-3xl font-extrabold text-white mb-4">
-            Klaar om te beginnen?
-          </h3>
-          <p className="text-white/70 mb-6 max-w-xl mx-auto">
-            Krijg toegang tot al deze kanalen en meer. Start vandaag nog met IPTVNederland.
-          </p>
+      {/* ── CTA ── */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-20 pb-16">
+        <div
+          className="rounded-3xl p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative"
+          style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 100%)' }}
+        >
+          <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-10 blur-2xl" style={{ background: '#AE1C28' }} />
+          <div className="text-center sm:text-left">
+            <p className="text-white font-extrabold text-xl tracking-tight">Klaar om te beginnen?</p>
+            <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              Alle kanalen inbegrepen bij elk abonnement — direct actief
+            </p>
+          </div>
           <a
             href="/prijzen"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.hash = '';
-              setTimeout(() => {
-                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-              }, 100);
-            }}
-            className="inline-flex items-center gap-2 bg-white text-black font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors"
+            className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(174,28,40,0.4)]"
+            style={{ background: 'linear-gradient(135deg, #AE1C28, #c0392b)' }}
           >
-            Bekijk Pakketten
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            Bekijk abonnementen
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
           </a>
         </div>
       </div>
