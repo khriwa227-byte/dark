@@ -17,8 +17,15 @@ export default defineConfig(({ mode }) => {
             server.middlewares.use((req, _res, next) => {
               if (req.url === '/sportklaender' || req.url === '/sportklaender/') {
                 req.url = '/sportklaender.html';
-              } else if (req.url && !req.url.startsWith('/sportklaender') && !req.url.includes('.')) {
-                req.url = '/';
+              } else if (
+                req.url &&
+                !req.url.startsWith('/@') &&
+                !req.url.startsWith('/node_modules') &&
+                !req.url.startsWith('/sportklaender') &&
+                !req.url.includes('.') &&
+                req.url !== '/'
+              ) {
+                req.url = '/index.html';
               }
               next();
             });
