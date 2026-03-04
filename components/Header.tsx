@@ -4,16 +4,19 @@ import React, { useState } from 'react';
 interface HeaderProps {
   isScrolled: boolean;
   bannerOffset?: number;
+  lightText?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) => {
+export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, lightText = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const useLightText = lightText && !isScrolled && !isMenuOpen;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [
     { name: 'Kanalen', href: '#/kanalen' },
+    { name: 'Sport', href: '/sportklaender' },
     { name: 'Voordelen', href: '#benefits' },
     { name: 'Prijzen', href: '#pricing' },
     { name: 'Reseller', href: '#/reseller' },
@@ -27,17 +30,17 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) 
         style={{ top: `${bannerOffset}px` }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
+          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#21468B' }}>
               <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
-            <span className="text-xl font-extrabold tracking-tighter" style={{ color: '#0D1B3E' }}>IPTVNederland</span>
+            <span className="text-xl font-extrabold tracking-tighter transition-colors duration-300" style={{ color: useLightText ? '#ffffff' : '#0D1B3E' }}>IPTVNederland</span>
           </a>
-          
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-semibold">
+          <div className="hidden md:flex items-center gap-8 text-sm font-semibold" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="hover:opacity-60 transition-opacity">{link.name}</a>
+              <a key={link.name} href={link.href} className="hover:opacity-60 transition-opacity" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>{link.name}</a>
             ))}
             <div className="flex items-center gap-4 ml-4">
               <a href="#pricing" className="px-6 py-2.5 rounded-full text-white hover:opacity-80 transition-all block text-center" style={{ backgroundColor: '#21468B' }}>Bekijk prijzen</a>
@@ -45,8 +48,9 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0 }) 
           </div>
           
           {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden p-2 text-black focus:outline-none" 
+          <button
+            className="md:hidden p-2 focus:outline-none transition-colors duration-300"
+            style={{ color: useLightText ? '#ffffff' : '#000000' }}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >

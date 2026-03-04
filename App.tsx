@@ -14,6 +14,7 @@ import { Privacybeleid } from './components/Privacybeleid';
 import { Channels } from './components/Channels';
 import { ResellerPacks } from './components/ResellerPacks';
 import { SeoContent } from './components/SeoContent';
+import { SportEvents } from './components/SportEvents';
 
 const BANNER_HEIGHT = 48;
 
@@ -131,6 +132,9 @@ const App: React.FC = () => {
             <Hero />
           </section>
           <section className="reveal">
+            <SportEvents />
+          </section>
+          <section className="reveal">
             <FilmsAndShows />
           </section>
           <section className="reveal">
@@ -158,6 +162,7 @@ const App: React.FC = () => {
       )}
 
       <Footer />
+
 
     </div>
   );

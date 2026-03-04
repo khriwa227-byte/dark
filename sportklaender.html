@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-pt-24">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Sport Kalender | IPTVNederland</title>
+    <meta name="description" content="Bekijk de volledige sport kalender. Eredivisie, Champions League, Formule 1, NBA en meer. Alle wedstrijden in Amsterdam tijd." />
+    <meta name="robots" content="index, follow" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Figtree', sans-serif;
+        color: #0D1B3E;
+        overflow-x: hidden;
+        background-color: #F5F5F5;
+        background-image:
+          radial-gradient(at 0% 0%, rgba(33,70,139,0.08) 0, transparent 60%),
+          radial-gradient(at 100% 0%, rgba(174,28,40,0.06) 0, transparent 60%);
+        background-attachment: fixed;
+      }
+      .glass-card {
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(33,70,139,0.15);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/sportklaender.tsx"></script>
+  </body>
+</html>

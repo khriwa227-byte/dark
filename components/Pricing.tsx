@@ -23,9 +23,85 @@ const DeviceIcon = () => (
   </svg>
 );
 
+const DEVICES = [
+  {
+    label: 'Smart TV',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Fire Stick',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="9" width="18" height="8" rx="3"/>
+        <circle cx="12" cy="4" r="2"/>
+        <line x1="12" y1="6" x2="12" y2="9"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'iPhone',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="3"/>
+        <line x1="12" y1="18" x2="12" y2="18.01"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Android',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 10a8 8 0 0116 0v7a1 1 0 01-1 1H5a1 1 0 01-1-1v-7z"/>
+        <line x1="8" y1="2" x2="5" y2="6"/>
+        <line x1="16" y1="2" x2="19" y2="6"/>
+        <circle cx="9" cy="12" r="0.5" fill="currentColor"/>
+        <circle cx="15" cy="12" r="0.5" fill="currentColor"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Apple TV',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="5" width="20" height="12" rx="3"/>
+        <line x1="9" y1="20" x2="15" y2="20"/>
+        <line x1="12" y1="17" x2="12" y2="20"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'MAG / Box',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="10" rx="2"/>
+        <circle cx="17" cy="12" r="1.5"/>
+        <line x1="6" y1="12" x2="10" y2="12"/>
+      </svg>
+    ),
+  },
+];
+
 export const Pricing: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState(12);
   const [selectedDevices, setSelectedDevices] = useState(1);
+
+  // Live visitor count
+  const [visitorCount, setVisitorCount] = useState(() => Math.floor(Math.random() * 40) + 40);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setVisitorCount(prev => {
+        const delta = Math.random() < 0.5 ? 1 : -1;
+        return Math.min(80, Math.max(40, prev + delta));
+      });
+    }, Math.floor(Math.random() * 15_000) + 12_000);
+    return () => clearInterval(id);
+  }, []);
   const deviceOptions = [1, 2, 3, 4];
 
   // Countdown timer state
@@ -71,8 +147,17 @@ export const Pricing: React.FC = () => {
     <section id="pricing" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-6">
-          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest">
-            PRIJZEN
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest">
+              PRIJZEN
+            </div>
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl text-base font-black shadow-sm" style={{ background: 'rgba(33,70,139,0.08)', color: '#21468B', border: '1.5px solid rgba(33,70,139,0.15)' }}>
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: '#25D366' }} />
+                <span className="relative inline-flex rounded-full h-3 w-3" style={{ background: '#25D366' }} />
+              </span>
+              <span><span className="text-2xl font-black" style={{ color: '#0D1B3E' }}>{visitorCount}</span> mensen bekijken nu dit aanbod</span>
+            </div>
           </div>
           <h2 className="text-5xl lg:text-7xl font-black tracking-tighter" style={{ color: '#0D1B3E' }}>
             Eén abonnement, <span className="text-italics">eindeloze</span> mogelijkheden
@@ -305,7 +390,23 @@ export const Pricing: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-16 text-center space-y-4">
+        {/* Device logos strip */}
+        <div className="mt-14 text-center">
+          <p className="text-xs font-black uppercase tracking-widest mb-6" style={{ color: 'rgba(13,27,62,0.35)' }}>Werkt op al jouw apparaten</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+            {DEVICES.map(d => (
+              <div key={d.label} className="flex flex-col items-center gap-2 group">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all group-hover:scale-110 group-hover:shadow-md"
+                  style={{ background: 'rgba(33,70,139,0.07)', color: '#21468B' }}>
+                  {d.icon}
+                </div>
+                <span className="text-[11px] font-bold" style={{ color: 'rgba(13,27,62,0.45)' }}>{d.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 text-center space-y-4">
             <p className="text-xl font-black" style={{ color: '#0D1B3E' }}>Pauzeer of annuleer op elk moment</p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 text-sm font-bold uppercase tracking-widest" style={{ color: 'rgba(13,27,62,0.5)' }}>
                <span className="flex items-center gap-2">

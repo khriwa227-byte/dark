@@ -9,7 +9,28 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
-      plugins: [react()],
+      plugins: [
+        react(),
+        {
+          name: 'spa-html-rewrites',
+          configureServer(server) {
+            server.middlewares.use((req, _res, next) => {
+              if (req.url === '/sportklaender' || req.url === '/sportklaender/') {
+                req.url = '/sportklaender.html';
+              }
+              next();
+            });
+          },
+        },
+      ],
+      build: {
+        rollupOptions: {
+          input: {
+            main:          path.resolve(__dirname, 'index.html'),
+            sportklaender: path.resolve(__dirname, 'sportklaender.html'),
+          },
+        },
+      },
       define: {
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
       },
