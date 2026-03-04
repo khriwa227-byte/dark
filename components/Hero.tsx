@@ -347,7 +347,7 @@ export const Hero: React.FC = () => {
               Bekijk prijzen
             </a>
             <a
-              href="/prijzen"
+              href="#pricing"
               className="btn-claim w-full sm:w-auto px-8 py-4 text-white text-base font-black rounded-full flex items-center justify-center gap-3 transition-all duration-300 cursor-pointer"
             >
               <span className="w-7 h-7 rounded-lg flex items-center justify-center bg-white/20 shrink-0">
