@@ -2592,7 +2592,7 @@ export const Channels: React.FC = () => {
             Krijg toegang tot al deze kanalen en meer. Start vandaag nog met IPTVNederland.
           </p>
           <a
-            href="#pricing"
+            href="/prijzen"
             onClick={(e) => {
               e.preventDefault();
               window.location.hash = '';

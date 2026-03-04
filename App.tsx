@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Benefits } from './components/Benefits';
@@ -30,7 +31,7 @@ const AnnouncementBanner: React.FC<{ onDismiss: () => void }> = ({ onDismiss }) 
     </span>
     <span className="text-xs sm:text-sm text-white font-medium">bij elk abonnement</span>
     <a
-      href="#pricing"
+      href="/prijzen"
       className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white border border-white/30 hover:bg-white/10 transition-colors"
     >
       Bekijk aanbod
@@ -46,61 +47,25 @@ const AnnouncementBanner: React.FC<{ onDismiss: () => void }> = ({ onDismiss }) 
   </div>
 );
 
-const App: React.FC = () => {
+/* ─── layout wrapper (header + footer shared across all pages) ─────────────── */
+
+const Layout: React.FC<{ children: React.ReactNode; bannerVisible: boolean; onDismiss: () => void }> = ({ children, bannerVisible, onDismiss }) => {
   const [scrollY, setScrollY] = useState(0);
-  const [currentPage, setCurrentPage] = useState<string>('home');
-  const [bannerVisible, setBannerVisible] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#/algemene-voorwaarden') {
-        setCurrentPage('algemene-voorwaarden');
-        window.scrollTo(0, 0);
-      } else if (hash === '#/privacybeleid') {
-        setCurrentPage('privacybeleid');
-        window.scrollTo(0, 0);
-      } else if (hash === '#/kanalen') {
-        setCurrentPage('kanalen');
-        window.scrollTo(0, 0);
-      } else if (hash === '#/reseller') {
-        setCurrentPage('reseller');
-        window.scrollTo(0, 0);
-      } else if (hash === '#/voordelen') {
-        setCurrentPage('voordelen');
-        window.scrollTo(0, 0);
-      } else if (hash === '#/prijzen') {
-        setCurrentPage('prijzen');
-        window.scrollTo(0, 0);
-      } else if (hash === '#/faq') {
-        setCurrentPage('faq');
-        window.scrollTo(0, 0);
-      } else {
-        setCurrentPage('home');
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
 
-    // Reveal animation observer
-    const observerOptions = {
-      threshold: 0.1
-    };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('active');
       });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => observer.observe(el));
@@ -109,84 +74,70 @@ const App: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
       revealElements.forEach(el => observer.unobserve(el));
     };
-  }, [currentPage]);
+  }, [location.pathname]);
 
   return (
     <div className="relative min-h-screen">
-      <div className="grid-line grid-line-left"></div>
-      <div className="grid-line grid-line-right"></div>
-
-      {bannerVisible && <AnnouncementBanner onDismiss={() => setBannerVisible(false)} />}
+      <div className="grid-line grid-line-left" />
+      <div className="grid-line grid-line-right" />
+      {bannerVisible && <AnnouncementBanner onDismiss={onDismiss} />}
       <Header isScrolled={scrollY > 50} bannerOffset={bannerVisible ? BANNER_HEIGHT : 0} />
-
-      {currentPage === 'algemene-voorwaarden' ? (
-        <main>
-          <AlgemeneVoorwaarden />
-        </main>
-      ) : currentPage === 'privacybeleid' ? (
-        <main>
-          <Privacybeleid />
-        </main>
-      ) : currentPage === 'kanalen' ? (
-        <main>
-          <Channels />
-        </main>
-      ) : currentPage === 'reseller' ? (
-        <main>
-          <ResellerPacks />
-        </main>
-      ) : currentPage === 'voordelen' ? (
-        <main className="pt-28">
-          <Benefits />
-        </main>
-      ) : currentPage === 'prijzen' ? (
-        <main className="pt-28">
-          <Pricing />
-        </main>
-      ) : currentPage === 'faq' ? (
-        <main className="pt-28">
-          <FAQ />
-        </main>
-      ) : (
-        <main>
-          <section className="reveal">
-            <Hero />
-          </section>
-          <section className="reveal">
-            <SportEvents />
-          </section>
-          <section className="reveal">
-            <FilmsAndShows />
-          </section>
-          <section className="reveal">
-            <Pricing />
-          </section>
-          <section className="reveal">
-            <Benefits />
-          </section>
-          <section className="reveal">
-            <ServicesGrid />
-          </section>
-          <section className="reveal">
-            <Reviews />
-          </section>
-          <section className="reveal">
-            <PaymentMethods />
-          </section>
-          <section className="reveal">
-            <FAQ />
-          </section>
-          <section className="reveal">
-            <SeoContent />
-          </section>
-        </main>
-      )}
-
+      {children}
       <Footer />
-
-
     </div>
   );
 };
+
+/* ─── pages ─────────────────────────────────────────────────────────────────── */
+
+const HomePage: React.FC = () => (
+  <main>
+    <section className="reveal"><Hero /></section>
+    <section className="reveal"><SportEvents /></section>
+    <section className="reveal"><FilmsAndShows /></section>
+    <section className="reveal"><Pricing /></section>
+    <section className="reveal"><Benefits /></section>
+    <section className="reveal"><ServicesGrid /></section>
+    <section className="reveal"><Reviews /></section>
+    <section className="reveal"><PaymentMethods /></section>
+    <section className="reveal"><FAQ /></section>
+    <section className="reveal"><SeoContent /></section>
+  </main>
+);
+
+const KanalenPage: React.FC = () => <main><Channels /></main>;
+const VoordelenPage: React.FC = () => <main className="pt-28"><Benefits /></main>;
+const PrijzenPage: React.FC = () => <main className="pt-28"><Pricing /></main>;
+const ResellerPage: React.FC = () => <main><ResellerPacks /></main>;
+const FAQPage: React.FC = () => <main className="pt-28"><FAQ /></main>;
+const AlgemeneVoorwaardenPage: React.FC = () => <main><AlgemeneVoorwaarden /></main>;
+const PrivacybeleidPage: React.FC = () => <main><Privacybeleid /></main>;
+
+/* ─── app ────────────────────────────────────────────────────────────────────── */
+
+const AppInner: React.FC = () => {
+  const [bannerVisible, setBannerVisible] = useState(true);
+
+  return (
+    <Layout bannerVisible={bannerVisible} onDismiss={() => setBannerVisible(false)}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/kanalen" element={<KanalenPage />} />
+        <Route path="/voordelen" element={<VoordelenPage />} />
+        <Route path="/prijzen" element={<PrijzenPage />} />
+        <Route path="/reseller" element={<ResellerPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/algemene-voorwaarden" element={<AlgemeneVoorwaardenPage />} />
+        <Route path="/privacybeleid" element={<PrivacybeleidPage />} />
+      </Routes>
+    </Layout>
+  );
+};
+
+const App: React.FC = () => (
+  <BrowserRouter>
+    <AppInner />
+  </BrowserRouter>
+);
 
 export default App;

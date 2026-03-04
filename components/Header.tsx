@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   isScrolled: boolean;
@@ -15,12 +16,12 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [
-    { name: 'Kanalen', href: '#/kanalen' },
-    { name: 'Sport', href: '/sportklaender' },
-    { name: 'Voordelen', href: '#/voordelen' },
-    { name: 'Prijzen', href: '#/prijzen' },
-    { name: 'Reseller', href: '#/reseller' },
-    { name: 'FAQ', href: '#/faq' },
+    { name: 'Kanalen', href: '/kanalen' },
+    { name: 'Sport', href: '/sportklaender', external: true },
+    { name: 'Voordelen', href: '/voordelen' },
+    { name: 'Prijzen', href: '/prijzen' },
+    { name: 'Reseller', href: '/reseller' },
+    { name: 'FAQ', href: '/faq' },
   ];
 
   return (
@@ -30,23 +31,27 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
         style={{ top: `${bannerOffset}px` }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center">
-          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#21468B' }}>
               <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
             <span className="text-xl font-extrabold tracking-tighter transition-colors duration-300" style={{ color: useLightText ? '#ffffff' : '#0D1B3E' }}>IPTVNederland</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-semibold" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>
-            {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="hover:opacity-60 transition-opacity" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>{link.name}</a>
-            ))}
+          <div className="hidden md:flex items-center gap-8 text-sm font-semibold">
+            {navLinks.map((link) =>
+              link.external ? (
+                <a key={link.name} href={link.href} className="hover:opacity-60 transition-opacity" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>{link.name}</a>
+              ) : (
+                <Link key={link.name} to={link.href} className="hover:opacity-60 transition-opacity" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>{link.name}</Link>
+              )
+            )}
             <div className="flex items-center gap-4 ml-4">
-              <a href="#/prijzen" className="px-6 py-2.5 rounded-full text-white hover:opacity-80 transition-all block text-center" style={{ backgroundColor: '#21468B' }}>Bekijk prijzen</a>
+              <Link to="/prijzen" className="px-6 py-2.5 rounded-full text-white hover:opacity-80 transition-all block text-center" style={{ backgroundColor: '#21468B' }}>Bekijk prijzen</Link>
             </div>
           </div>
-          
+
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden p-2 focus:outline-none transition-colors duration-300"
@@ -73,25 +78,22 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
         style={{ paddingTop: `${bannerOffset + 96}px` }}
       >
         <div className="flex flex-col gap-8 text-center">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              onClick={closeMenu}
-              className="text-3xl font-black tracking-tighter hover:text-gray-600 transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a key={link.name} href={link.href} onClick={closeMenu} className="text-3xl font-black tracking-tighter hover:text-gray-600 transition-colors">{link.name}</a>
+            ) : (
+              <Link key={link.name} to={link.href} onClick={closeMenu} className="text-3xl font-black tracking-tighter hover:text-gray-600 transition-colors">{link.name}</Link>
+            )
+          )}
           <div className="flex flex-col gap-4 pt-8">
-            <a 
-              href="#/prijzen"
+            <Link
+              to="/prijzen"
               onClick={closeMenu}
               className="w-full py-5 rounded-3xl text-white text-xl font-bold hover:opacity-80 transition-all shadow-lg block text-center"
               style={{ backgroundColor: '#21468B' }}
             >
               Bekijk prijzen
-            </a>
+            </Link>
           </div>
         </div>
       </div>

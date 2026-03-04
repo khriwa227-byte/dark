@@ -4,6 +4,7 @@
   "framework": "vite",
   "rewrites": [
     { "source": "/sportklaender", "destination": "/sportklaender.html" },
-    { "source": "/sportklaender/", "destination": "/sportklaender.html" }
+    { "source": "/sportklaender/", "destination": "/sportklaender.html" },
+    { "source": "/((?!sportklaender).*)", "destination": "/index.html" }
   ]
 }

@@ -51,8 +51,8 @@ export const Footer: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-8 text-sm font-bold opacity-60">
-            <a href="#/algemene-voorwaarden" className="hover:opacity-100 transition-opacity">Algemene voorwaarden</a>
-            <a href="#/privacybeleid" className="hover:opacity-100 transition-opacity">Privacybeleid</a>
+            <a href="/algemene-voorwaarden" className="hover:opacity-100 transition-opacity">Algemene voorwaarden</a>
+            <a href="/privacybeleid" className="hover:opacity-100 transition-opacity">Privacybeleid</a>
             <a href="mailto:info@iptvnederland.digital" className="hover:opacity-100 transition-opacity">info@iptvnederland.digital</a>
             <a href="tel:+447449708976" className="hover:opacity-100 transition-opacity">+44 7449708976</a>
           </div>

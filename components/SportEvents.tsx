@@ -423,7 +423,7 @@ const FeaturedCard: React.FC<{ event: SportEvent }> = ({ event }) => {
             </span>
           </div>
           <a
-            href="#pricing"
+            href="/prijzen"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-black text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(174,28,40,0.5)]"
             style={{ background: 'linear-gradient(135deg,#AE1C28,#c0392b)' }}
           >

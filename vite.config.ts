@@ -17,6 +17,8 @@ export default defineConfig(({ mode }) => {
             server.middlewares.use((req, _res, next) => {
               if (req.url === '/sportklaender' || req.url === '/sportklaender/') {
                 req.url = '/sportklaender.html';
+              } else if (req.url && !req.url.startsWith('/sportklaender') && !req.url.includes('.')) {
+                req.url = '/';
               }
               next();
             });
