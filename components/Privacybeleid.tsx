@@ -139,8 +139,8 @@ export const Privacybeleid: React.FC = () => {
             <div className="mt-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 space-y-2">
               <p><strong>IPTVNederland</strong></p>
               <p>E-mail: <a href="mailto:info@iptvnederland.digital" className="font-bold hover:underline" style={{ color: "#AE1C28" }}>info@iptvnederland.digital</a></p>
-              <p>Telefoon: <a href="tel:+447449708976" className="font-bold hover:underline" style={{ color: "#AE1C28" }}>+44 7449708976</a></p>
-              <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#AE1C28" }}>+44 7449708976</a></p>
+              <p>Telefoon: <a href="tel:+447414662070" className="font-bold hover:underline" style={{ color: "#AE1C28" }}>+44 7414 662070</a></p>
+              <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447414662070&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#AE1C28" }}>+44 7414 662070</a></p>
             </div>
           </section>
         </div>

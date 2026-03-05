@@ -37,7 +37,7 @@ const features = [
 ];
 
 export const ResellerPacks: React.FC = () => {
-  const whatsappNumber = '447449708976';
+  const whatsappNumber = '447414662070';
 
   const handleSubscribe = (credits: number) => {
     const message = `Hallo, ik wil graag het ${credits} CREDITS reseller pakket bestellen.`;
