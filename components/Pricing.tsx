@@ -140,7 +140,7 @@ export const Pricing: React.FC = () => {
     const deviceText = selectedDevices === 1 ? '1 apparaat' : `${selectedDevices} apparaten`;
     const periodText = currentPeriod.months === 12 ? '12+3 maanden (15 maanden totaal!)' : `${currentPeriod.months} maanden`;
     const message = `Hallo, ik wil graag het ${tier.tier}-pakket van IPTVNederland aanschaffen voor ${periodText} voor ${deviceText} (${pricing.price}).`;
-    return `https://api.whatsapp.com/send/?phone=447414662070&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
+    return `https://api.whatsapp.com/send/?phone=447449708976&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
   };
 
   return (
