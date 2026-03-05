@@ -16,6 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [
+    { name: 'Home', href: '/' },
     { name: 'Kanalen', href: '/kanalen' },
     { name: 'Sport', href: '/sportklaender' },
     { name: 'Voordelen', href: '/voordelen' },

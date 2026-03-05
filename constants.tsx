@@ -79,7 +79,7 @@ export const PERIOD_PLANS: PeriodPlan[] = [
           { devices: 4, price: "€69,99", monthlyPrice: "€23,33" }
         ],
         features: [
-          "SD/HD/FULL HD/UHD/4K Kwaliteit",
+          "SD/HD/FULL HD/UHD Kwaliteit",
           "+80.000 Kanalen + Netflix",
           "RTL, NPO, ZIGGO, SBS, ESPN",
           "+140.000 Films & Series",
