@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import obfuscator from 'rollup-plugin-obfuscator';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
@@ -34,6 +35,22 @@ export default defineConfig(({ mode }) => {
           input: {
             main: path.resolve(__dirname, 'index.html'),
           },
+          plugins: [
+            obfuscator({
+              options: {
+                compact: true,
+                controlFlowFlattening: false,
+                deadCodeInjection: false,
+                identifierNamesGenerator: 'mangled',
+                renameGlobals: false,
+                stringArray: true,
+                stringArrayEncoding: ['base64'],
+                stringArrayThreshold: 0.75,
+                splitStrings: true,
+                splitStringsChunkLength: 5,
+              },
+            }),
+          ],
         },
       },
       define: {
