@@ -138,7 +138,7 @@ export const Privacybeleid: React.FC = () => {
             <p>Voor vragen over dit Privacybeleid of over de verwerking van uw persoonsgegevens kunt u contact met ons opnemen:</p>
             <div className="mt-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 space-y-2">
               <p><strong>IPTVKopen</strong></p>
-              <p>E-mail: <a href="mailto:info@iptvkopen.digital" className="font-bold hover:underline" style={{ color: "#F59E0B" }}>info@iptvkopen.digital</a></p>
+              <p>E-mail: <a href="mailto:info@iptvkopen-nu.com" className="font-bold hover:underline" style={{ color: "#F59E0B" }}>info@iptvkopen-nu.com</a></p>
               <p>Telefoon: <a href="tel:+447414662070" className="font-bold hover:underline" style={{ color: "#F59E0B" }}>+44 7414 662070</a></p>
               <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447414662070&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#F59E0B" }}>+44 7414 662070</a></p>
             </div>

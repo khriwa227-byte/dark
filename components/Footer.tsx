@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-8">
               <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100">
                 <p className="text-sm font-medium leading-relaxed">
-                  IPTVKopen helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+447414662070" className="font-bold hover:underline" style={{ color: '#F59E0B' }}>+44 7414 662070</a> of mail <a href="mailto:info@iptvkopen.digital" className="font-bold hover:underline" style={{ color: '#F59E0B' }}>info@iptvkopen.digital</a>.
+                  IPTVKopen helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+447414662070" className="font-bold hover:underline" style={{ color: '#F59E0B' }}>+44 7414 662070</a> of mail <a href="mailto:info@iptvkopen-nu.com" className="font-bold hover:underline" style={{ color: '#F59E0B' }}>info@iptvkopen-nu.com</a>.
                 </p>
               </div>
               
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-8 text-sm font-bold opacity-60">
             <a href="/algemene-voorwaarden" className="hover:opacity-100 transition-opacity">Algemene voorwaarden</a>
             <a href="/privacybeleid" className="hover:opacity-100 transition-opacity">Privacybeleid</a>
-            <a href="mailto:info@iptvkopen.digital" className="hover:opacity-100 transition-opacity">info@iptvkopen.digital</a>
+            <a href="mailto:info@iptvkopen-nu.com" className="hover:opacity-100 transition-opacity">info@iptvkopen-nu.com</a>
             <a href="tel:+447414662070" className="hover:opacity-100 transition-opacity">+44 7414 662070</a>
           </div>
           
