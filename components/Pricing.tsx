@@ -144,7 +144,7 @@ export const Pricing: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="py-32 px-6">
+    <section id="iptvkopen" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -173,32 +173,32 @@ export const Pricing: React.FC = () => {
                 Beperkte aanbieding eindigt om middernacht
               </p>
             </div>
-            <div className="flex justify-center gap-4 lg:gap-8">
+            <div className="flex justify-center items-start gap-3 lg:gap-6">
               <div className="flex flex-col items-center">
-                <div className="backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl" style={{ backgroundColor: '#059669' }}>
-                  <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
+                <div className="backdrop-blur-sm rounded-2xl px-4 sm:px-6 py-4 w-20 sm:w-28 lg:w-32 shadow-xl" style={{ backgroundColor: '#059669' }}>
+                  <span className="text-4xl sm:text-5xl font-black text-white tabular-nums block text-center">
                     {String(timeLeft.hours).padStart(2, '0')}
                   </span>
                 </div>
                 <span className="text-xs font-bold uppercase tracking-widest mt-3" style={{ color: '#111827' }}>Uren</span>
               </div>
-              <div className="flex items-center pb-8">
+              <div className="flex items-center pt-4">
                 <span className="text-3xl lg:text-4xl font-black" style={{ color: '#111827' }}>:</span>
               </div>
               <div className="flex flex-col items-center">
-                <div className="backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl" style={{ backgroundColor: '#059669' }}>
-                  <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
+                <div className="backdrop-blur-sm rounded-2xl px-4 sm:px-6 py-4 w-20 sm:w-28 lg:w-32 shadow-xl" style={{ backgroundColor: '#059669' }}>
+                  <span className="text-4xl sm:text-5xl font-black text-white tabular-nums block text-center">
                     {String(timeLeft.minutes).padStart(2, '0')}
                   </span>
                 </div>
                 <span className="text-xs font-bold uppercase tracking-widest mt-3" style={{ color: '#111827' }}>Minuten</span>
               </div>
-              <div className="flex items-center pb-8">
+              <div className="flex items-center pt-4">
                 <span className="text-3xl lg:text-4xl font-black" style={{ color: '#111827' }}>:</span>
               </div>
               <div className="flex flex-col items-center">
-                <div className="backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[100px] shadow-xl" style={{ backgroundColor: '#059669' }}>
-                  <span className="text-4xl lg:text-5xl font-black text-white tabular-nums">
+                <div className="backdrop-blur-sm rounded-2xl px-4 sm:px-6 py-4 w-20 sm:w-28 lg:w-32 shadow-xl" style={{ backgroundColor: '#059669' }}>
+                  <span className="text-4xl sm:text-5xl font-black text-white tabular-nums block text-center">
                     {String(timeLeft.seconds).padStart(2, '0')}
                   </span>
                 </div>
