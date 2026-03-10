@@ -193,7 +193,7 @@ const Countdown: React.FC<{ startTime: string }> = ({ startTime }) => {
     : `Begint over ${minutes}m`;
 
   return (
-    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0" style={{ background: 'rgba(33,70,139,0.08)', color: '#21468B' }}>
+    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0" style={{ background: 'rgba(5,150,105,0.08)', color: '#059669' }}>
       ⏱ {text}
     </span>
   );
@@ -209,7 +209,7 @@ const LiveDot: React.FC = () => (
 const TeamLogo: React.FC<{ logo?: string; name: string; size?: string }> = ({ logo, name, size = 'w-9 h-9' }) =>
   logo
     ? <img src={logo} alt={name} className={`${size} object-contain drop-shadow-sm`} />
-    : <div className={`${size} rounded-xl flex items-center justify-center text-xs font-black`} style={{ background: 'rgba(33,70,139,0.15)', color: '#21468B' }}>{name.slice(0, 2).toUpperCase()}</div>;
+    : <div className={`${size} rounded-xl flex items-center justify-center text-xs font-black`} style={{ background: 'rgba(5,150,105,0.15)', color: '#059669' }}>{name.slice(0, 2).toUpperCase()}</div>;
 
 const ChannelBadge: React.FC<{ channel: string; color: string }> = ({ channel, color }) => {
   const logo = CHANNEL_LOGOS[channel];
@@ -228,19 +228,19 @@ const EventCard: React.FC<{ event: CalEvent }> = ({ event }) => {
 
   return (
     <div
-      className="group relative flex items-center gap-4 px-5 py-4 rounded-2xl border transition-all duration-300 hover:shadow-[0_8px_32px_rgba(33,70,139,0.12)] hover:-translate-y-px"
+      className="group relative flex items-center gap-4 px-5 py-4 rounded-2xl border transition-all duration-300 hover:shadow-[0_8px_32px_rgba(5,150,105,0.12)] hover:-translate-y-px"
       style={{
         background: isLive
-          ? 'linear-gradient(135deg, rgba(174,28,40,0.07) 0%, rgba(255,255,255,0.95) 100%)'
+          ? 'linear-gradient(135deg, rgba(245,158,11,0.07) 0%, rgba(255,255,255,0.95) 100%)'
           : 'rgba(255,255,255,0.92)',
-        borderColor: isLive ? 'rgba(174,28,40,0.2)' : 'rgba(33,70,139,0.1)',
+        borderColor: isLive ? 'rgba(245,158,11,0.2)' : 'rgba(5,150,105,0.1)',
         opacity: isFinished ? 0.5 : 1,
         backdropFilter: 'blur(12px)',
       }}
     >
       {/* live left accent */}
       {isLive && (
-        <div className="absolute left-0 top-3 bottom-3 w-1 rounded-full" style={{ background: '#AE1C28' }} />
+        <div className="absolute left-0 top-3 bottom-3 w-1 rounded-full" style={{ background: '#F59E0B' }} />
       )}
 
       {/* time column */}
@@ -248,7 +248,7 @@ const EventCard: React.FC<{ event: CalEvent }> = ({ event }) => {
         {isLive ? (
           <>
             <LiveDot />
-            <span className="text-[10px] font-black uppercase tracking-wider" style={{ color: '#AE1C28' }}>
+            <span className="text-[10px] font-black uppercase tracking-wider" style={{ color: '#F59E0B' }}>
               {event.clock ? `${event.clock}'` : 'Live'}
             </span>
           </>
@@ -265,7 +265,7 @@ const EventCard: React.FC<{ event: CalEvent }> = ({ event }) => {
           ? <div className="rounded-xl p-1.5 shadow-sm" style={{ background: 'white', border: '1px solid rgba(0,0,0,0.06)' }}>
               <img src={event.leagueLogo} alt={event.competition} className="w-6 h-6 object-contain" />
             </div>
-          : <div className="w-9 h-9 rounded-xl flex items-center justify-center text-base" style={{ background: 'rgba(33,70,139,0.06)' }}>🏆</div>
+          : <div className="w-9 h-9 rounded-xl flex items-center justify-center text-base" style={{ background: 'rgba(5,150,105,0.06)' }}>🏆</div>
         }
       </div>
 
@@ -273,11 +273,11 @@ const EventCard: React.FC<{ event: CalEvent }> = ({ event }) => {
       <div className="flex-1 min-w-0 flex flex-col gap-2">
         <div className="flex items-center gap-2.5">
           <TeamLogo logo={event.homeLogo} name={event.homeTeam} size="w-7 h-7" />
-          <span className="text-sm font-black truncate leading-none" style={{ color: '#0D1B3E' }}>{event.homeTeam}</span>
+          <span className="text-sm font-black truncate leading-none" style={{ color: '#111827' }}>{event.homeTeam}</span>
         </div>
         <div className="flex items-center gap-2.5">
           <TeamLogo logo={event.awayLogo} name={event.awayTeam} size="w-7 h-7" />
-          <span className="text-sm font-black truncate leading-none" style={{ color: '#0D1B3E' }}>{event.awayTeam}</span>
+          <span className="text-sm font-black truncate leading-none" style={{ color: '#111827' }}>{event.awayTeam}</span>
         </div>
       </div>
 
@@ -292,8 +292,8 @@ const EventCard: React.FC<{ event: CalEvent }> = ({ event }) => {
       <div className="shrink-0 w-10 flex flex-col items-center gap-2">
         {(isLive || isFinished) && event.homeScore !== null ? (
           <>
-            <span className="text-base font-black tabular-nums leading-none" style={{ color: isLive ? '#AE1C28' : '#0D1B3E' }}>{event.homeScore}</span>
-            <span className="text-base font-black tabular-nums leading-none" style={{ color: isLive ? '#AE1C28' : '#0D1B3E' }}>{event.awayScore}</span>
+            <span className="text-base font-black tabular-nums leading-none" style={{ color: isLive ? '#F59E0B' : '#111827' }}>{event.homeScore}</span>
+            <span className="text-base font-black tabular-nums leading-none" style={{ color: isLive ? '#F59E0B' : '#111827' }}>{event.awayScore}</span>
           </>
         ) : (
           <span className="text-xs font-bold" style={{ color: 'rgba(13,27,62,0.2)' }}>vs</span>
@@ -336,22 +336,22 @@ export const SportCalendar: React.FC = () => {
   const liveCount = filtered.filter(e => e.status === 'live').length;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F8FAFC' }}>
 
       {/* ── hero banner ── */}
-      <div className="relative overflow-hidden pt-36 pb-12" style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 60%, #0D1B3E 100%)' }}>
+      <div className="relative overflow-hidden pt-36 pb-12" style={{ background: 'linear-gradient(135deg, #111827 0%, #059669 60%, #111827 100%)' }}>
         {/* scanlines */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 4px)' }} />
         {/* glow orbs */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10 blur-3xl" style={{ background: '#AE1C28' }} />
-        <div className="absolute -bottom-10 -left-20 w-60 h-60 rounded-full opacity-10 blur-3xl" style={{ background: '#21468B' }} />
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10 blur-3xl" style={{ background: '#F59E0B' }} />
+        <div className="absolute -bottom-10 -left-20 w-60 h-60 rounded-full opacity-10 blur-3xl" style={{ background: '#059669' }} />
 
         <div className="relative max-w-5xl mx-auto px-6 lg:px-20">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               {/* live badge */}
               {liveCount > 0 && (
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4" style={{ background: '#AE1C28' }}>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4" style={{ background: '#F59E0B' }}>
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
@@ -376,7 +376,7 @@ export const SportCalendar: React.FC = () => {
       </div>
 
       {/* ── filter tabs ── */}
-      <div className="sticky top-0 z-40 border-b" style={{ background: 'rgba(245,245,245,0.95)', backdropFilter: 'blur(12px)', borderColor: 'rgba(33,70,139,0.1)' }}>
+      <div className="sticky top-0 z-40 border-b" style={{ background: 'rgba(245,245,245,0.95)', backdropFilter: 'blur(12px)', borderColor: 'rgba(5,150,105,0.1)' }}>
         <div className="max-w-5xl mx-auto px-6 lg:px-20 py-3 flex items-center gap-2 flex-wrap">
           {SPORT_FILTERS.map(f => (
             <button
@@ -384,8 +384,8 @@ export const SportCalendar: React.FC = () => {
               onClick={() => setSport(f.key)}
               className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 hover:scale-[1.03]"
               style={sport === f.key
-                ? { background: '#21468B', color: 'white', boxShadow: '0 4px 16px rgba(33,70,139,0.3)' }
-                : { background: 'rgba(33,70,139,0.08)', color: '#21468B' }}
+                ? { background: '#059669', color: 'white', boxShadow: '0 4px 16px rgba(5,150,105,0.3)' }
+                : { background: 'rgba(5,150,105,0.08)', color: '#059669' }}
             >
               {f.icon} {f.label}
             </button>
@@ -407,7 +407,7 @@ export const SportCalendar: React.FC = () => {
                 <div className="animate-pulse h-4 w-32 rounded-full mb-4" style={{ background: 'rgba(13,27,62,0.1)' }} />
                 <div className="space-y-2.5">
                   {[...Array(4)].map((_, j) => (
-                    <div key={j} className="animate-pulse h-20 rounded-2xl" style={{ background: 'rgba(255,255,255,0.8)', border: '1px solid rgba(33,70,139,0.08)' }} />
+                    <div key={j} className="animate-pulse h-20 rounded-2xl" style={{ background: 'rgba(255,255,255,0.8)', border: '1px solid rgba(5,150,105,0.08)' }} />
                   ))}
                 </div>
               </div>
@@ -418,8 +418,8 @@ export const SportCalendar: React.FC = () => {
         {/* empty state */}
         {!loading && grouped.length === 0 && (
           <div className="flex flex-col items-center justify-center py-32 gap-4">
-            <div className="w-20 h-20 rounded-3xl flex items-center justify-center text-4xl" style={{ background: 'rgba(33,70,139,0.08)' }}>📭</div>
-            <p className="text-lg font-extrabold tracking-tight" style={{ color: '#0D1B3E' }}>Geen wedstrijden gevonden</p>
+            <div className="w-20 h-20 rounded-3xl flex items-center justify-center text-4xl" style={{ background: 'rgba(5,150,105,0.08)' }}>📭</div>
+            <p className="text-lg font-extrabold tracking-tight" style={{ color: '#111827' }}>Geen wedstrijden gevonden</p>
             <p className="text-sm" style={{ color: 'rgba(13,27,62,0.45)' }}>Probeer een andere sport filter</p>
           </div>
         )}
@@ -435,13 +435,13 @@ export const SportCalendar: React.FC = () => {
                 <div
                   className="flex items-center gap-2 px-4 py-1.5 rounded-full shrink-0"
                   style={isToday
-                    ? { background: 'linear-gradient(135deg, #0D1B3E, #21468B)', color: 'white' }
-                    : { background: 'rgba(33,70,139,0.08)', color: '#21468B' }}
+                    ? { background: 'linear-gradient(135deg, #111827, #059669)', color: 'white' }
+                    : { background: 'rgba(5,150,105,0.08)', color: '#059669' }}
                 >
                   <span className="text-xs font-black uppercase tracking-widest capitalize">{label}</span>
                   <span className="text-xs font-bold opacity-60">{dayEvents.length} wedstrijden</span>
                 </div>
-                <div className="h-px flex-1" style={{ background: 'rgba(33,70,139,0.1)' }} />
+                <div className="h-px flex-1" style={{ background: 'rgba(5,150,105,0.1)' }} />
               </div>
 
               <div className="space-y-2.5">
@@ -455,9 +455,9 @@ export const SportCalendar: React.FC = () => {
         {!loading && grouped.length > 0 && (
           <div
             className="mt-6 rounded-3xl p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative"
-            style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #111827 0%, #059669 100%)' }}
           >
-            <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-10 blur-2xl" style={{ background: '#AE1C28' }} />
+            <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-10 blur-2xl" style={{ background: '#F59E0B' }} />
             <div className="text-center sm:text-left">
               <p className="text-white font-extrabold text-xl tracking-tight">Mis geen enkele wedstrijd</p>
               <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -466,8 +466,8 @@ export const SportCalendar: React.FC = () => {
             </div>
             <a
               href="/#pricing"
-              className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(174,28,40,0.4)]"
-              style={{ background: 'linear-gradient(135deg, #AE1C28, #c0392b)' }}
+              className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(245,158,11,0.4)]"
+              style={{ background: 'linear-gradient(135deg, #F59E0B, #D97706)' }}
             >
               Bekijk abonnementen
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>

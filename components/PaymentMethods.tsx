@@ -167,7 +167,7 @@ export const PaymentMethods: React.FC = () => {
         <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6">
           Betaalmethoden
         </div>
-        <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#0D1B3E' }}>
+        <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#111827' }}>
           Betaal zoals jij wilt
         </h2>
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
@@ -176,10 +176,10 @@ export const PaymentMethods: React.FC = () => {
               key={method.name}
               className="glass-card rounded-[28px] py-6 flex flex-col items-center gap-4 hover:bg-white transition-all duration-500 group cursor-default aspect-square max-h-[160px]"
             >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ backgroundColor: '#21468B' }}>
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ backgroundColor: '#059669' }}>
                 {method.icon}
               </div>
-              <span className="text-xs font-bold tracking-tight text-center" style={{ color: '#0D1B3E' }}>{method.name}</span>
+              <span className="text-xs font-bold tracking-tight text-center" style={{ color: '#111827' }}>{method.name}</span>
             </div>
           ))}
         </div>
@@ -189,7 +189,7 @@ export const PaymentMethods: React.FC = () => {
           <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6">
             Compatibele Apparaten
           </div>
-          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#0D1B3E' }}>
+          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#111827' }}>
             Werkt op al jouw apparaten
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
@@ -198,11 +198,11 @@ export const PaymentMethods: React.FC = () => {
                 key={device.name}
                 className="glass-card rounded-[28px] p-5 flex flex-col items-center gap-3 hover:bg-white transition-all duration-500 group cursor-default"
               >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ backgroundColor: '#0D1B3E' }}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ backgroundColor: '#111827' }}>
                   {device.icon}
                 </div>
                 <div className="text-center">
-                  <div className="text-xs font-black tracking-tight" style={{ color: '#0D1B3E' }}>{device.name}</div>
+                  <div className="text-xs font-black tracking-tight" style={{ color: '#111827' }}>{device.name}</div>
                   <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(13,27,62,0.5)' }}>{device.desc}</div>
                 </div>
               </div>
@@ -215,7 +215,7 @@ export const PaymentMethods: React.FC = () => {
           <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6">
             Compatibele Apps
           </div>
-          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#0D1B3E' }}>
+          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#111827' }}>
             Gebruik jouw favoriete app
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -228,8 +228,8 @@ export const PaymentMethods: React.FC = () => {
               { name: 'Smart IPTV', desc: 'Samsung · LG Smart TV', color: '#0288D1' },
               { name: 'VLC', desc: 'Windows · Mac · Linux', color: '#FF8800' },
               { name: 'Kodi', desc: 'Alle platforms', color: '#17B2E8' },
-              { name: 'IBO Player', desc: 'iOS · Android · Smart TV', color: '#21468B' },
-              { name: 'Hot Player', desc: 'Android · Smart TV', color: '#AE1C28' },
+              { name: 'IBO Player', desc: 'iOS · Android · Smart TV', color: '#059669' },
+              { name: 'Hot Player', desc: 'Android · Smart TV', color: '#F59E0B' },
               { name: 'SmarterIPTV', desc: 'Samsung · LG Smart TV', color: '#2E7D32' },
             ].map((app) => (
               <div
@@ -243,7 +243,7 @@ export const PaymentMethods: React.FC = () => {
                   {app.name.charAt(0)}
                 </div>
                 <div className="text-center">
-                  <div className="text-xs font-black tracking-tight leading-tight" style={{ color: '#0D1B3E' }}>{app.name}</div>
+                  <div className="text-xs font-black tracking-tight leading-tight" style={{ color: '#111827' }}>{app.name}</div>
                   <div className="text-[10px] font-medium mt-1" style={{ color: 'rgba(13,27,62,0.5)' }}>{app.desc}</div>
                 </div>
               </div>

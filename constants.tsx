@@ -12,7 +12,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Is IPTV legaal in Nederland?",
-    answer: "Ja, het gebruik van IPTV-diensten is legaal in Nederland. IPTVNederland is een legitieme IPTV-aanbieder met premium infrastructuur en 24/7 support."
+    answer: "Ja, het gebruik van IPTV-diensten is legaal in Nederland. IPTVKopen is een legitieme IPTV-aanbieder met premium infrastructuur en 24/7 support."
   },
   {
     question: "Zijn er beperkingen op aanvragen?",
@@ -28,7 +28,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Welke apparaten worden ondersteund?",
-    answer: "IPTVNederland werkt op vrijwel alle apparaten: Smart TV's (Samsung, LG, Sony), Fire Stick, Apple TV, Android/iOS telefoons en tablets, PC/Mac, Android TV boxes, en meer."
+    answer: "IPTVKopen werkt op vrijwel alle apparaten: Smart TV's (Samsung, LG, Sony), Fire Stick, Apple TV, Android/iOS telefoons en tablets, PC/Mac, Android TV boxes, en meer."
   },
   {
     question: "Buffer de stream?",
@@ -185,31 +185,6 @@ export const PERIOD_PLANS: PeriodPlan[] = [
     label: "12+3 Maanden",
     description: "12+3 MAANDEN TOEGANG",
     tiers: [
-      {
-        tier: "Basis",
-        price: "€88,99",
-        monthlyPrice: "€5,00",
-        devicePricing: [
-          { devices: 1, price: "€69,99", monthlyPrice: "€4,67" },
-          { devices: 2, price: "€99,99", monthlyPrice: "€6,67" },
-          { devices: 3, price: "€139,99", monthlyPrice: "€7,50" },
-          { devices: 4, price: "€179,99", monthlyPrice: "€9,17" }
-        ],
-        features: [
-          "SD/HD/FULL HD/UHD/4K Kwaliteit",
-          "+80.000 Kanalen + Netflix",
-          "RTL, NPO, ZIGGO, SBS, ESPN",
-          "+140.000 Films & Series",
-          "Wekelijkse Updates",
-          "24/7 Support NL & BE",
-          "100% Anoniem",
-          "AntiFreeze Technologie",
-          "Alle Apparaten",
-          "VPN Inbegrepen",
-          "Exclusieve NL & BE Content",
-          "Netflix, Amazon, HBO, Apple TV, Hulu"
-        ]
-      },
       {
         tier: "Premium",
         price: "€125,99",

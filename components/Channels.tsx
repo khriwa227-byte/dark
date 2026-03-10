@@ -2407,13 +2407,13 @@ export const Channels: React.FC = () => {
   const totalChannels = CHANNEL_CATEGORIES.reduce((sum, cat) => sum + cat.channels.length, 0);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F8FAFC' }}>
 
       {/* ── Hero banner ── */}
-      <div className="relative overflow-hidden pt-36 pb-12" style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 60%, #0D1B3E 100%)' }}>
+      <div className="relative overflow-hidden pt-36 pb-12" style={{ background: 'linear-gradient(135deg, #111827 0%, #059669 60%, #111827 100%)' }}>
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 4px)' }} />
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10 blur-3xl" style={{ background: '#AE1C28' }} />
-        <div className="absolute -bottom-10 -left-20 w-60 h-60 rounded-full opacity-10 blur-3xl" style={{ background: '#21468B' }} />
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10 blur-3xl" style={{ background: '#F59E0B' }} />
+        <div className="absolute -bottom-10 -left-20 w-60 h-60 rounded-full opacity-10 blur-3xl" style={{ background: '#059669' }} />
 
         <div className="relative max-w-6xl mx-auto px-6 lg:px-20">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -2444,12 +2444,12 @@ export const Channels: React.FC = () => {
       </div>
 
       {/* ── Search & Filters ── */}
-      <div className="sticky top-0 z-40 border-b" style={{ background: 'rgba(245,245,245,0.95)', backdropFilter: 'blur(12px)', borderColor: 'rgba(33,70,139,0.1)' }}>
+      <div className="sticky top-0 z-40 border-b" style={{ background: 'rgba(245,245,245,0.95)', backdropFilter: 'blur(12px)', borderColor: 'rgba(5,150,105,0.1)' }}>
         <div className="max-w-6xl mx-auto px-6 lg:px-20 py-3 flex flex-col gap-3">
           {/* Search + select row */}
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 relative">
-              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'rgba(33,70,139,0.4)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'rgba(5,150,105,0.4)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
@@ -2458,14 +2458,14 @@ export const Channels: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-11 pr-4 py-2.5 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 transition-all"
-                style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(33,70,139,0.15)', color: '#0D1B3E' }}
+                style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(5,150,105,0.15)', color: '#111827' }}
               />
             </div>
             <select
               value={selectedCategory || ''}
               onChange={(e) => setSelectedCategory(e.target.value || null)}
               className="px-4 py-2.5 rounded-xl text-sm font-semibold focus:outline-none cursor-pointer"
-              style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(33,70,139,0.15)', color: '#0D1B3E', minWidth: '200px' }}
+              style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(5,150,105,0.15)', color: '#111827', minWidth: '200px' }}
             >
               <option value="">Alle categorieën ({CHANNEL_CATEGORIES.length})</option>
               <optgroup label="📺 Categorieën">
@@ -2516,8 +2516,8 @@ export const Channels: React.FC = () => {
                   onClick={() => setSelectedCategory(active ? null : cat.name)}
                   className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 hover:scale-[1.03]"
                   style={active
-                    ? { background: '#21468B', color: 'white', boxShadow: '0 4px 16px rgba(33,70,139,0.3)' }
-                    : { background: 'rgba(33,70,139,0.08)', color: '#21468B' }}
+                    ? { background: '#059669', color: 'white', boxShadow: '0 4px 16px rgba(5,150,105,0.3)' }
+                    : { background: 'rgba(5,150,105,0.08)', color: '#059669' }}
                 >
                   {cat.icon} {cat.name}
                 </button>
@@ -2541,23 +2541,23 @@ export const Channels: React.FC = () => {
             <div
               key={category.name}
               className="rounded-2xl overflow-hidden"
-              style={{ background: 'rgba(255,255,255,0.92)', border: '1px solid rgba(33,70,139,0.1)', backdropFilter: 'blur(12px)' }}
+              style={{ background: 'rgba(255,255,255,0.92)', border: '1px solid rgba(5,150,105,0.1)', backdropFilter: 'blur(12px)' }}
             >
               <button
                 onClick={() => toggleCategory(category.name)}
                 className="w-full px-5 lg:px-6 py-4 flex items-center gap-3 text-left transition-colors hover:bg-blue-50/30"
               >
                 <span className="text-2xl shrink-0">{category.icon}</span>
-                <h2 className="text-base sm:text-lg font-extrabold tracking-tight truncate" style={{ color: '#0D1B3E' }}>
+                <h2 className="text-base sm:text-lg font-extrabold tracking-tight truncate" style={{ color: '#111827' }}>
                   {category.name}
                 </h2>
                 <span className="ml-auto flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-black px-2.5 py-1 rounded-full text-white" style={{ background: '#21468B' }}>
+                  <span className="text-xs font-black px-2.5 py-1 rounded-full text-white" style={{ background: '#059669' }}>
                     {channelsToShow.length}<span className="hidden sm:inline"> kanalen</span>
                   </span>
                   <svg
                     className={`w-5 h-5 transition-transform duration-300 shrink-0`}
-                    style={{ color: 'rgba(33,70,139,0.5)', transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                    style={{ color: 'rgba(5,150,105,0.5)', transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}
                     fill="none" viewBox="0 0 24 24" stroke="currentColor"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -2566,16 +2566,16 @@ export const Channels: React.FC = () => {
               </button>
 
               <div className={`transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[10000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                <div className="px-5 lg:px-6 pb-5 pt-1" style={{ borderTop: '1px solid rgba(33,70,139,0.08)' }}>
+                <div className="px-5 lg:px-6 pb-5 pt-1" style={{ borderTop: '1px solid rgba(5,150,105,0.08)' }}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-4">
                     {channelsToShow.map((channel, idx) => (
                       <div
                         key={idx}
                         className="flex items-center gap-2 px-3 py-2 rounded-xl transition-colors"
-                        style={{ background: 'rgba(33,70,139,0.04)', border: '1px solid rgba(33,70,139,0.07)' }}
+                        style={{ background: 'rgba(5,150,105,0.04)', border: '1px solid rgba(5,150,105,0.07)' }}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#AE1C28' }} />
-                        <span className="text-xs font-semibold truncate" style={{ color: '#0D1B3E' }}>{channel}</span>
+                        <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#F59E0B' }} />
+                        <span className="text-xs font-semibold truncate" style={{ color: '#111827' }}>{channel}</span>
                       </div>
                     ))}
                   </div>
@@ -2590,9 +2590,9 @@ export const Channels: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6 lg:px-20 pb-16">
         <div
           className="rounded-3xl p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative"
-          style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #21468B 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #111827 0%, #059669 100%)' }}
         >
-          <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-10 blur-2xl" style={{ background: '#AE1C28' }} />
+          <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-10 blur-2xl" style={{ background: '#F59E0B' }} />
           <div className="text-center sm:text-left">
             <p className="text-white font-extrabold text-xl tracking-tight">Klaar om te beginnen?</p>
             <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -2601,8 +2601,8 @@ export const Channels: React.FC = () => {
           </div>
           <a
             href="/prijzen"
-            className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(174,28,40,0.4)]"
-            style={{ background: 'linear-gradient(135deg, #AE1C28, #c0392b)' }}
+            className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(245,158,11,0.4)]"
+            style={{ background: 'linear-gradient(135deg, #F59E0B, #D97706)' }}
           >
             Bekijk abonnementen
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>

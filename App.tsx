@@ -27,7 +27,7 @@ const AnnouncementBanner: React.FC<{ onDismiss: () => void }> = ({ onDismiss }) 
   >
     <span className="banner-text hidden sm:inline text-xs font-extrabold uppercase tracking-widest text-white">⚡ Tijdelijke Actie</span>
     <span className="banner-badge px-3 py-1 rounded-full text-xs sm:text-sm font-black uppercase tracking-wide"
-      style={{ background: '#AE1C28', color: '#ffffff' }}>
+      style={{ background: '#F59E0B', color: '#ffffff' }}>
       🎁 3 MAANDEN GRATIS
     </span>
     <span className="text-xs sm:text-sm text-white font-medium">bij elk abonnement</span>
@@ -106,7 +106,7 @@ const HomePage: React.FC = () => (
   </main>
 );
 
-const KanalenPage: React.FC = () => <main style={{ backgroundColor: '#F5F5F5' }}><Channels /></main>;
+const KanalenPage: React.FC = () => <main style={{ backgroundColor: '#F8FAFC' }}><Channels /></main>;
 const VoordelenPage: React.FC = () => <main className="pt-28"><Benefits /></main>;
 const PrijzenPage: React.FC = () => <main className="pt-28"><Pricing /></main>;
 const ResellerPage: React.FC = () => <main><ResellerPacks /></main>;
