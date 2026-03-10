@@ -67,7 +67,7 @@ export const FilmsAndShows: React.FC = () => {
               <div className="text-xs font-bold uppercase tracking-widest text-[#F59E0B] mb-2">Live TV</div>
               <h3 className="text-2xl lg:text-3xl font-black tracking-tighter" style={{ color: '#111827' }}>Al je favoriete zenders</h3>
            </div>
-           <div className="marquee-container -mx-6 overflow-hidden py-6" style={{ backgroundColor: '#111827' }}>
+           <div className="marquee-container -mx-6 overflow-hidden py-6" style={{ backgroundColor: '#064e3b' }}>
              <div className="marquee-content py-4" style={{ animationDuration: '40s', animationDirection: 'reverse' }}>
                {CHANNEL_LOGOS.map((channel, i) => (
                  <ChannelLogo key={i} name={channel.name} logo={channel.logo} />

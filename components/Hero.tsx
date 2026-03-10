@@ -375,7 +375,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Marquee bar */}
-      <div className="mt-20 lg:mt-28 py-10 lg:py-12" style={{ backgroundColor: '#111827' }}>
+      <div className="mt-20 lg:mt-28 py-10 lg:py-12" style={{ backgroundColor: '#064e3b' }}>
         <div className="marquee-container">
           <div className="marquee-content">
             {['Eredivisie', 'Champions League', 'Formule 1', 'NPO', 'RTL', 'SBS', 'Netflix content'].map((brand, i) => (

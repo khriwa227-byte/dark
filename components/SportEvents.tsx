@@ -182,6 +182,9 @@ function sortEvents(events: SportEvent[]) {
   return [...events].sort((a, b) => {
     if (a.status === 'live' && b.status !== 'live') return -1;
     if (b.status === 'live' && a.status !== 'live') return 1;
+    const aFootball = a.sport === 'voetbal' ? 0 : 1;
+    const bFootball = b.sport === 'voetbal' ? 0 : 1;
+    if (aFootball !== bFootball) return aFootball - bFootball;
     return new Date(a.startTime).getTime() - new Date(b.startTime).getTime();
   });
 }
