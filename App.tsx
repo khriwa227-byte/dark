@@ -18,6 +18,16 @@ import { SeoContent } from './components/SeoContent';
 import { SportEvents } from './components/SportEvents';
 import { SportCalendar } from './components/SportCalendar';
 
+const WHATSAPP_NUMBER = '447414662070';
+const WHATSAPP_MESSAGE = encodeURIComponent('Hoi, ik ben geïnteresseerd in IPTVKopen en wil graag een IPTV pakket kopen. Kunnen jullie mij meer informatie geven?');
+
+const ContactRedirect: React.FC = () => {
+  useEffect(() => {
+    window.location.href = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${WHATSAPP_MESSAGE}&type=phone_number&app_absent=0`;
+  }, []);
+  return null;
+};
+
 const BANNER_HEIGHT = 48;
 
 const AnnouncementBanner: React.FC<{ onDismiss: () => void }> = ({ onDismiss }) => (
@@ -132,6 +142,7 @@ const AppInner: React.FC = () => {
         <Route path="/algemene-voorwaarden" element={<AlgemeneVoorwaardenPage />} />
         <Route path="/privacybeleid" element={<PrivacybeleidPage />} />
         <Route path="/sportklaender" element={<SportklaenderPage />} />
+        <Route path="/contact" element={<ContactRedirect />} />
       </Routes>
     </Layout>
   );
