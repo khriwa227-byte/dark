@@ -16,7 +16,7 @@ interface FeaturedMatch {
 }
 
 const HERO_LEAGUES = [
-  { url: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions_league/scoreboard', label: 'Champions League' },
+  { url: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard', label: 'Champions League' },
   { url: 'https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard',                label: 'Eredivisie' },
   { url: 'https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard',                label: 'Premier League' },
   { url: 'https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard',                label: 'La Liga' },
@@ -73,11 +73,16 @@ const FALLBACK: FeaturedMatch = {
 
 const TrustBadge: React.FC<{ icon: React.ReactNode; children: React.ReactNode; delay: string }> = ({ icon, children, delay }) => (
   <div
-    className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 backdrop-blur-md rounded-full shadow-[0_4px_12px_rgba(5,150,105,0.15)] border hover:scale-105 hover:shadow-[0_8px_24px_rgba(5,150,105,0.2)] transition-all duration-300 animate-[popIn_0.5s_ease-out_both]"
-    style={{ animationDelay: delay, background: 'rgba(5,150,105,0.1)', borderColor: 'rgba(5,150,105,0.25)' }}
+    className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border hover:scale-105 transition-all duration-300 animate-[popIn_0.5s_ease-out_both]"
+    style={{
+      animationDelay: delay,
+      background: 'rgba(59,130,246,0.1)',
+      borderColor: 'rgba(59,130,246,0.25)',
+      boxShadow: '0 4px 12px rgba(59,130,246,0.1)',
+    }}
   >
-    <span className="text-lg flex items-center" style={{ color: '#059669' }}>{icon}</span>
-    <span className="text-xs sm:text-sm font-semibold tracking-wide whitespace-nowrap leading-none" style={{ color: '#111827' }}>{children}</span>
+    <span className="text-lg flex items-center" style={{ color: '#3B82F6' }}>{icon}</span>
+    <span className="text-xs sm:text-sm font-semibold tracking-wide whitespace-nowrap leading-none text-white">{children}</span>
   </div>
 );
 
@@ -97,48 +102,48 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
   <div className="relative w-full max-w-[580px]">
     {/* Glow */}
     <div
-      className="absolute inset-0 blur-[80px] opacity-30 rounded-3xl scale-95 pointer-events-none"
-      style={{ background: 'linear-gradient(135deg, #059669 40%, #F59E0B)' }}
+      className="absolute inset-0 blur-[80px] opacity-25 rounded-3xl scale-95 pointer-events-none"
+      style={{ background: 'linear-gradient(135deg, #3B82F6 40%, #7C3AED)' }}
     />
 
     {/* Monitor frame */}
     <div
-      className="relative rounded-[28px] overflow-hidden shadow-[0_40px_100px_rgba(13,27,62,0.45)] border-2"
-      style={{ background: '#111827', borderColor: 'rgba(255,255,255,0.12)' }}
+      className="relative rounded-[28px] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.8)] border"
+      style={{ background: '#0D1117', borderColor: 'rgba(59,130,246,0.2)' }}
     >
       {/* Bezel top bar */}
-      <div className="flex items-center gap-1.5 px-5 pt-4 pb-3" style={{ background: '#06091a' }}>
-        <div className="w-3 h-3 rounded-full" style={{ background: '#F59E0B' }} />
-        <div className="w-3 h-3 rounded-full" style={{ background: '#FF9500' }} />
-        <div className="w-3 h-3 rounded-full" style={{ background: '#059669' }} />
+      <div className="flex items-center gap-1.5 px-5 pt-4 pb-3" style={{ background: '#060A10' }}>
+        <div className="w-3 h-3 rounded-full" style={{ background: '#FF5F57' }} />
+        <div className="w-3 h-3 rounded-full" style={{ background: '#FFBD2E' }} />
+        <div className="w-3 h-3 rounded-full" style={{ background: '#28CA41' }} />
         <div className="ml-auto flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-[11px] font-mono font-bold" style={{ color: 'rgba(255,255,255,0.45)' }}>HD LIVE</span>
+          <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#3B82F6' }} />
+          <span className="text-[11px] font-mono font-bold" style={{ color: 'rgba(255,255,255,0.4)' }}>HD LIVE</span>
         </div>
       </div>
 
       {/* Screen content */}
-      <div className="mx-4 mb-4 rounded-2xl overflow-hidden" style={{ background: '#111827' }}>
+      <div className="mx-4 mb-4 rounded-2xl overflow-hidden" style={{ background: '#0D1117' }}>
         {/* Featured live channel */}
         <div
           className="relative h-52 flex flex-col items-center justify-center gap-3"
-          style={{ background: 'linear-gradient(135deg, #003087 0%, #06091a 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #0F172A 100%)' }}
         >
           {/* scanlines overlay */}
           <div
-            className="absolute inset-0 opacity-[0.07] pointer-events-none"
+            className="absolute inset-0 opacity-[0.05] pointer-events-none"
             style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 4px)' }}
           />
           {/* Score board */}
           <div className="z-10 flex flex-col items-center gap-2 px-4 w-full">
-            <span className="text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full truncate max-w-full" style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)' }}>
+            <span className="text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full truncate max-w-full" style={{ background: 'rgba(59,130,246,0.15)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(59,130,246,0.2)' }}>
               {match.competition}{match.clock ? ` · ${match.clock}'` : ''}
             </span>
             <div className="flex items-center gap-4 mt-1 w-full justify-center">
               <div className="flex flex-col items-center gap-1 min-w-0">
                 {match.homeLogo
                   ? <img src={match.homeLogo} alt={match.home} className="w-12 h-12 object-contain drop-shadow-md" />
-                  : <div className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-[10px]" style={{ background: 'rgba(255,255,255,0.15)' }}>{match.home.slice(0,3).toUpperCase()}</div>
+                  : <div className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-[10px]" style={{ background: 'rgba(59,130,246,0.2)' }}>{match.home.slice(0,3).toUpperCase()}</div>
                 }
                 <span className="text-[11px] text-white/60 font-semibold truncate max-w-[64px] text-center">{match.home}</span>
               </div>
@@ -148,7 +153,7 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
               <div className="flex flex-col items-center gap-1 min-w-0">
                 {match.awayLogo
                   ? <img src={match.awayLogo} alt={match.away} className="w-12 h-12 object-contain drop-shadow-md" />
-                  : <div className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-[10px]" style={{ background: 'rgba(255,255,255,0.15)' }}>{match.away.slice(0,3).toUpperCase()}</div>
+                  : <div className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-[10px]" style={{ background: 'rgba(124,58,237,0.2)' }}>{match.away.slice(0,3).toUpperCase()}</div>
                 }
                 <span className="text-[11px] text-white/60 font-semibold truncate max-w-[64px] text-center">{match.away}</span>
               </div>
@@ -157,7 +162,7 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
           {/* Status badge */}
           <div
             className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
-            style={{ background: match.status === 'live' ? '#F59E0B' : 'rgba(255,255,255,0.12)' }}
+            style={{ background: match.status === 'live' ? '#3B82F6' : 'rgba(255,255,255,0.1)' }}
           >
             {match.status === 'live' && <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />}
             <span className="text-[11px] font-black text-white uppercase tracking-wider">
@@ -167,12 +172,12 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
         </div>
 
         {/* Channel grid */}
-        <div className="grid grid-cols-3 gap-px" style={{ background: 'rgba(255,255,255,0.06)' }}>
+        <div className="grid grid-cols-3 gap-px" style={{ background: 'rgba(59,130,246,0.06)' }}>
           {channels.map((ch, i) => (
             <div
               key={i}
               className="flex flex-col items-center justify-center gap-1.5 py-3.5"
-              style={{ background: '#111827' }}
+              style={{ background: '#0D1117' }}
             >
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black"
@@ -180,7 +185,7 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
               >
                 {ch.name.slice(0, 3).toUpperCase()}
               </div>
-              <span className="text-[9px] font-medium" style={{ color: 'rgba(255,255,255,0.4)' }}>{ch.name}</span>
+              <span className="text-[9px] font-medium" style={{ color: 'rgba(255,255,255,0.35)' }}>{ch.name}</span>
             </div>
           ))}
         </div>
@@ -189,17 +194,17 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
 
     {/* Monitor stand */}
     <div className="flex justify-center">
-      <div className="w-24 h-2.5 rounded-b-lg" style={{ background: '#06091a' }} />
+      <div className="w-24 h-2.5 rounded-b-lg" style={{ background: '#060A10' }} />
     </div>
 
     {/* Floating badge — top right */}
     <div
       className="absolute -top-6 -right-6 flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-2xl border animate-[popIn_0.5s_ease-out_0.9s_both]"
-      style={{ background: 'white', borderColor: 'rgba(5,150,105,0.1)' }}
+      style={{ background: '#0F172A', borderColor: 'rgba(59,130,246,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
     >
       <div
         className="w-10 h-10 rounded-xl flex items-center justify-center"
-        style={{ background: 'linear-gradient(135deg, #059669, #047857)' }}
+        style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)' }}
       >
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
           <rect x="2" y="3" width="20" height="14" rx="2"/>
@@ -208,34 +213,34 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
         </svg>
       </div>
       <div>
-        <div className="text-base font-black leading-none" style={{ color: '#111827' }}>65.000+</div>
-        <div className="text-[11px] mt-0.5 font-semibold" style={{ color: 'rgba(13,27,62,0.5)' }}>Kanalen</div>
+        <div className="text-base font-black leading-none text-white">65.000+</div>
+        <div className="text-[11px] mt-0.5 font-semibold" style={{ color: 'rgba(241,245,249,0.45)' }}>Kanalen</div>
       </div>
     </div>
 
     {/* Floating badge — bottom left */}
     <div
       className="absolute -bottom-6 -left-6 flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-2xl border animate-[popIn_0.5s_ease-out_1.1s_both]"
-      style={{ background: 'white', borderColor: 'rgba(245,158,11,0.1)' }}
+      style={{ background: '#0F172A', borderColor: 'rgba(124,58,237,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
     >
       <div
         className="w-10 h-10 rounded-xl flex items-center justify-center text-2xl"
-        style={{ background: 'linear-gradient(135deg, #F59E0B, #D97706)' }}
+        style={{ background: 'linear-gradient(135deg, #7C3AED, #4F46E5)' }}
       >⚡</div>
       <div>
-        <div className="text-base font-black leading-none" style={{ color: '#111827' }}>4K Ultra HD</div>
-        <div className="text-[11px] mt-0.5 font-semibold" style={{ color: 'rgba(13,27,62,0.5)' }}>Geen buffering</div>
+        <div className="text-base font-black leading-none text-white">4K Ultra HD</div>
+        <div className="text-[11px] mt-0.5 font-semibold" style={{ color: 'rgba(241,245,249,0.45)' }}>Geen buffering</div>
       </div>
     </div>
 
     {/* Floating badge — mid left */}
     <div
       className="absolute top-1/2 -translate-y-1/2 -left-8 flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-2xl border animate-[popIn_0.5s_ease-out_1.3s_both]"
-      style={{ background: 'white', borderColor: 'rgba(5,150,105,0.1)' }}
+      style={{ background: '#0F172A', borderColor: 'rgba(6,182,212,0.25)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
     >
       <div
         className="w-10 h-10 rounded-xl flex items-center justify-center"
-        style={{ background: 'linear-gradient(135deg, #059669, #F59E0B)' }}
+        style={{ background: 'linear-gradient(135deg, #06B6D4, #0284C7)' }}
       >
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="10"/>
@@ -244,8 +249,8 @@ const TVMockup: React.FC<{ match: FeaturedMatch }> = ({ match }) => (
         </svg>
       </div>
       <div>
-        <div className="text-base font-black leading-none" style={{ color: '#111827' }}>70+ Landen</div>
-        <div className="text-[11px] mt-0.5 font-semibold" style={{ color: 'rgba(13,27,62,0.5)' }}>Wereldwijd</div>
+        <div className="text-base font-black leading-none text-white">70+ Landen</div>
+        <div className="text-[11px] mt-0.5 font-semibold" style={{ color: 'rgba(241,245,249,0.45)' }}>Wereldwijd</div>
       </div>
     </div>
   </div>
@@ -265,12 +270,13 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative pt-32 lg:pt-40 pb-6 overflow-hidden">
 
-      {/* Desktop background depth */}
-      <div className="absolute inset-0 pointer-events-none hidden lg:block">
-        <div className="absolute top-0 right-0 w-[55%] h-full opacity-[0.04]" style={{ background: 'radial-gradient(ellipse at 80% 40%, #059669 0%, transparent 70%)' }} />
-        <div className="absolute bottom-0 left-0 w-[40%] h-[60%] opacity-[0.03]" style={{ background: 'radial-gradient(ellipse at 20% 80%, #F59E0B 0%, transparent 70%)' }} />
+      {/* Background depth */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[55%] h-full opacity-[0.06]" style={{ background: 'radial-gradient(ellipse at 80% 40%, #3B82F6 0%, transparent 70%)' }} />
+        <div className="absolute bottom-0 left-0 w-[40%] h-[60%] opacity-[0.04]" style={{ background: 'radial-gradient(ellipse at 20% 80%, #7C3AED 0%, transparent 70%)' }} />
+        <div className="absolute top-1/3 left-1/2 w-[30%] h-[30%] opacity-[0.03]" style={{ background: 'radial-gradient(ellipse at 50% 50%, #06B6D4 0%, transparent 70%)' }} />
         {/* subtle dot grid */}
-        <div className="absolute inset-0 opacity-[0.018]" style={{ backgroundImage: 'radial-gradient(circle, #059669 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute inset-0 opacity-[0.015] hidden lg:block" style={{ backgroundImage: 'radial-gradient(circle, #3B82F6 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-20 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-24 items-center">
@@ -278,61 +284,83 @@ export const Hero: React.FC = () => {
         {/* Left — copy */}
         <div className="flex flex-col items-center sm:items-start gap-8 lg:gap-10 w-[88%] sm:w-full mx-auto sm:mx-0">
 
+          {/* Social proof pill */}
+          <div className="flex justify-center sm:justify-start w-full animate-[popIn_0.4s_ease-out_both]">
+            <div
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full border"
+              style={{ background: 'rgba(59,130,246,0.08)', borderColor: 'rgba(59,130,246,0.2)' }}
+            >
+              <div className="flex -space-x-2">
+                {['#F59E0B','#3B82F6','#7C3AED','#06B6D4'].map((c,i) => (
+                  <div key={i} className="w-6 h-6 rounded-full border-2 border-[#0A0A0F] flex items-center justify-center text-white font-black text-[8px]" style={{ background: c }}>
+                    {['J','M','S','A'][i]}
+                  </div>
+                ))}
+              </div>
+              <span className="text-sm font-semibold" style={{ color: 'rgba(241,245,249,0.8)' }}>
+                <span className="font-black text-white">23.000+</span> tevreden klanten
+              </span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_,i) => (
+                  <svg key={i} className="w-3.5 h-3.5" fill="#F59E0B" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Promo pill */}
           <div className="flex justify-center sm:justify-start w-full animate-[popIn_0.6s_ease-out_both]">
             <a
               href="#iptvkopen"
-              className="inline-flex items-center gap-3 pl-2.5 pr-5 py-2 rounded-full backdrop-blur-md border hover:brightness-110 hover:scale-[1.03] transition-all duration-300 shadow-[0_4px_16px_rgba(5,150,105,0.2)]"
-              style={{ background: 'linear-gradient(135deg, #059669, #047857, #059669)', borderColor: 'rgba(255,255,255,0.2)' }}
+              className="inline-flex items-center gap-3 pl-2.5 pr-5 py-2 rounded-full border hover:brightness-110 hover:scale-[1.03] transition-all duration-300"
+              style={{ background: 'linear-gradient(135deg, #1D4ED8, #3B82F6, #7C3AED)', borderColor: 'rgba(255,255,255,0.1)', boxShadow: '0 4px 16px rgba(59,130,246,0.25)' }}
             >
-              <span className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F59E0B, #D97706)' }}>
+              <span className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.15)' }}>
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
               </span>
               <span className="text-sm sm:text-base font-bold text-white">Bestel nu en ontvang</span>
-              <span className="text-sm sm:text-base font-black uppercase tracking-wide text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.5)]">3 MAANDEN GRATIS</span>
+              <span className="text-sm sm:text-base font-black uppercase tracking-wide" style={{ color: '#93C5FD' }}>3 MAANDEN GRATIS</span>
             </a>
           </div>
 
           {/* Heading */}
-          {/* Mobile heading — fixed 3 lines */}
           <h1
-            className="sm:hidden font-extrabold leading-[1.08] tracking-tighter text-center w-full whitespace-nowrap"
-            style={{ color: '#111827', fontSize: 'min(11vw, 2.8rem)' }}
+            className="sm:hidden font-extrabold leading-[1.08] tracking-tighter text-center w-full whitespace-nowrap text-white"
+            style={{ fontSize: 'min(11vw, 2.8rem)' }}
           >
             IPTVKopen<br />
             Van Nederland,<br />
-            <span className="text-italics">voor Nederland</span>
+            <span className="text-italics" style={{ color: '#93C5FD' }}>voor Nederland</span>
           </h1>
 
-          {/* Desktop heading */}
           <h1
-            className="hidden sm:block font-extrabold leading-[1.03] tracking-tighter sm:text-left w-full"
-            style={{ color: '#111827', fontSize: 'clamp(3.5rem, 6vw, 6.5rem)' }}
+            className="hidden sm:block font-extrabold leading-[1.03] tracking-tighter sm:text-left w-full text-white"
+            style={{ fontSize: 'clamp(3.5rem, 6vw, 6.5rem)' }}
           >
             IPTVKopen<br />
             Van Nederland,<br />
-            <span className="text-italics">voor Nederland</span>
+            <span className="text-italics" style={{ color: '#93C5FD' }}>voor Nederland</span>
           </h1>
 
           {/* Sub-copy */}
           <p
             className="text-base lg:text-xl font-medium leading-relaxed text-center sm:text-left max-w-xl"
-            style={{ color: 'rgba(13,27,62,0.65)' }}
+            style={{ color: 'rgba(241,245,249,0.6)' }}
           >
             Premium IPTV met 65.000+ kanalen uit 70+ landen. TV kijken zoals het hoort — scherpste beeld, geen gedoe. Pauzeer of annuleer op elk moment.
           </p>
 
           {/* Stats row — desktop only */}
-          <div className="hidden lg:flex items-stretch gap-0 divide-x rounded-2xl overflow-hidden border w-auto" style={{ borderColor: 'rgba(5,150,105,0.12)', divideColor: 'rgba(5,150,105,0.12)' }}>
+          <div className="hidden lg:flex items-stretch gap-0 divide-x rounded-2xl overflow-hidden border w-auto" style={{ borderColor: 'rgba(59,130,246,0.15)', divideColor: 'rgba(59,130,246,0.15)' }}>
             {[
               { value: '65.000+', label: 'Kanalen' },
               { value: '175.000+', label: 'Films & Series' },
               { value: '70+', label: 'Landen' },
               { value: '4K UHD', label: 'Kwaliteit' },
             ].map((stat, i) => (
-              <div key={i} className="flex flex-col gap-1 px-6 py-4" style={{ background: 'rgba(5,150,105,0.04)', borderColor: 'rgba(5,150,105,0.1)' }}>
-                <span className="text-2xl font-black leading-none tabular-nums" style={{ color: '#059669' }}>{stat.value}</span>
-                <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'rgba(13,27,62,0.4)' }}>{stat.label}</span>
+              <div key={i} className="flex flex-col gap-1 px-6 py-4" style={{ background: 'rgba(59,130,246,0.06)', borderColor: 'rgba(59,130,246,0.12)' }}>
+                <span className="text-2xl font-black leading-none tabular-nums" style={{ color: '#60A5FA' }}>{stat.value}</span>
+                <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'rgba(241,245,249,0.35)' }}>{stat.label}</span>
               </div>
             ))}
           </div>
@@ -341,8 +369,8 @@ export const Hero: React.FC = () => {
           <div className="flex flex-col gap-4 w-full sm:flex-row sm:w-auto sm:justify-start">
             <a
               href="#iptvkopen"
-              className="w-full sm:w-auto px-10 py-4 text-white text-base font-black rounded-full hover:scale-[1.02] hover:brightness-110 transition-all shadow-[0_8px_32px_rgba(5,150,105,0.35)] text-center"
-              style={{ background: 'linear-gradient(135deg, #059669, #047857)' }}
+              className="w-full sm:w-auto px-10 py-4 text-white text-base font-black rounded-full hover:scale-[1.02] hover:brightness-110 transition-all text-center"
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)', boxShadow: '0 8px 32px rgba(59,130,246,0.35)' }}
             >
               Bekijk prijzen
             </a>
@@ -374,17 +402,36 @@ export const Hero: React.FC = () => {
 
       </div>
 
+      {/* Trust strip */}
+      <div className="mt-16 lg:mt-24 border-y py-4" style={{ borderColor: 'rgba(59,130,246,0.1)', background: 'rgba(59,130,246,0.03)' }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-20 flex flex-wrap items-center justify-center gap-6 lg:gap-12">
+          {[
+            { label: 'Geen contract' },
+            { label: 'Instant activatie' },
+            { label: '15 dagen garantie' },
+            { label: '65.000+ kanalen' },
+            { label: '99.9% uptime' },
+            { label: '100% anoniem' },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="#3B82F6" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span className="text-sm font-semibold" style={{ color: 'rgba(241,245,249,0.7)' }}>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Marquee bar */}
-      <div className="mt-20 lg:mt-28 py-10 lg:py-12" style={{ backgroundColor: '#064e3b' }}>
+      <div className="py-10 lg:py-12" style={{ backgroundColor: '#060A10', borderBottom: '1px solid rgba(59,130,246,0.08)' }}>
         <div className="marquee-container">
           <div className="marquee-content">
             {['Eredivisie', 'Champions League', 'Formule 1', 'NPO', 'RTL', 'SBS', 'Netflix content'].map((brand, i) => (
-              <span key={i} className="text-2xl lg:text-3xl font-black uppercase tracking-widest px-8 cursor-default" style={{ color: 'rgba(255,255,255,0.85)' }}>{brand}</span>
+              <span key={i} className="text-2xl lg:text-3xl font-black uppercase tracking-widest px-8 cursor-default" style={{ color: 'rgba(255,255,255,0.5)' }}>{brand}</span>
             ))}
           </div>
           <div className="marquee-content">
             {['Eredivisie', 'Champions League', 'Formule 1', 'NPO', 'RTL', 'SBS', 'Netflix content'].map((brand, i) => (
-              <span key={i} className="text-2xl lg:text-3xl font-black uppercase tracking-widest px-8 cursor-default" style={{ color: 'rgba(255,255,255,0.85)' }}>{brand}</span>
+              <span key={i} className="text-2xl lg:text-3xl font-black uppercase tracking-widest px-8 cursor-default" style={{ color: 'rgba(255,255,255,0.5)' }}>{brand}</span>
             ))}
           </div>
         </div>

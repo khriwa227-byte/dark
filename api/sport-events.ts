@@ -21,7 +21,7 @@ const LEAGUES = [
     isTeamSport: true,
   },
   {
-    url: rangeUrl('https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions_league/scoreboard'),
+    url: rangeUrl('https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard'),
     competition: 'Champions League',
     sport: 'voetbal',
     channel: 'Ziggo Sport',
@@ -147,6 +147,9 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
 
   // live first, then soonest upcoming
   events.sort((a, b) => {
+    const aFootball = a!.sport === 'voetbal' ? 0 : 1;
+    const bFootball = b!.sport === 'voetbal' ? 0 : 1;
+    if (aFootball !== bFootball) return aFootball - bFootball;
     if (a!.status === 'live' && b!.status !== 'live') return -1;
     if (b!.status === 'live' && a!.status !== 'live') return 1;
     return new Date(a!.startTime).getTime() - new Date(b!.startTime).getTime();
