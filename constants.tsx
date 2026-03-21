@@ -12,7 +12,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Is IPTV legaal in Nederland?",
-    answer: "Ja, het gebruik van IPTV-diensten is legaal in Nederland. IPTVKopen is een legitieme IPTV-aanbieder met premium infrastructuur en 24/7 support."
+    answer: "Ja, het gebruik van IPTV-diensten is legaal in Nederland. IPTVDutch is een legitieme IPTV-aanbieder met premium infrastructuur en 24/7 support."
   },
   {
     question: "Zijn er beperkingen op aanvragen?",
@@ -28,7 +28,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Welke apparaten worden ondersteund?",
-    answer: "IPTVKopen werkt op vrijwel alle apparaten: Smart TV's (Samsung, LG, Sony), Fire Stick, Apple TV, Android/iOS telefoons en tablets, PC/Mac, Android TV boxes, en meer."
+    answer: "IPTVDutch werkt op vrijwel alle apparaten: Smart TV's (Samsung, LG, Sony), Fire Stick, Apple TV, Android/iOS telefoons en tablets, PC/Mac, Android TV boxes, en meer."
   },
   {
     question: "Buffer de stream?",
@@ -47,7 +47,7 @@ export interface DevicePricing {
 }
 
 export interface SubscriptionTier {
-  tier: "Basis" | "Premium";
+  tier: "Premium";
   price: string;
   monthlyPrice: string;
   savings?: string;
@@ -68,31 +68,6 @@ export const PERIOD_PLANS: PeriodPlan[] = [
     label: "3 Maanden",
     description: "3 MAANDEN TOEGANG",
     tiers: [
-      {
-        tier: "Basis",
-        price: "€34,99",
-        monthlyPrice: "€10,00",
-        devicePricing: [
-          { devices: 1, price: "€24,99", monthlyPrice: "€7,66" },
-          { devices: 2, price: "€39,99", monthlyPrice: "€13,33" },
-          { devices: 3, price: "€49,99", monthlyPrice: "€16,66" },
-          { devices: 4, price: "€69,99", monthlyPrice: "€23,33" }
-        ],
-        features: [
-          "SD/HD/FULL HD/UHD Kwaliteit",
-          "+80.000 Kanalen + Netflix",
-          "RTL, NPO, ZIGGO, SBS, ESPN",
-          "+140.000 Films & Series",
-          "Wekelijkse Updates",
-          "24/7 Support NL & BE",
-          "100% Anoniem",
-          "AntiFreeze Technologie",
-          "Alle Apparaten",
-          "VPN Inbegrepen",
-          "Exclusieve NL & BE Content",
-          "Netflix, Amazon, HBO, Apple TV, Hulu"
-        ]
-      },
       {
         tier: "Premium",
         price: "€45,99",
@@ -126,31 +101,6 @@ export const PERIOD_PLANS: PeriodPlan[] = [
     label: "6 Maanden",
     description: "6 MAANDEN TOEGANG",
     tiers: [
-      {
-        tier: "Basis",
-        price: "€49,99",
-        monthlyPrice: "€6,67",
-        devicePricing: [
-          { devices: 1, price: "€34,99", monthlyPrice: "€5,00" },
-          { devices: 2, price: "€49,99", monthlyPrice: "€6,67" },
-          { devices: 3, price: "€69,99", monthlyPrice: "€10,00" },
-          { devices: 4, price: "€109,99", monthlyPrice: "€18,33" }
-        ],
-        features: [
-          "SD/HD/FULL HD/UHD/4K Kwaliteit",
-          "+80.000 Kanalen + Netflix",
-          "RTL, NPO, ZIGGO, SBS, ESPN",
-          "+140.000 Films & Series",
-          "Wekelijkse Updates",
-          "24/7 Support NL & BE",
-          "100% Anoniem",
-          "AntiFreeze Technologie",
-          "Alle Apparaten",
-          "VPN Inbegrepen",
-          "Exclusieve NL & BE Content",
-          "Netflix, Amazon, HBO, Apple TV, Hulu"
-        ]
-      },
       {
         tier: "Premium",
         price: "€79,99",

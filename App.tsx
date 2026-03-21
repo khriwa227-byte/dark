@@ -19,7 +19,7 @@ import { SportEvents } from './components/SportEvents';
 import { SportCalendar } from './components/SportCalendar';
 
 const WHATSAPP_NUMBER = '447414662070';
-const WHATSAPP_MESSAGE = encodeURIComponent('Hoi, ik ben geïnteresseerd in IPTVKopen en wil graag een IPTV pakket kopen. Kunnen jullie mij meer informatie geven?');
+const WHATSAPP_MESSAGE = encodeURIComponent('Hoi, ik ben geïnteresseerd in IPTVDutch en wil graag een IPTV pakket kopen. Kunnen jullie mij meer informatie geven?');
 
 const ContactRedirect: React.FC = () => {
   useEffect(() => {
@@ -28,40 +28,85 @@ const ContactRedirect: React.FC = () => {
   return null;
 };
 
-const BANNER_HEIGHT = 48;
+/* ─── Exit-intent popup ──────────────────────────────────────────────────── */
 
-const AnnouncementBanner: React.FC<{ onDismiss: () => void }> = ({ onDismiss }) => (
+const ExitPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => (
   <div
-    className="banner-wrap banner-bg fixed top-0 left-0 right-0 z-[100] flex items-center justify-center gap-3 sm:gap-4 px-12 border-b border-white/10"
-    style={{ height: `${BANNER_HEIGHT}px` }}
+    className="fixed inset-0 z-[200] flex items-center justify-center px-4"
+    style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)' }}
+    onClick={onClose}
   >
-    <span className="banner-text hidden sm:inline text-xs font-extrabold uppercase tracking-widest text-white">⚡ Tijdelijke Actie</span>
-    <span className="banner-badge px-3 py-1 rounded-full text-xs sm:text-sm font-black uppercase tracking-wide"
-      style={{ background: '#F59E0B', color: '#ffffff' }}>
-      🎁 3 MAANDEN GRATIS
-    </span>
-    <span className="text-xs sm:text-sm text-white font-medium">bij elk abonnement</span>
-    <a
-      href="/prijzen"
-      className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white border border-white/30 hover:bg-white/10 transition-colors"
+    <div
+      className="relative max-w-md w-full rounded-[40px] p-10 text-center"
+      style={{ background: 'linear-gradient(160deg, #0F172A 0%, #1E1B4B 100%)', border: '1px solid rgba(124,58,237,0.35)', boxShadow: '0 0 80px rgba(124,58,237,0.2)' }}
+      onClick={e => e.stopPropagation()}
     >
-      Bekijk aanbod
-      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-    </a>
-    <button
-      onClick={onDismiss}
-      className="absolute right-3 sm:right-5 p-1 rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all"
-      aria-label="Sluiten"
-    >
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
+      <button
+        onClick={onClose}
+        className="absolute top-5 right-5 p-2 rounded-full text-white/40 hover:text-white transition-colors"
+        style={{ background: 'rgba(255,255,255,0.05)' }}
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div className="w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl" style={{ background: 'linear-gradient(135deg, #7C3AED, #4F46E5)' }}>
+        🎁
+      </div>
+
+      <h3 className="text-3xl font-black tracking-tighter text-white mb-3">Wacht!</h3>
+      <p className="text-lg font-semibold mb-2" style={{ color: 'rgba(241,245,249,0.7)' }}>
+        Claim nog snel je <span className="text-white font-black">3 gratis maanden</span> voor je weggaat
+      </p>
+      <p className="text-sm mb-8" style={{ color: 'rgba(241,245,249,0.4)' }}>
+        Deze aanbieding is tijdelijk beschikbaar. Mis het niet!
+      </p>
+
+      <a
+        href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent('Hoi, ik wil mijn 3 gratis maanden claimen bij IPTVDutch!')}&type=phone_number&app_absent=0`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full py-5 rounded-3xl font-black text-xl text-white mb-4 hover:brightness-110 transition-all"
+        style={{ background: 'linear-gradient(135deg, #7C3AED, #4F46E5)', boxShadow: '0 8px 32px rgba(124,58,237,0.4)' }}
+        onClick={onClose}
+      >
+        Ja, claim mijn 3 maanden gratis
+      </a>
+
+      <button onClick={onClose} className="text-sm font-semibold" style={{ color: 'rgba(241,245,249,0.3)' }}>
+        Nee, ik wil geen gratis maanden
+      </button>
+    </div>
   </div>
 );
 
-/* ─── layout wrapper (header + footer shared across all pages) ─────────────── */
+/* ─── Sticky mobile CTA ──────────────────────────────────────────────────── */
 
-const Layout: React.FC<{ children: React.ReactNode; bannerVisible: boolean; onDismiss: () => void }> = ({ children, bannerVisible, onDismiss }) => {
+const StickyCTA: React.FC<{ visible: boolean }> = ({ visible }) => {
+  if (!visible) return null;
+  return (
+    <div
+      className="sticky-cta fixed bottom-0 left-0 right-0 z-[90] px-4 py-3 md:hidden"
+      style={{ background: 'rgba(10,10,15,0.97)', borderTop: '1px solid rgba(59,130,246,0.15)', backdropFilter: 'blur(20px)' }}
+    >
+      <a
+        href="#iptvdutch"
+        className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-black text-lg text-white"
+        style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)', boxShadow: '0 4px 20px rgba(59,130,246,0.35)' }}
+      >
+        Bekijk Prijzen
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+      </a>
+    </div>
+  );
+};
+
+/* ─── layout wrapper ─────────────────────────────────────────────────────── */
+
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [scrollY, setScrollY] = useState(0);
+  const [showExitPopup, setShowExitPopup] = useState(false);
+  const [exitPopupShown, setExitPopupShown] = useState(false);
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -69,7 +114,11 @@ const Layout: React.FC<{ children: React.ReactNode; bannerVisible: boolean; onDi
   }, [location.pathname]);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      const y = window.scrollY;
+      setScrollY(y);
+      setShowStickyCTA(y > 400);
+    };
     window.addEventListener('scroll', handleScroll);
 
     const observer = new IntersectionObserver((entries) => {
@@ -87,19 +136,33 @@ const Layout: React.FC<{ children: React.ReactNode; bannerVisible: boolean; onDi
     };
   }, [location.pathname]);
 
+  // Exit-intent: trigger when mouse leaves viewport from the top
+  useEffect(() => {
+    if (exitPopupShown || location.pathname !== '/') return;
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !exitPopupShown) {
+        setShowExitPopup(true);
+        setExitPopupShown(true);
+      }
+    };
+    document.addEventListener('mouseleave', handleMouseLeave);
+    return () => document.removeEventListener('mouseleave', handleMouseLeave);
+  }, [exitPopupShown, location.pathname]);
+
   return (
     <div className="relative min-h-screen">
       <div className="grid-line grid-line-left" />
       <div className="grid-line grid-line-right" />
-      {bannerVisible && <AnnouncementBanner onDismiss={onDismiss} />}
-      <Header isScrolled={scrollY > 50} bannerOffset={bannerVisible ? BANNER_HEIGHT : 0} lightText={location.pathname === '/sportklaender' || location.pathname === '/kanalen'} />
+      {showExitPopup && <ExitPopup onClose={() => setShowExitPopup(false)} />}
+      <Header isScrolled={scrollY > 50} />
       {children}
       <Footer />
+      <StickyCTA visible={showStickyCTA} />
     </div>
   );
 };
 
-/* ─── pages ─────────────────────────────────────────────────────────────────── */
+/* ─── pages ─────────────────────────────────────────────────────────────── */
 
 const HomePage: React.FC = () => (
   <main>
@@ -116,7 +179,7 @@ const HomePage: React.FC = () => (
   </main>
 );
 
-const KanalenPage: React.FC = () => <main style={{ backgroundColor: '#F8FAFC' }}><Channels /></main>;
+const KanalenPage: React.FC = () => <main style={{ backgroundColor: '#0A0A0F' }}><Channels /></main>;
 const VoordelenPage: React.FC = () => <main className="pt-28"><Benefits /></main>;
 const PrijzenPage: React.FC = () => <main className="pt-28"><Pricing /></main>;
 const ResellerPage: React.FC = () => <main><ResellerPacks /></main>;
@@ -125,28 +188,24 @@ const AlgemeneVoorwaardenPage: React.FC = () => <main><AlgemeneVoorwaarden /></m
 const PrivacybeleidPage: React.FC = () => <main><Privacybeleid /></main>;
 const SportklaenderPage: React.FC = () => <main><SportCalendar /></main>;
 
-/* ─── app ────────────────────────────────────────────────────────────────────── */
+/* ─── app ────────────────────────────────────────────────────────────────── */
 
-const AppInner: React.FC = () => {
-  const [bannerVisible, setBannerVisible] = useState(true);
-
-  return (
-    <Layout bannerVisible={bannerVisible} onDismiss={() => setBannerVisible(false)}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/kanalen" element={<KanalenPage />} />
-        <Route path="/voordelen" element={<VoordelenPage />} />
-        <Route path="/prijzen" element={<PrijzenPage />} />
-        <Route path="/reseller" element={<ResellerPage />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/algemene-voorwaarden" element={<AlgemeneVoorwaardenPage />} />
-        <Route path="/privacybeleid" element={<PrivacybeleidPage />} />
-        <Route path="/sportklaender" element={<SportklaenderPage />} />
-        <Route path="/contact" element={<ContactRedirect />} />
-      </Routes>
-    </Layout>
-  );
-};
+const AppInner: React.FC = () => (
+  <Layout>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/kanalen" element={<KanalenPage />} />
+      <Route path="/voordelen" element={<VoordelenPage />} />
+      <Route path="/prijzen" element={<PrijzenPage />} />
+      <Route path="/reseller" element={<ResellerPage />} />
+      <Route path="/faq" element={<FAQPage />} />
+      <Route path="/algemene-voorwaarden" element={<AlgemeneVoorwaardenPage />} />
+      <Route path="/privacybeleid" element={<PrivacybeleidPage />} />
+      <Route path="/sportklaender" element={<SportklaenderPage />} />
+      <Route path="/contact" element={<ContactRedirect />} />
+    </Routes>
+  </Layout>
+);
 
 const App: React.FC = () => (
   <BrowserRouter>

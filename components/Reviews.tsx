@@ -77,15 +77,15 @@ const ChatBubble: React.FC<{
       </div>
 
       <div className="flex flex-col gap-1">
-        <span className={`text-xs font-bold ${isRight ? 'text-right' : ''}`} style={{ color: '#111827' }}>
+        <span className={`text-xs font-bold ${isRight ? 'text-right' : ''}`} style={{ color: 'rgba(241,245,249,0.6)' }}>
           {review.name}
         </span>
         <div
           className={`relative px-4 py-3 shadow-xl ${isRight ? 'rounded-2xl rounded-tr-sm' : 'rounded-2xl rounded-tl-sm'}`}
-          style={{ backgroundColor: '#059669' }}
+          style={{ backgroundColor: isRight ? '#3B82F6' : '#1E293B', border: isRight ? 'none' : '1px solid rgba(59,130,246,0.2)' }}
         >
           <div className="absolute top-0 w-3 h-3" style={{
-            backgroundColor: '#059669',
+            backgroundColor: isRight ? '#3B82F6' : '#1E293B',
             clipPath: isRight ? 'polygon(0 0, 100% 0, 100% 100%)' : 'polygon(100% 0, 0 0, 0 100%)',
             left: isRight ? 'auto' : '-6px',
             right: isRight ? '-6px' : 'auto',
@@ -128,11 +128,11 @@ export const Reviews: React.FC = () => {
     <section className="py-32 px-6">
       <div className="max-w-2xl mx-auto" ref={sectionRef}>
         <div className="text-center mb-16 space-y-4">
-          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest">
+          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(241,245,249,0.6)' }}>
             23000+ tevreden klanten
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black tracking-tighter" style={{ color: '#111827' }}>
-            #1 IPTV in Nederland volgens onze klanten
+          <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-white">
+            #1 IPTV in Nederland <span className="text-italics" style={{ color: '#93C5FD' }}>volgens onze klanten</span>
           </h2>
         </div>
 

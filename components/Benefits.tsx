@@ -54,12 +54,16 @@ const DevicesIcon = () => (
 );
 
 const BenefitCard: React.FC<{ title: string; desc: string; icon: React.ReactNode; className?: string }> = ({ title, desc, icon, className }) => (
-  <div className={`p-8 rounded-[40px] glass-card hover:bg-white transition-all duration-500 group cursor-default ${className}`}>
-    <div className="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform shadow-xl" style={{ backgroundColor: '#059669' }}>
+  <div className={`p-8 rounded-[40px] glass-card transition-all duration-500 group cursor-default ${className}`}
+    style={{ borderColor: 'rgba(59,130,246,0.15)' }}
+    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,130,246,0.35)'; }}
+    onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,130,246,0.15)'; }}
+  >
+    <div className="w-16 h-16 rounded-2xl mb-8 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform shadow-xl" style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)' }}>
       {icon}
     </div>
-    <h3 className="text-2xl font-black mb-4 tracking-tighter">{title}</h3>
-    <p className="text-black/70 leading-relaxed font-medium">{desc}</p>
+    <h3 className="text-2xl font-black mb-4 tracking-tighter text-white">{title}</h3>
+    <p className="leading-relaxed font-medium" style={{ color: 'rgba(241,245,249,0.6)' }}>{desc}</p>
   </div>
 );
 
@@ -68,14 +72,14 @@ export const Benefits: React.FC = () => {
     <section id="benefits" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-6">
-          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest">
+          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(241,245,249,0.6)' }}>
             Lidmaatschap voordelen
           </div>
-          <h2 className="text-5xl lg:text-7xl font-black tracking-tighter" style={{ color: '#111827' }}>
-            Het is <span className="text-italics underline decoration-2 underline-offset-[12px]" style={{ textDecorationColor: 'rgba(245,158,11,0.4)' }}>"je gaat nooit meer terug"</span> beter
+          <h2 className="text-5xl lg:text-7xl font-black tracking-tighter text-white">
+            Het is <span className="text-italics underline decoration-2 underline-offset-[12px]" style={{ textDecorationColor: 'rgba(124,58,237,0.5)' }}>"je gaat nooit meer terug"</span> beter
           </h2>
-          <p className="text-xl font-medium" style={{ color: 'rgba(13,27,62,0.7)' }}>
-            IPTVKopen vervangt dure Ziggo-pakketten en meerdere streamingdiensten voor één vaste prijs.
+          <p className="text-xl font-medium" style={{ color: 'rgba(241,245,249,0.55)' }}>
+            IPTVDutch vervangt dure Ziggo-pakketten en meerdere streamingdiensten voor één vaste prijs.
           </p>
         </div>
 

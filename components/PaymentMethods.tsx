@@ -164,46 +164,48 @@ export const PaymentMethods: React.FC = () => {
   return (
     <section className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+        <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6" style={{ color: 'rgba(241,245,249,0.6)' }}>
           Betaalmethoden
         </div>
-        <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#111827' }}>
+        <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12 text-white">
           Betaal zoals jij wilt
         </h2>
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
           {PAYMENT_METHODS.map((method) => (
             <div
               key={method.name}
-              className="glass-card rounded-[28px] py-6 flex flex-col items-center gap-4 hover:bg-white transition-all duration-500 group cursor-default aspect-square max-h-[160px]"
+              className="glass-card rounded-[28px] py-6 flex flex-col items-center gap-4 transition-all duration-300 group cursor-default aspect-square max-h-[160px]"
+              style={{ borderColor: 'rgba(59,130,246,0.15)' }}
             >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ backgroundColor: '#059669' }}>
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)' }}>
                 {method.icon}
               </div>
-              <span className="text-xs font-bold tracking-tight text-center" style={{ color: '#111827' }}>{method.name}</span>
+              <span className="text-xs font-bold tracking-tight text-center" style={{ color: 'rgba(241,245,249,0.7)' }}>{method.name}</span>
             </div>
           ))}
         </div>
 
         {/* Compatible Devices */}
         <div className="mt-20">
-          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6" style={{ color: 'rgba(241,245,249,0.6)' }}>
             Compatibele Apparaten
           </div>
-          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#111827' }}>
+          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12 text-white">
             Werkt op al jouw apparaten
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
             {DEVICES.map((device) => (
               <div
                 key={device.name}
-                className="glass-card rounded-[28px] p-5 flex flex-col items-center gap-3 hover:bg-white transition-all duration-500 group cursor-default"
+                className="glass-card rounded-[28px] p-5 flex flex-col items-center gap-3 transition-all duration-300 group cursor-default"
+                style={{ borderColor: 'rgba(59,130,246,0.15)' }}
               >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ backgroundColor: '#111827' }}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl flex-shrink-0" style={{ background: 'rgba(59,130,246,0.15)', color: '#60A5FA' }}>
                   {device.icon}
                 </div>
                 <div className="text-center">
-                  <div className="text-xs font-black tracking-tight" style={{ color: '#111827' }}>{device.name}</div>
-                  <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(13,27,62,0.5)' }}>{device.desc}</div>
+                  <div className="text-xs font-black tracking-tight text-white">{device.name}</div>
+                  <div className="text-[10px] font-medium mt-0.5" style={{ color: 'rgba(241,245,249,0.35)' }}>{device.desc}</div>
                 </div>
               </div>
             ))}
@@ -212,10 +214,10 @@ export const PaymentMethods: React.FC = () => {
 
         {/* Compatible Apps */}
         <div className="mt-20">
-          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+          <div className="inline-block px-4 py-1.5 glass-card rounded-full text-xs font-bold uppercase tracking-widest mb-6" style={{ color: 'rgba(241,245,249,0.6)' }}>
             Compatibele Apps
           </div>
-          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12" style={{ color: '#111827' }}>
+          <h2 className="text-3xl lg:text-4xl font-black tracking-tighter mb-12 text-white">
             Gebruik jouw favoriete app
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -228,13 +230,14 @@ export const PaymentMethods: React.FC = () => {
               { name: 'Smart IPTV', desc: 'Samsung · LG Smart TV', color: '#0288D1' },
               { name: 'VLC', desc: 'Windows · Mac · Linux', color: '#FF8800' },
               { name: 'Kodi', desc: 'Alle platforms', color: '#17B2E8' },
-              { name: 'IBO Player', desc: 'iOS · Android · Smart TV', color: '#059669' },
-              { name: 'Hot Player', desc: 'Android · Smart TV', color: '#F59E0B' },
-              { name: 'SmarterIPTV', desc: 'Samsung · LG Smart TV', color: '#2E7D32' },
+              { name: 'IBO Player', desc: 'iOS · Android · Smart TV', color: '#3B82F6' },
+              { name: 'Hot Player', desc: 'Android · Smart TV', color: '#7C3AED' },
+              { name: 'SmarterIPTV', desc: 'Samsung · LG Smart TV', color: '#06B6D4' },
             ].map((app) => (
               <div
                 key={app.name}
-                className="glass-card rounded-3xl p-6 flex flex-col items-center gap-3 hover:bg-white transition-all duration-500 group cursor-default"
+                className="glass-card rounded-3xl p-6 flex flex-col items-center gap-3 transition-all duration-300 group cursor-default"
+                style={{ borderColor: 'rgba(59,130,246,0.15)' }}
               >
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-black text-lg group-hover:scale-110 transition-transform shadow-xl flex-shrink-0"
@@ -243,8 +246,8 @@ export const PaymentMethods: React.FC = () => {
                   {app.name.charAt(0)}
                 </div>
                 <div className="text-center">
-                  <div className="text-xs font-black tracking-tight leading-tight" style={{ color: '#111827' }}>{app.name}</div>
-                  <div className="text-[10px] font-medium mt-1" style={{ color: 'rgba(13,27,62,0.5)' }}>{app.desc}</div>
+                  <div className="text-xs font-black tracking-tight leading-tight text-white">{app.name}</div>
+                  <div className="text-[10px] font-medium mt-1" style={{ color: 'rgba(241,245,249,0.35)' }}>{app.desc}</div>
                 </div>
               </div>
             ))}

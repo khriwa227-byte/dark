@@ -39,10 +39,11 @@ const CHANNEL_LOGOS: Record<string, string> = {
 };
 
 const SPORT_FILTERS = [
-  { key: 'all',     label: 'Alles',     icon: '🏆' },
-  { key: 'voetbal', label: 'Voetbal',   icon: '⚽' },
-  { key: 'f1',      label: 'Formule 1', icon: '🏎️' },
-  { key: 'basket',  label: 'NBA',       icon: '🏀' },
+  { key: 'all',             label: 'Alles',            icon: '🏆' },
+  { key: 'voetbal',         label: 'Voetbal',          icon: '⚽' },
+  { key: 'Champions League', label: 'Champions League', icon: '⭐' },
+  { key: 'f1',             label: 'Formule 1',         icon: '🏎️' },
+  { key: 'basket',         label: 'NBA',               icon: '🏀' },
 ];
 
 const LEAGUE_DEFS = [
@@ -331,7 +332,7 @@ export const SportCalendar: React.FC = () => {
     return () => clearInterval(id);
   }, [load]);
 
-  const filtered  = sport === 'all' ? events : events.filter(e => e.sport === sport);
+  const filtered  = sport === 'all' ? events : events.filter(e => e.sport === sport || e.competition === sport);
   const grouped   = groupByDate(filtered);
   const liveCount = filtered.filter(e => e.status === 'live').length;
 
@@ -465,7 +466,7 @@ export const SportCalendar: React.FC = () => {
               </p>
             </div>
             <a
-              href="/#iptvkopen"
+              href="/#iptvdutch"
               className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(245,158,11,0.4)]"
               style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)' }}
             >

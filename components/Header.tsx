@@ -10,7 +10,6 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, lightText = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const useLightText = lightText && !isScrolled && !isMenuOpen;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -28,35 +27,52 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
   return (
     <>
       <nav
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-4'}`}
-        style={{ top: `${bannerOffset}px` }}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled || isMenuOpen
+            ? 'py-4 border-b'
+            : 'bg-transparent py-4'
+        }`}
+        style={{
+          top: `${bannerOffset}px`,
+          ...(isScrolled || isMenuOpen
+            ? { background: 'rgba(10,10,15,0.95)', backdropFilter: 'blur(20px)', borderColor: 'rgba(59,130,246,0.12)' }
+            : {}),
+        }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
-            <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#059669' }}>
+            <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#3B82F6' }}>
               <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
-            <span className="text-xl font-extrabold tracking-tighter transition-colors duration-300" style={{ color: useLightText ? '#ffffff' : '#111827' }}>IPTVKopen</span>
+            <span className="text-xl font-extrabold tracking-tighter text-white">IPTVDutch</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold">
-            {navLinks.map((link) =>
-              link.external ? (
-                <a key={link.name} href={link.href} className="hover:opacity-60 transition-opacity" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>{link.name}</a>
-              ) : (
-                <Link key={link.name} to={link.href} className="hover:opacity-60 transition-opacity" style={{ color: useLightText ? 'rgba(255,255,255,0.85)' : undefined }}>{link.name}</Link>
-              )
-            )}
-            <div className="flex items-center gap-4 ml-4">
-              <Link to="/prijzen" className="px-6 py-2.5 rounded-full text-white hover:opacity-80 transition-all block text-center" style={{ backgroundColor: '#059669' }}>Bekijk prijzen</Link>
-            </div>
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="transition-colors duration-200"
+                style={{ color: 'rgba(241,245,249,0.7)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#F1F5F9')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(241,245,249,0.7)')}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link
+              to="/prijzen"
+              className="px-6 py-2.5 rounded-full text-white font-bold hover:brightness-110 transition-all"
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)', boxShadow: '0 4px 16px rgba(59,130,246,0.3)' }}
+            >
+              Bekijk prijzen
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 focus:outline-none transition-colors duration-300"
-            style={{ color: useLightText ? '#ffffff' : '#000000' }}
+            className="md:hidden p-2 focus:outline-none text-white"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -75,23 +91,26 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[49] bg-white transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} md:hidden px-6`}
-        style={{ paddingTop: `${bannerOffset + 96}px` }}
+        className={`fixed inset-0 z-[49] transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} md:hidden px-6`}
+        style={{ background: '#0A0A0F', paddingTop: `${bannerOffset + 96}px` }}
       >
         <div className="flex flex-col gap-8 text-center">
-          {navLinks.map((link) =>
-            link.external ? (
-              <a key={link.name} href={link.href} onClick={closeMenu} className="text-3xl font-black tracking-tighter hover:text-gray-600 transition-colors">{link.name}</a>
-            ) : (
-              <Link key={link.name} to={link.href} onClick={closeMenu} className="text-3xl font-black tracking-tighter hover:text-gray-600 transition-colors">{link.name}</Link>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.href}
+              onClick={closeMenu}
+              className="text-3xl font-black tracking-tighter text-white hover:opacity-60 transition-opacity"
+            >
+              {link.name}
+            </Link>
+          ))}
           <div className="flex flex-col gap-4 pt-8">
             <Link
               to="/prijzen"
               onClick={closeMenu}
-              className="w-full py-5 rounded-3xl text-white text-xl font-bold hover:opacity-80 transition-all shadow-lg block text-center"
-              style={{ backgroundColor: '#059669' }}
+              className="w-full py-5 rounded-3xl text-white text-xl font-bold hover:brightness-110 transition-all shadow-lg block text-center"
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)', boxShadow: '0 8px 32px rgba(59,130,246,0.35)' }}
             >
               Bekijk prijzen
             </Link>
