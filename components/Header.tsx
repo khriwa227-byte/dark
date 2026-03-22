@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ isScrolled, bannerOffset = 0, li
             <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ backgroundColor: '#3B82F6' }}>
               <div className="w-4 h-4 bg-white rotate-45"></div>
             </div>
-            <span className="text-xl font-extrabold tracking-tighter text-white">IPTVDutch</span>
+            <span className="text-xl font-extrabold tracking-tighter text-white">DutchIPTV</span>
           </Link>
 
           {/* Desktop Navigation */}

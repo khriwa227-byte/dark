@@ -79,7 +79,7 @@ export const Benefits: React.FC = () => {
             Het is <span className="text-italics underline decoration-2 underline-offset-[12px]" style={{ textDecorationColor: 'rgba(124,58,237,0.5)' }}>"je gaat nooit meer terug"</span> beter
           </h2>
           <p className="text-xl font-medium" style={{ color: 'rgba(241,245,249,0.55)' }}>
-            IPTVDutch vervangt dure Ziggo-pakketten en meerdere streamingdiensten voor één vaste prijs.
+            DutchIPTV vervangt dure Ziggo-pakketten en meerdere streamingdiensten voor één vaste prijs.
           </p>
         </div>
 

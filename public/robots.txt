@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.iptvnederland.digital/sitemap.xml
+Sitemap: https://www.dutchiptv.digital/sitemap.xml

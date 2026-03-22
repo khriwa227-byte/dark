@@ -311,7 +311,7 @@ export const Hero: React.FC = () => {
           {/* Promo pill */}
           <div className="flex justify-center sm:justify-start w-full animate-[popIn_0.6s_ease-out_both]">
             <a
-              href="#iptvdutch"
+              href="#dutchiptv"
               className="inline-flex items-center gap-3 pl-2.5 pr-5 py-2 rounded-full border hover:brightness-110 hover:scale-[1.03] transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, #1D4ED8, #3B82F6, #7C3AED)', borderColor: 'rgba(255,255,255,0.1)', boxShadow: '0 4px 16px rgba(59,130,246,0.25)' }}
             >
@@ -328,7 +328,7 @@ export const Hero: React.FC = () => {
             className="sm:hidden font-extrabold leading-[1.08] tracking-tighter text-center w-full whitespace-nowrap text-white"
             style={{ fontSize: 'min(11vw, 2.8rem)' }}
           >
-            IPTVDutch<br />
+            DutchIPTV<br />
             Van Nederland,<br />
             <span className="text-italics" style={{ color: '#93C5FD' }}>voor Nederland</span>
           </h1>
@@ -337,7 +337,7 @@ export const Hero: React.FC = () => {
             className="hidden sm:block font-extrabold leading-[1.03] tracking-tighter sm:text-left w-full text-white"
             style={{ fontSize: 'clamp(3.5rem, 6vw, 6.5rem)' }}
           >
-            IPTVDutch<br />
+            DutchIPTV<br />
             Van Nederland,<br />
             <span className="text-italics" style={{ color: '#93C5FD' }}>voor Nederland</span>
           </h1>
@@ -347,7 +347,7 @@ export const Hero: React.FC = () => {
             className="text-base lg:text-xl font-medium leading-relaxed text-center sm:text-left max-w-xl"
             style={{ color: 'rgba(241,245,249,0.6)' }}
           >
-            <strong style={{ color: 'rgba(241,245,249,0.85)' }}>IPTVDutch</strong> — premium IPTV met 65.000+ kanalen uit 70+ landen. TV kijken zoals het hoort, scherpste beeld, geen gedoe. Pauzeer of annuleer op elk moment.
+            <strong style={{ color: 'rgba(241,245,249,0.85)' }}>DutchIPTV</strong> — premium IPTV met 65.000+ kanalen uit 70+ landen. TV kijken zoals het hoort, scherpste beeld, geen gedoe. Pauzeer of annuleer op elk moment.
           </p>
 
           {/* Stats row — desktop only */}
@@ -368,14 +368,14 @@ export const Hero: React.FC = () => {
           {/* CTAs */}
           <div className="flex flex-col gap-4 w-full sm:flex-row sm:w-auto sm:justify-start">
             <a
-              href="#iptvdutch"
+              href="#dutchiptv"
               className="w-full sm:w-auto px-10 py-4 text-white text-base font-black rounded-full hover:scale-[1.02] hover:brightness-110 transition-all text-center"
               style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)', boxShadow: '0 8px 32px rgba(59,130,246,0.35)' }}
             >
               Bekijk prijzen
             </a>
             <a
-              href="#iptvdutch"
+              href="#dutchiptv"
               className="btn-claim w-full sm:w-auto px-8 py-4 text-white text-base font-black rounded-full flex items-center justify-center gap-3 transition-all duration-300 cursor-pointer"
             >
               <span className="w-7 h-7 rounded-lg flex items-center justify-center bg-white/20 shrink-0">

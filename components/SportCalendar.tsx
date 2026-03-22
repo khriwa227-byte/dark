@@ -466,7 +466,7 @@ export const SportCalendar: React.FC = () => {
               </p>
             </div>
             <a
-              href="/#iptvdutch"
+              href="/#dutchiptv"
               className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(245,158,11,0.4)]"
               style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)' }}
             >

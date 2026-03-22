@@ -29,7 +29,7 @@ export const DesignAssistant: React.FC = () => {
         model: 'gemini-3-flash-preview',
         contents: userMessage,
         config: {
-          systemInstruction: `Je bent de klantenservice medewerker van IPTVDutch. 
+          systemInstruction: `Je bent de klantenservice medewerker van DutchIPTV. 
           Reageer professioneel, behulpzaam en enthousiast over onze IPTV diensten.
           Kerninformatie:
           - Pakketten: Starter (€34,99), Popular (€44,99), Prime (€69,99).
@@ -49,7 +49,7 @@ export const DesignAssistant: React.FC = () => {
       const conversationText = [...messages, { role: 'user', content: userMessage }]
         .map(m => `${m.role === 'user' ? 'Klant' : 'Support'}: ${m.content}`)
         .join('\n');
-      const whatsappUrl = `https://api.whatsapp.com/send/?phone=447414662070&text=${encodeURIComponent(conversationText)}&type=phone_number&app_absent=0`;
+      const whatsappUrl = `https://api.whatsapp.com/send/?phone=447449708976&text=${encodeURIComponent(conversationText)}&type=phone_number&app_absent=0`;
       window.open(whatsappUrl, '_blank');
     } finally {
       setIsLoading(false);
@@ -66,8 +66,8 @@ export const DesignAssistant: React.FC = () => {
                 <div className="w-4 h-4 bg-black rotate-45"></div>
               </div>
               <div>
-                <div className="font-bold text-sm">Chat met IPTVDutch</div>
-                <div className="text-[10px] uppercase tracking-widest opacity-60">Team IPTVDutch</div>
+                <div className="font-bold text-sm">Chat met DutchIPTV</div>
+                <div className="text-[10px] uppercase tracking-widest opacity-60">Team DutchIPTV</div>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="opacity-60 hover:opacity-100">
@@ -79,7 +79,7 @@ export const DesignAssistant: React.FC = () => {
             {messages.length === 0 && (
               <div className="text-center py-10 text-gray-400 space-y-4">
                 <div className="text-4xl">👋</div>
-                <p className="text-sm font-medium">Hoi! Ik help je graag met al je vragen over IPTVDutch.</p>
+                <p className="text-sm font-medium">Hoi! Ik help je graag met al je vragen over DutchIPTV.</p>
               </div>
             )}
             {messages.map((m, i) => (

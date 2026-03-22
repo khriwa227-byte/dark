@@ -22,7 +22,7 @@ export const Privacybeleid: React.FC = () => {
           <section>
             <h2 className="text-2xl font-extrabold tracking-tight mb-4" style={{ color: '#F1F5F9' }}>1. Inleiding</h2>
             <p>
-              IPTVDutch, gevestigd in Nederland, hecht groot belang aan de bescherming van uw persoonsgegevens. In dit Privacybeleid leggen wij uit welke gegevens wij verzamelen, waarom wij deze verzamelen, hoe wij deze gebruiken en welke rechten u heeft. Dit beleid is van toepassing op alle diensten die door IPTVDutch worden aangeboden.
+              DutchIPTV, gevestigd in Nederland, hecht groot belang aan de bescherming van uw persoonsgegevens. In dit Privacybeleid leggen wij uit welke gegevens wij verzamelen, waarom wij deze verzamelen, hoe wij deze gebruiken en welke rechten u heeft. Dit beleid is van toepassing op alle diensten die door DutchIPTV worden aangeboden.
             </p>
           </section>
 
@@ -65,7 +65,7 @@ export const Privacybeleid: React.FC = () => {
 
           <section>
             <h2 className="text-2xl font-extrabold tracking-tight mb-4" style={{ color: '#F1F5F9' }}>5. Delen van gegevens met derden</h2>
-            <p className="mb-4">IPTVDutch deelt uw persoonsgegevens niet met derden, tenzij:</p>
+            <p className="mb-4">DutchIPTV deelt uw persoonsgegevens niet met derden, tenzij:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Dit noodzakelijk is voor de uitvoering van de overeenkomst (bijvoorbeeld betalingsverwerkers).</li>
               <li>Wij hiertoe wettelijk verplicht zijn (bijvoorbeeld op verzoek van een bevoegde autoriteit).</li>
@@ -98,7 +98,7 @@ export const Privacybeleid: React.FC = () => {
           <section>
             <h2 className="text-2xl font-extrabold tracking-tight mb-4" style={{ color: '#F1F5F9' }}>8. Beveiliging</h2>
             <p>
-              IPTVDutch neemt passende technische en organisatorische maatregelen om uw persoonsgegevens te beschermen tegen ongeoorloofde toegang, verlies, vernietiging of wijziging. Ondanks onze inspanningen kan geen enkele methode van elektronische opslag of overdracht volledig veilig worden gegarandeerd.
+              DutchIPTV neemt passende technische en organisatorische maatregelen om uw persoonsgegevens te beschermen tegen ongeoorloofde toegang, verlies, vernietiging of wijziging. Ondanks onze inspanningen kan geen enkele methode van elektronische opslag of overdracht volledig veilig worden gegarandeerd.
             </p>
           </section>
 
@@ -129,7 +129,7 @@ export const Privacybeleid: React.FC = () => {
           <section>
             <h2 className="text-2xl font-extrabold tracking-tight mb-4" style={{ color: '#F1F5F9' }}>11. Wijzigingen</h2>
             <p>
-              IPTVDutch behoudt zich het recht voor om dit Privacybeleid te wijzigen. Wijzigingen worden op deze pagina gepubliceerd. Wij raden u aan om dit beleid regelmatig te raadplegen. Bij significante wijzigingen zullen wij u hierover actief informeren.
+              DutchIPTV behoudt zich het recht voor om dit Privacybeleid te wijzigen. Wijzigingen worden op deze pagina gepubliceerd. Wij raden u aan om dit beleid regelmatig te raadplegen. Bij significante wijzigingen zullen wij u hierover actief informeren.
             </p>
           </section>
 
@@ -137,10 +137,10 @@ export const Privacybeleid: React.FC = () => {
             <h2 className="text-2xl font-extrabold tracking-tight mb-4" style={{ color: '#F1F5F9' }}>12. Contact</h2>
             <p>Voor vragen over dit Privacybeleid of over de verwerking van uw persoonsgegevens kunt u contact met ons opnemen:</p>
             <div className="mt-4 p-6 rounded-2xl space-y-2" style={{ background: 'rgba(15,23,42,0.95)', border: '1px solid rgba(59,130,246,0.15)' }}>
-              <p><strong>IPTVDutch</strong></p>
-              <p>E-mail: <a href="mailto:info@iptvdutch.digital" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>info@iptvdutch.digital</a></p>
-              <p>Telefoon: <a href="tel:+447414662070" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>+44 7414 662070</a></p>
-              <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447414662070&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>+44 7414 662070</a></p>
+              <p><strong>DutchIPTV</strong></p>
+              <p>E-mail: <a href="mailto:info@dutchiptv.digital" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>info@dutchiptv.digital</a></p>
+              <p>Telefoon: <a href="tel:+447449708976" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>+44 7449 708976</a></p>
+              <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>+44 7449 708976</a></p>
             </div>
           </section>
         </div>
