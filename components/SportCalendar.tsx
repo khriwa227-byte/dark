@@ -123,7 +123,16 @@ async function fetchAllEvents(days = 14): Promise<CalEvent[]> {
     }
   }
 
-  return events.sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime());
+  function compPrio(e: CalEvent) {
+    if (e.competition === 'Champions League') return 0;
+    if (e.sport === 'voetbal') return 1;
+    return 2;
+  }
+  return events.sort((a, b) => {
+    const timeDiff = new Date(a.startTime).getTime() - new Date(b.startTime).getTime();
+    if (timeDiff !== 0) return timeDiff;
+    return compPrio(a) - compPrio(b);
+  });
 }
 
 /* ─── helpers ───────────────────────────────────────────────────────────── */
@@ -466,7 +475,7 @@ export const SportCalendar: React.FC = () => {
               </p>
             </div>
             <a
-              href="/#dutchiptv"
+              href="/#iptvdark"
               className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-black text-white text-sm hover:scale-105 transition-transform shadow-[0_8px_32px_rgba(245,158,11,0.4)]"
               style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)' }}
             >

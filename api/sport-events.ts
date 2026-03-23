@@ -7,7 +7,7 @@ function espnDate(offsetDays = 0) {
 }
 
 function rangeUrl(base: string) {
-  return `${base}?dates=${espnDate(0)}-${espnDate(7)}`;
+  return `${base}?dates=${espnDate(0)}-${espnDate(30)}`;
 }
 
 const LEAGUES = [
@@ -145,11 +145,16 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
     }
   }
 
-  // live first, then soonest upcoming
+  // Champions League first, then other football, then other sports; live before upcoming
+  function competitionPriority(e: typeof events[0]) {
+    if (e!.competition === 'Champions League') return 0;
+    if (e!.sport === 'voetbal') return 1;
+    return 2;
+  }
   events.sort((a, b) => {
-    const aFootball = a!.sport === 'voetbal' ? 0 : 1;
-    const bFootball = b!.sport === 'voetbal' ? 0 : 1;
-    if (aFootball !== bFootball) return aFootball - bFootball;
+    const aPrio = competitionPriority(a);
+    const bPrio = competitionPriority(b);
+    if (aPrio !== bPrio) return aPrio - bPrio;
     if (a!.status === 'live' && b!.status !== 'live') return -1;
     if (b!.status === 'live' && a!.status !== 'live') return 1;
     return new Date(a!.startTime).getTime() - new Date(b!.startTime).getTime();

@@ -19,7 +19,7 @@ import { SportEvents } from './components/SportEvents';
 import { SportCalendar } from './components/SportCalendar';
 
 const WHATSAPP_NUMBER = '447449708976';
-const WHATSAPP_MESSAGE = encodeURIComponent('Hoi, ik ben geïnteresseerd in DutchIPTV en wil graag een IPTV pakket kopen. Kunnen jullie mij meer informatie geven?');
+const WHATSAPP_MESSAGE = encodeURIComponent('Hoi, ik ben geïnteresseerd in IPTVDark en wil graag een IPTV pakket kopen. Kunnen jullie mij meer informatie geven?');
 
 const ContactRedirect: React.FC = () => {
   useEffect(() => {
@@ -62,7 +62,7 @@ const ExitPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => (
       </p>
 
       <a
-        href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent('Hoi, ik wil mijn 3 gratis maanden claimen bij DutchIPTV!')}&type=phone_number&app_absent=0`}
+        href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent('Hoi, ik wil mijn 3 gratis maanden claimen bij IPTVDark!')}&type=phone_number&app_absent=0`}
         target="_blank"
         rel="noopener noreferrer"
         className="block w-full py-5 rounded-3xl font-black text-xl text-white mb-4 hover:brightness-110 transition-all"
@@ -86,7 +86,7 @@ const StickyOfferButton: React.FC = () => {
   if (location.pathname === '/') return null;
   return (
     <a
-      href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent('Hoi, ik wil het 12+3 gratis maanden aanbod claimen bij DutchIPTV!')}&type=phone_number&app_absent=0`}
+      href={`https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent('Hoi, ik wil het 12+3 gratis maanden aanbod claimen bij IPTVDark!')}&type=phone_number&app_absent=0`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-[100] flex items-center gap-3 px-5 py-3.5 rounded-full font-black text-white shadow-2xl hover:brightness-110 hover:scale-105 transition-all duration-200"
@@ -115,7 +115,7 @@ const StickyCTA: React.FC<{ visible: boolean }> = ({ visible }) => {
       style={{ background: 'rgba(10,10,15,0.97)', borderTop: '1px solid rgba(59,130,246,0.15)', backdropFilter: 'blur(20px)' }}
     >
       <a
-        href="#dutchiptv"
+        href="#iptvdark"
         className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-black text-lg text-white"
         style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)', boxShadow: '0 4px 20px rgba(59,130,246,0.35)' }}
       >

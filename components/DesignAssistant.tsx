@@ -29,7 +29,7 @@ export const DesignAssistant: React.FC = () => {
         model: 'gemini-3-flash-preview',
         contents: userMessage,
         config: {
-          systemInstruction: `Je bent de klantenservice medewerker van DutchIPTV. 
+          systemInstruction: `Je bent de klantenservice medewerker van IPTVDark. 
           Reageer professioneel, behulpzaam en enthousiast over onze IPTV diensten.
           Kerninformatie:
           - Pakketten: Starter (€34,99), Popular (€44,99), Prime (€69,99).
@@ -66,8 +66,8 @@ export const DesignAssistant: React.FC = () => {
                 <div className="w-4 h-4 bg-black rotate-45"></div>
               </div>
               <div>
-                <div className="font-bold text-sm">Chat met DutchIPTV</div>
-                <div className="text-[10px] uppercase tracking-widest opacity-60">Team DutchIPTV</div>
+                <div className="font-bold text-sm">Chat met IPTVDark</div>
+                <div className="text-[10px] uppercase tracking-widest opacity-60">Team IPTVDark</div>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="opacity-60 hover:opacity-100">
@@ -79,7 +79,7 @@ export const DesignAssistant: React.FC = () => {
             {messages.length === 0 && (
               <div className="text-center py-10 text-gray-400 space-y-4">
                 <div className="text-4xl">👋</div>
-                <p className="text-sm font-medium">Hoi! Ik help je graag met al je vragen over DutchIPTV.</p>
+                <p className="text-sm font-medium">Hoi! Ik help je graag met al je vragen over IPTVDark.</p>
               </div>
             )}
             {messages.map((m, i) => (

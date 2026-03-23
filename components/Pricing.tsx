@@ -124,7 +124,7 @@ const ComparisonTable: React.FC = () => {
           Vergelijking
         </div>
         <h3 className="text-3xl lg:text-5xl font-black tracking-tighter text-white">
-          DutchIPTV vs. <span className="text-italics" style={{ color: 'rgba(241,245,249,0.4)' }}>de rest</span>
+          IPTVDark vs. <span className="text-italics" style={{ color: 'rgba(241,245,249,0.4)' }}>de rest</span>
         </h3>
         <p className="mt-4 text-base font-medium" style={{ color: 'rgba(241,245,249,0.5)' }}>Bespaar tot €650/jaar ten opzichte van Ziggo</p>
       </div>
@@ -136,7 +136,7 @@ const ComparisonTable: React.FC = () => {
               <th className="text-left px-6 py-4 text-sm font-bold uppercase tracking-widest" style={{ color: 'rgba(241,245,249,0.4)' }}>Functie</th>
               <th className="px-6 py-4 text-center">
                 <div className="flex flex-col items-center gap-1">
-                  <span className="text-sm font-black uppercase tracking-wide" style={{ color: '#60A5FA' }}>DutchIPTV</span>
+                  <span className="text-sm font-black uppercase tracking-wide" style={{ color: '#60A5FA' }}>IPTVDark</span>
                   <span className="text-xs font-semibold" style={{ color: 'rgba(241,245,249,0.4)' }}>v.a. €5,83/mnd</span>
                 </div>
               </th>
@@ -225,12 +225,12 @@ export const Pricing: React.FC = () => {
     const pricing = getDevicePrice(tier);
     const deviceText = selectedDevices === 1 ? '1 apparaat' : `${selectedDevices} apparaten`;
     const periodText = currentPeriod.months === 12 ? '12+3 maanden (15 maanden totaal!)' : `${currentPeriod.months} maanden`;
-    const message = `Hallo, ik wil graag het ${tier.tier}-pakket van DutchIPTV aanschaffen voor ${periodText} voor ${deviceText} (${pricing.price}).`;
+    const message = `Hallo, ik wil graag het ${tier.tier}-pakket van IPTVDark aanschaffen voor ${periodText} voor ${deviceText} (${pricing.price}).`;
     return `https://api.whatsapp.com/send/?phone=447449708976&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
   };
 
   return (
-    <section id="dutchiptv" className="py-32 px-6" style={{ background: 'transparent' }}>
+    <section id="iptvdark" className="py-32 px-6" style={{ background: 'transparent' }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
