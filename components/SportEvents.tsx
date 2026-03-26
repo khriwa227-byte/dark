@@ -79,17 +79,66 @@ const LEAGUE_DEFS = [
     isTeamSport: true,
   },
   {
-    base: 'https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard',
-    competition: 'Formule 1', sport: 'f1',
-    channel: 'Ziggo Sport', channelColor: '#FF5500',
-    gradient: 'linear-gradient(135deg, #1a0800 0%, #4a1800 60%, #1a0800 100%)',
-    isTeamSport: false,
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa_league/scoreboard',
+    competition: 'Europa League', sport: 'voetbal',
+    channel: 'Viaplay', channelColor: '#5900D9',
+    gradient: 'linear-gradient(135deg, #001a0d 0%, #004d26 60%, #001a0d 100%)',
+    isTeamSport: true,
   },
   {
-    base: 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard',
-    competition: 'NBA', sport: 'basket',
-    channel: 'NBA TV', channelColor: '#006BB6',
-    gradient: 'linear-gradient(135deg, #00091a 0%, #002b5c 60%, #00091a 100%)',
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.nations/scoreboard',
+    competition: 'Nations League', sport: 'internationaal',
+    channel: 'Ziggo Sport', channelColor: '#FF5500',
+    gradient: 'linear-gradient(135deg, #0a0a1a 0%, #1a1a4a 60%, #0a0a1a 100%)',
+    isTeamSport: true,
+  },
+  {
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.eu/scoreboard',
+    competition: 'WK Kwalificatie', sport: 'internationaal',
+    channel: 'Ziggo Sport', channelColor: '#FF5500',
+    gradient: 'linear-gradient(135deg, #0d1a00 0%, #2a4a00 60%, #0d1a00 100%)',
+    isTeamSport: true,
+  },
+  {
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard',
+    competition: 'FIFA World Cup', sport: 'internationaal',
+    channel: 'NOS', channelColor: '#CC0000',
+    gradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 60%, #1a0000 100%)',
+    isTeamSport: true,
+  },
+  {
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.euro/scoreboard',
+    competition: 'UEFA EURO', sport: 'internationaal',
+    channel: 'NOS', channelColor: '#CC0000',
+    gradient: 'linear-gradient(135deg, #00001a 0%, #00004a 60%, #00001a 100%)',
+    isTeamSport: true,
+  },
+  {
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/concacaf.nations.league/scoreboard',
+    competition: 'CONCACAF Nations', sport: 'internationaal',
+    channel: 'ESPN', channelColor: '#E8002D',
+    gradient: 'linear-gradient(135deg, #001a0a 0%, #00401a 60%, #001a0a 100%)',
+    isTeamSport: true,
+  },
+  {
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.conmebol/scoreboard',
+    competition: 'CONMEBOL WK Kwal.', sport: 'internationaal',
+    channel: 'ESPN', channelColor: '#E8002D',
+    gradient: 'linear-gradient(135deg, #1a1000 0%, #4a3000 60%, #1a1000 100%)',
+    isTeamSport: true,
+  },
+  {
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly/scoreboard',
+    competition: 'Interland Vriendsch.', sport: 'internationaal',
+    channel: 'NOS', channelColor: '#CC0000',
+    gradient: 'linear-gradient(135deg, #0a001a 0%, #280040 60%, #0a001a 100%)',
+    isTeamSport: true,
+  },
+  {
+    base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly.w/scoreboard',
+    competition: 'Vrouwen Vriendsch.', sport: 'internationaal',
+    channel: 'NOS', channelColor: '#CC0000',
+    gradient: 'linear-gradient(135deg, #1a0010 0%, #4a0030 60%, #1a0010 100%)',
     isTeamSport: true,
   },
 ];
@@ -178,26 +227,24 @@ async function loadEvents(): Promise<SportEvent[]> {
   return fetchFromESPN();
 }
 
-function competitionPriority(e: SportEvent) {
-  if (e.competition === 'Champions League') return 0;
-  if (e.sport === 'voetbal') return 1;
+function livePriority(e: SportEvent) {
+  // Within live: club football first, then international
+  if (e.sport === 'voetbal') return 0;
+  if (e.sport === 'internationaal') return 1;
   return 2;
 }
 
 function sortEvents(events: SportEvent[]) {
-  return [...events].sort((a, b) => {
-    const aPrio = competitionPriority(a);
-    const bPrio = competitionPriority(b);
-    if (aPrio !== bPrio) return aPrio - bPrio;
-    if (a.status === 'live' && b.status !== 'live') return -1;
-    if (b.status === 'live' && a.status !== 'live') return 1;
-    return new Date(a.startTime).getTime() - new Date(b.startTime).getTime();
-  });
+  // Filter to only soccer (voetbal + internationaal)
+  const soccer = events.filter(e => e.sport === 'voetbal' || e.sport === 'internationaal');
+  const live     = soccer.filter(e => e.status === 'live').sort((a, b) => livePriority(a) - livePriority(b));
+  const upcoming = soccer.filter(e => e.status !== 'live').sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime());
+  return [...live, ...upcoming];
 }
 
 /* ─── helpers ───────────────────────────────────────────────────────────── */
 
-const sportIcon: Record<string, string> = { voetbal: '⚽', f1: '🏎️', basket: '🏀', tennis: '🎾' };
+const sportIcon: Record<string, string> = { voetbal: '⚽', internationaal: '🌍', f1: '🏎️', basket: '🏀', tennis: '🎾' };
 
 const CHANNEL_LOGOS: Record<string, string> = {
   'ESPN':        '/assets/channels/espn.png',

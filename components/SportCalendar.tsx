@@ -42,6 +42,7 @@ const SPORT_FILTERS = [
   { key: 'all',             label: 'Alles',            icon: '🏆' },
   { key: 'voetbal',         label: 'Voetbal',          icon: '⚽' },
   { key: 'Champions League', label: 'Champions League', icon: '⭐' },
+  { key: 'internationaal',  label: 'Internationaal',   icon: '🌍' },
   { key: 'f1',             label: 'Formule 1',         icon: '🏎️' },
   { key: 'basket',         label: 'NBA',               icon: '🏀' },
 ];
@@ -54,8 +55,16 @@ const LEAGUE_DEFS = [
   { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard',                 competition: 'Bundesliga',       sport: 'voetbal', channel: 'Viaplay',     channelColor: '#5900D9', isTeamSport: true },
   { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard',                 competition: 'Serie A',          sport: 'voetbal', channel: 'Viaplay',     channelColor: '#5900D9', isTeamSport: true },
   { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa_league/scoreboard',    competition: 'Europa League',    sport: 'voetbal', channel: 'Viaplay',     channelColor: '#5900D9', isTeamSport: true },
-  { base: 'https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard',                    competition: 'Formule 1',        sport: 'f1',      channel: 'Ziggo Sport', channelColor: '#FF5500', isTeamSport: false },
-  { base: 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard',               competition: 'NBA',              sport: 'basket',  channel: 'NBA TV',      channelColor: '#006BB6', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.nations/scoreboard',           competition: 'Nations League',      sport: 'internationaal', channel: 'Ziggo Sport', channelColor: '#FF5500', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.eu/scoreboard',        competition: 'WK Kwalificatie',     sport: 'internationaal', channel: 'Ziggo Sport', channelColor: '#FF5500', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard',            competition: 'FIFA World Cup',      sport: 'internationaal', channel: 'NOS',         channelColor: '#CC0000', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.euro/scoreboard',             competition: 'UEFA EURO',           sport: 'internationaal', channel: 'NOS',         channelColor: '#CC0000', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/concacaf.nations.league/scoreboard', competition: 'CONCACAF Nations',  sport: 'internationaal', channel: 'ESPN',        channelColor: '#E8002D', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.conmebol/scoreboard',  competition: 'CONMEBOL WK Kwal.',   sport: 'internationaal', channel: 'ESPN',        channelColor: '#E8002D', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly/scoreboard',         competition: 'Interland Vriendsch.', sport: 'internationaal', channel: 'NOS',        channelColor: '#CC0000', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly.w/scoreboard',       competition: 'Vrouwen Vriendsch.',  sport: 'internationaal', channel: 'NOS',         channelColor: '#CC0000', isTeamSport: true },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard',                    competition: 'Formule 1',           sport: 'f1',             channel: 'Ziggo Sport', channelColor: '#FF5500', isTeamSport: false },
+  { base: 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard',               competition: 'NBA',                 sport: 'basket',         channel: 'NBA TV',      channelColor: '#006BB6', isTeamSport: true },
 ];
 
 type LeagueDef = typeof LEAGUE_DEFS[0];
@@ -373,7 +382,7 @@ export const SportCalendar: React.FC = () => {
                 Sport Kalender
               </h1>
               <p className="mt-2 text-sm font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                Eredivisie · Champions League · F1 · NBA · en meer — Amsterdam tijd
+                Eredivisie · Champions League · Nations League · WK Kwalificatie · F1 · en meer — Amsterdam tijd
               </p>
             </div>
             {lastUpdated && (
