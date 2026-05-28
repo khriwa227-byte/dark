@@ -132,7 +132,7 @@ export const AlgemeneVoorwaarden: React.FC = () => {
           <section>
             <h2 className="text-2xl font-extrabold tracking-tight mb-4" style={{ color: '#F1F5F9' }}>12. Klachten en Geschillen</h2>
             <ol className="list-decimal pl-6 space-y-2">
-              <li>Klachten kunnen worden ingediend via WhatsApp of e-mail op <a href="mailto:info@iptvdark-nl" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>info@iptvdark-nl</a>.</li>
+              <li>Klachten kunnen worden ingediend via WhatsApp of e-mail op <a href="mailto:info@iptvdark.digital" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>info@iptvdark.digital</a>.</li>
               <li>IPTVDark streeft ernaar klachten binnen 7 werkdagen te behandelen.</li>
               <li>Op deze voorwaarden is Nederlands recht van toepassing.</li>
               <li>Geschillen worden voorgelegd aan de bevoegde rechter in Nederland.</li>
@@ -144,7 +144,7 @@ export const AlgemeneVoorwaarden: React.FC = () => {
             <p>Voor vragen over deze Algemene Voorwaarden kunt u contact met ons opnemen:</p>
             <div className="mt-4 p-6 rounded-2xl space-y-2" style={{ background: 'rgba(15,23,42,0.95)', border: '1px solid rgba(59,130,246,0.15)' }}>
               <p><strong>IPTVDark</strong></p>
-              <p>E-mail: <a href="mailto:info@iptvdark-nl" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>info@iptvdark-nl</a></p>
+              <p>E-mail: <a href="mailto:info@iptvdark.digital" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>info@iptvdark.digital</a></p>
               <p>Telefoon: <a href="tel:+447449708976" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>+44 7449 708976</a></p>
               <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=447449708976&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#60A5FA" }}>+44 7449 708976</a></p>
             </div>

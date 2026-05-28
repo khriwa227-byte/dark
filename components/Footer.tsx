@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-8">
               <div className="p-6 rounded-3xl border" style={{ background: 'rgba(59,130,246,0.06)', borderColor: 'rgba(59,130,246,0.15)' }}>
                 <p className="text-sm font-medium leading-relaxed" style={{ color: 'rgba(241,245,249,0.7)' }}>
-                  IPTVDark helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+447449708976" className="font-bold hover:underline" style={{ color: '#60A5FA' }}>+44 7449 708976</a> of mail <a href="mailto:info@iptvdark-nl" className="font-bold hover:underline" style={{ color: '#60A5FA' }}>info@iptvdark-nl</a>.
+                  IPTVDark helpt duizenden klanten met premium IPTV. Voor snelle service, WhatsApp ons voor een reactie binnen 5 minuten, bel <a href="tel:+447449708976" className="font-bold hover:underline" style={{ color: '#60A5FA' }}>+44 7449 708976</a> of mail <a href="mailto:info@iptvdark.digital" className="font-bold hover:underline" style={{ color: '#60A5FA' }}>info@iptvdark.digital</a>.
                 </p>
               </div>
 
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-8 text-sm font-bold" style={{ color: 'rgba(241,245,249,0.35)' }}>
             <a href="/algemene-voorwaarden" className="hover:text-white transition-colors">Algemene voorwaarden</a>
             <a href="/privacybeleid" className="hover:text-white transition-colors">Privacybeleid</a>
-            <a href="mailto:info@iptvdark-nl" className="hover:text-white transition-colors">info@iptvdark-nl</a>
+            <a href="mailto:info@iptvdark.digital" className="hover:text-white transition-colors">info@iptvdark.digital</a>
             <a href="tel:+447449708976" className="hover:text-white transition-colors">+44 7449 708976</a>
           </div>
 

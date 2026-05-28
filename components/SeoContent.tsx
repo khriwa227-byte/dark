@@ -12,7 +12,7 @@ export const SeoContent: React.FC = () => {
               IPTVDark — De #1 IPTV Provider van Nederland
             </h2>
             <p className="text-lg leading-relaxed" style={{ color: 'rgba(241,245,249,0.6)' }}>
-              <strong>IPTVDark</strong> (iptvdark-nl) is dé meest betrouwbare <strong>IPTV provider van Nederland</strong>. Bij IPTVDark krijg je direct toegang tot meer dan 80.000 kanalen en 200.000+ films &amp; series in verbluffende 4K kwaliteit. Of je nu <strong>IPTVDark</strong> kiest voor sport, films, Nederlandse kanalen of internationale content — <strong>IPTVDark</strong> heeft het allemaal voor een vaste lage prijs.
+              <strong>IPTVDark</strong> (iptvdark.digital) is dé meest betrouwbare <strong>IPTV provider van Nederland</strong>. Bij IPTVDark krijg je direct toegang tot meer dan 80.000 kanalen en 200.000+ films &amp; series in verbluffende 4K kwaliteit. Of je nu <strong>IPTVDark</strong> kiest voor sport, films, Nederlandse kanalen of internationale content — <strong>IPTVDark</strong> heeft het allemaal voor een vaste lage prijs.
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export const SeoContent: React.FC = () => {
               Hoe werkt IPTV kopen bij IPTVDark?
             </h3>
             <p className="text-base leading-relaxed" style={{ color: 'rgba(241,245,249,0.6)' }}>
-              <strong>IPTV kopen bij IPTVDark</strong> is eenvoudig en snel. Kies je pakket op iptvdark-nl, betaal veilig en ontvang binnen 5 minuten je logingegevens via WhatsApp. Installeer de app op je apparaat en begin direct met kijken. Geen technische kennis nodig — onze support begeleidt je stap voor stap.
+              <strong>IPTV kopen bij IPTVDark</strong> is eenvoudig en snel. Kies je pakket op iptvdark.digital, betaal veilig en ontvang binnen 5 minuten je logingegevens via WhatsApp. Installeer de app op je apparaat en begin direct met kijken. Geen technische kennis nodig — onze support begeleidt je stap voor stap.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export const SeoContent: React.FC = () => {
               IPTVDark — De beste IPTV aanbieder van Nederland
             </h3>
             <p className="text-base leading-relaxed" style={{ color: 'rgba(241,245,249,0.6)' }}>
-              Duizenden tevreden klanten in heel Nederland kiezen dagelijks voor <strong>IPTVDark</strong> als hun IPTV provider. Of je nu in Amsterdam, Rotterdam, Den Haag, Utrecht of ergens anders in Nederland woont — bij <strong>iptvdark-nl</strong> geniet je overal van premium televisie. <strong>Bestel IPTVDark vandaag</strong> en ontvang 3 maanden gratis bij het 12-maanden pakket.
+              Duizenden tevreden klanten in heel Nederland kiezen dagelijks voor <strong>IPTVDark</strong> als hun IPTV provider. Of je nu in Amsterdam, Rotterdam, Den Haag, Utrecht of ergens anders in Nederland woont — bij <strong>iptvdark.digital</strong> geniet je overal van premium televisie. <strong>Bestel IPTVDark vandaag</strong> en ontvang 3 maanden gratis bij het 12-maanden pakket.
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export const SeoContent: React.FC = () => {
               Wat maakt IPTVDark anders?
             </h3>
             <p className="text-base leading-relaxed" style={{ color: 'rgba(241,245,249,0.6)' }}>
-              <strong>IPTVDark</strong> is speciaal ontworpen voor de Nederlandse markt. iptvdark-nl levert als enige aanbieder een combinatie van <strong>80.000+ kanalen</strong>, <strong>4K/8K kwaliteit</strong> en <strong>Nederlandstalige 24/7 support</strong> via WhatsApp — allemaal voor minder dan €6 per maand. Geen andere IPTV provider in Nederland biedt dit niveau van service tegen deze prijs.
+              <strong>IPTVDark</strong> is speciaal ontworpen voor de Nederlandse markt. iptvdark.digital levert als enige aanbieder een combinatie van <strong>80.000+ kanalen</strong>, <strong>4K/8K kwaliteit</strong> en <strong>Nederlandstalige 24/7 support</strong> via WhatsApp — allemaal voor minder dan €6 per maand. Geen andere IPTV provider in Nederland biedt dit niveau van service tegen deze prijs.
             </p>
           </div>
 
