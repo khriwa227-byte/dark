@@ -33,6 +33,7 @@ export const Footer: React.FC = () => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => (window as any).gtag?.('event', 'conversion', { send_to: 'AW-18195439252/cyDuCPTW4rkcEJS9oeRD' })}
                 className="w-full py-8 text-white rounded-[32px] font-black text-2xl hover:brightness-110 hover:scale-[1.02] transition-all block text-center"
                 style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)', boxShadow: '0 8px 32px rgba(59,130,246,0.35)' }}
               >
